@@ -1,0 +1,84 @@
+- w1: 	Warehouse
+  areas: 	fast_area2 	middle_area3 	slow_area4 	
+  atRamp: 	eu2005 	eu3336 	eu5007 	
+  products: 	high_Heels8 	nike_Airs9 	
+
+- fast_area2: 	Area
+  name: 	"fast area"
+  places: 	f110 	f211 	f312 	
+  warehouse: 	w1
+
+- middle_area3: 	Area
+  name: 	"middle area"
+  places: 	m113 	m214 	
+  warehouse: 	w1
+
+- slow_area4: 	Area
+  name: 	"slow area"
+  places: 	s115 	
+  warehouse: 	w1
+
+- eu2005: 	Palette
+  id: 	eu200
+  product: 	high_Heels8
+  quantity: 	150
+  ramp: 	w1
+
+- eu3336: 	Palette
+  id: 	eu333
+  product: 	high_Heels8
+  quantity: 	150
+  ramp: 	w1
+
+- eu5007: 	Palette
+  id: 	eu500
+  items: 	50
+  product: 	sneakers16
+  quantity: 	0
+  ramp: 	w1
+
+- high_Heels8: 	Product
+  name: 	"High Heels"
+  palettes: 	eu2005 	eu3336 	
+  warehouse: 	w1
+
+- nike_Airs9: 	Product
+  name: 	"Nike Airs"
+  palettes: 	eu10017 	
+  warehouse: 	w1
+
+- f110: 	Place
+  area: 	fast_area2
+  name: 	f1
+
+- f211: 	Place
+  area: 	fast_area2
+  name: 	f2
+  palette: 	eu10017
+
+- f312: 	Place
+  area: 	fast_area2
+  name: 	f3
+
+- m113: 	Place
+  area: 	middle_area3
+  name: 	m1
+
+- m214: 	Place
+  area: 	middle_area3
+  name: 	m2
+
+- s115: 	Place
+  area: 	slow_area4
+  name: 	s1
+
+- sneakers16: 	Product
+  name: 	Sneakers
+  palettes: 	eu5007 	
+
+- eu10017: 	Palette
+  id: 	eu100
+  place: 	f211
+  product: 	nike_Airs9
+  quantity: 	100
+
