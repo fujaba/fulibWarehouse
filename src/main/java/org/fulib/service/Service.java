@@ -3,6 +3,7 @@ package org.fulib.service;
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
+import jdk.nashorn.internal.ir.debug.JSONWriter;
 import org.fulib.scenarios.MockupTools;
 import webapp.WebApp;
 
@@ -16,7 +17,7 @@ public class Service
 {
    private HttpServer server;
    private ExecutorService executor;
-   private WebApp webApp;
+   private Object webApp;
 
 
    public static void main(String[] args)
@@ -35,16 +36,11 @@ public class Service
          executor = Executors.newSingleThreadExecutor();
          server.setExecutor(executor);
 
-         HttpContext doContext = server.createContext("/");
+         HttpContext doContext = server.createContext("/start");
          doContext.setHandler(x -> handleRoot(x));
 
-//         HttpContext getEventsContext = server.createContext("/get");
-//         getEventsContext.setHandler(x -> handleGet(x));
-//
-//         HttpContext pingContext = server.createContext("/ping");
-//         pingContext.setHandler(x -> handleShopPing(x));
-
-//         builder.getStockUpdateChannel().createContext(server);
+         HttpContext cmdContext = server.createContext("/cmd");
+         cmdContext.setHandler(x -> handleCmd(x));
 
          server.start();
          System.out.println("Server is listening on port 6677" );
@@ -55,6 +51,21 @@ public class Service
       }
    }
 
+   private void handleCmd(HttpExchange x)
+   {
+      try
+      {
+         String page = "Hello from Fulib";
+         byte[] bytes = page.getBytes();
+         x.sendResponseHeaders(200, bytes.length);
+         x.getResponseBody().write(bytes);
+         x.getResponseBody().close();
+      }
+      catch (IOException e)
+      {
+         e.printStackTrace();
+      }
+   }
 
 
    private void handleRoot(HttpExchange x)

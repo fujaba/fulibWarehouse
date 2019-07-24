@@ -163,38 +163,6 @@ public class Palette
       return this;
    }
 
-   public static final String PROPERTY_items = "items";
-
-   private String items;
-
-   public String getItems()
-   {
-      return items;
-   }
-
-   public Palette setItems(String value)
-   {
-      if (value == null ? this.items != null : ! value.equals(this.items))
-      {
-         String oldValue = this.items;
-         this.items = value;
-         firePropertyChange("items", oldValue, value);
-      }
-      return this;
-   }
-
-   @Override
-   public String toString()
-   {
-      StringBuilder result = new StringBuilder();
-
-      result.append(" ").append(this.getId());
-      result.append(" ").append(this.getItems());
-
-
-      return result.substring(1);
-   }
-
    public static final String PROPERTY_ramp = "ramp";
 
    private Warehouse ramp = null;
@@ -220,6 +188,38 @@ public class Palette
             value.withAtRamp(this);
          }
          firePropertyChange("ramp", oldValue, value);
+      }
+      return this;
+   }
+
+   @Override
+   public String toString()
+   {
+      StringBuilder result = new StringBuilder();
+
+      result.append(" ").append(this.getId());
+      result.append(" ").append(this.getItems());
+
+
+      return result.substring(1);
+   }
+
+   public static final String PROPERTY_items = "items";
+
+   private String items;
+
+   public String getItems()
+   {
+      return items;
+   }
+
+   public Palette setItems(String value)
+   {
+      if (value == null ? this.items != null : ! value.equals(this.items))
+      {
+         String oldValue = this.items;
+         this.items = value;
+         firePropertyChange("items", oldValue, value);
       }
       return this;
    }

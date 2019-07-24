@@ -70,6 +70,7 @@ public class ScenarioTest
       Content addPaletteButton = new Content();
       addPaletteButton.setId("add-palette-button");
       addPaletteButton.setDescription("button submit");
+      addPaletteButton.setAction("submit('add-palette pal-in product-in items-in')");
       Page addSupplyPage = new Page();
       addSupplyPage.setId("add-supply-page");
       addSupplyPage.setDescription("New Supply | button Store Palettes");

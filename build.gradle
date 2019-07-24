@@ -21,8 +21,9 @@ generateScenarioSource.args '--class-diagram-svg'
 dependencies {
 	fulibScenarios group: 'org.fulib', name: 'fulibScenarios', version: '[0.6,)'
 	testCompile group: 'org.fulib', name: 'fulibScenarios', version: '[0.6,)'
-	compile group: 'org.fulib', name: 'fulibMockups', version: '[0.1.0,)'
-	// compile group: 'org.fulib', name: 'fulib', version: '[1,)'
+	// compile group: 'org.fulib', name: 'fulibMockups', version: '[0.1.0,)'
+	
+	compile group: 'org.fulib', name: 'fulibYaml', version: '[19,)'
 
 	// https://mvnrepository.com/artifact/junit/junit
 	testCompile group: 'junit', name: 'junit', version: '4.12'

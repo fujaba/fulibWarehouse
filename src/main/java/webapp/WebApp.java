@@ -140,6 +140,7 @@ public class WebApp
       Content addPaletteButton = new Content();
       addPaletteButton.setId("add-palette-button");
       addPaletteButton.setDescription("button submit");
+      addPaletteButton.setAction("add-palette pal-in product-in items-in");
       Page addSupplyPage = new Page();
       addSupplyPage.setId("add-supply-page");
       addSupplyPage.setDescription("New Supply | button Store Palettes");

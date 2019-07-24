@@ -37,7 +37,8 @@ Warehouse has at-ramp and is ramp of eu200, eu333.
 
   There are Content with id pal-in, product-in, items-in 
   and with description "input palette id?", "input product?", "input number of items?".
-  There is a Content with id add-palette-button and with description "button submit".
+  There is a Content with id add-palette-button and with description "button submit"
+  and with action "submit('add-palette pal-in product-in items-in')".
   
   There is a Page with id add-supply-page 
   and with description "New Supply | button Store Palettes"
@@ -52,7 +53,8 @@ Warehouse has at-ramp and is ramp of eu200, eu333.
   
   Init creates a Content with id pal-in, product-in, items-in
   and with description "input palette id?", "input product?", "input number of items?".
-  Init creates a Content with id add-palette-button and with description "button submit".
+  Init creates a Content with id add-palette-button and with description "button submit"
+  and with action "add-palette pal-in product-in items-in".
   
   Init creates a Page with id add-supply-page
   and with description "New Supply | button Store Palettes"

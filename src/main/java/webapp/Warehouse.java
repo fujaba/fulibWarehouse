@@ -218,12 +218,12 @@ public class Warehouse
    }
 
    public void newStock(String newPalId, String newProductName, String newItems) { // no fulib
-      Palette newPal = new Palette();
-      newPal.setId(newPalId);
-      newPal.setItems(newItems);
-      Product product = this.findProduct(newProductName);
-      newPal.setProduct(product);
-      this.withAtRamp(newPal);
+//      Palette newPal = new Palette();
+//      newPal.setId(newPalId);
+//      newPal.setItems(newItems);
+//      Product product = this.findProduct(newProductName);
+//      newPal.setProduct(product);
+//      this.withAtRamp(newPal);
    }
 
    public static final java.util.ArrayList<Palette> EMPTY_atRamp = new java.util.ArrayList<Palette>()
