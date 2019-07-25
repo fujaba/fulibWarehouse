@@ -40,25 +40,34 @@ Warehouse has at-ramp and is ramp of eu200, eu333.
   There is a Content with id add-palette-button and with description "button submit"
   and with action "submit('add-palette pal-in product-in items-in')".
   
+  There is a Element with id id1, p1, items1, button1 and 
+  with text "eu42", "Sneakers", "42", "Place". 
+  Id1 has value "eu42".
+  Button1 has action "ask4Place eu42 Place".
+  There is a Content with id pal-line1 and with elements id1, p1, items1, button1.
+  
   There is a Page with id add-supply-page 
   and with description "New Supply | button Store Palettes"
-  and with content pal-in, product-in, items-in, add-palette-button.
+  and with content pal-in, product-in, items-in, add-palette-button, pal-line1.
   
   There is a Web-App with id fork-lift-guide 
   and with description Fork Lift Guide
   and with content add-supply-page.
+  
+  ![fork-lift-guide](step03.html)
+  
 
   There is a Web-App with id first-screen.
   We call init on first-Screen. 
   
-  Init creates a Content with id pal-in, product-in, items-in
+  Init creates a Content with id palIn, productIn, itemsIn
   and with description "input palette id?", "input product?", "input number of items?".
   Init creates a Content with id add-palette-button and with description "button submit"
-  and with action "add-palette pal-in product-in items-in".
+  and with action "addPalette palIn productIn itemsIn Store_Palettes".
   
   Init creates a Page with id add-supply-page
-  and with description "New Supply | button Store Palettes"
-  and with content pal-in, product-in, items-in, add-palette-button. 
+  and with description "New_Supply | button Store_Palettes"
+  and with content palIn, productIn, itemsIn, add-palette-button. 
   
   Init writes "fork-lift-guide" into id of first-screen.
   Init writes "Fork Lift Guide" into description of first-screen.
@@ -66,7 +75,7 @@ Warehouse has at-ramp and is ramp of eu200, eu333.
   
   Init answers with first-Screen. 
   
-  ![fork-lift-guide](step03.html)
+  
   We write "eu500" into value of pal-in.
   ![fork-lift-guide](step04.html)
   We write Sneakers into value of product-in. 

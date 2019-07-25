@@ -7,6 +7,7 @@
 <script>
     function handler (response) {
         console.log(response);
+        document.documentElement.innerHTML = response;
     }
 
     function submit(cmd) {
@@ -16,20 +17,21 @@
             var request = {};
             request['_cmd'] = words[0];
 
-            for (var i = 1; i < words.length; i++) {
+            for (var i = 1; i < words.length - 1; i++) {
                 const divElem = document.getElementById(words[i]);
                 const subDiv = divElem.getElementsByTagName('div')[0];
                 const inputElem = subDiv.getElementsByTagName('input')[0];
                 const value = inputElem.value;
                 request[words[i]] = value;
             }
+            request['_newPage'] = words[words.length-1];
             const requestString = JSON.stringify(request);
             const httpRequest = new XMLHttpRequest();
             httpRequest.overrideMimeType('application/json');
             httpRequest.addEventListener('load', function() {
-                handler(JSON.parse(this.responseText));
+                handler(this.responseText);
             });
-            httpRequest.open('POST', 'localhost:6677/cmd', true);
+            httpRequest.open('POST', '/cmd', true);
             httpRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
             httpRequest.send(requestString);
         }

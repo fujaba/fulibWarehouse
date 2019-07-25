@@ -3,13 +3,18 @@ package org.fulib.service;
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
-import jdk.nashorn.internal.ir.debug.JSONWriter;
 import org.fulib.scenarios.MockupTools;
+import org.fulib.yaml.YamlIdMap;
 import webapp.WebApp;
 
-import java.io.IOException;
-import java.io.StringWriter;
+import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.InetSocketAddress;
+import java.net.URI;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -31,6 +36,7 @@ public class Service
       try
       {
          webApp = new WebApp().init();
+         idMap = new YamlIdMap(webApp.getClass().getPackage().getName());
 
          server = HttpServer.create(new InetSocketAddress(6677), 0);
          executor = Executors.newSingleThreadExecutor();
@@ -51,11 +57,166 @@ public class Service
       }
    }
 
+   private YamlIdMap idMap;
+
    private void handleCmd(HttpExchange x)
+   {
+      String cmd = getBody(x);
+      ArrayList<String> params = getParamsList(cmd);
+
+      String packageName = webApp.getClass().getPackage().getName();
+
+      // call builder method generically.
+      if (params.size() > 1) {
+         callButtonAction(params, packageName);
+      }
+
+      callNewPage(params);
+
+      handleRoot(x);
+
+   }
+
+   private void callNewPage(ArrayList<String> params)
    {
       try
       {
-         String page = "Hello from Fulib";
+         Method method = webApp.getClass().getMethod(params.get(params.size() - 1));
+         method.invoke(webApp);
+      }
+      catch (Exception e)
+      {
+         e.printStackTrace();
+      }
+   }
+
+   private void callButtonAction(ArrayList<String> params, String packageName)
+   {
+      String cmdName = params.get(0);
+
+      Method[] methods = webApp.getClass().getMethods();
+
+      for (Method method : methods)
+      {
+         String methodName = method.getName();
+         if (method.getName().startsWith(cmdName)){
+            // handle params
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            ArrayList<Object> actualParamsList = new ArrayList<>();
+            int i = 0;
+            for (Class<?> parameterType : parameterTypes)
+            {
+               i++;
+               String paramTypeName = parameterType.getName();
+               if (paramTypeName.startsWith(packageName)) {
+                  // it is a model class
+                  String simpleName = parameterType.getSimpleName();
+                  String objId = params.get(i);
+                  Object object = idMap.decode("- " + objId + ": " + simpleName + " id: " + objId + " name: " + objId);
+                  actualParamsList.add(object);
+
+
+               }
+               else if (paramTypeName.equals("int")){
+                  Integer value = Integer.valueOf(params.get(i));
+                  actualParamsList.add(value);
+               }
+               else {
+                  System.out.println("Do not know how to handle param of type " + paramTypeName);
+               }
+            }
+
+            try
+            {
+               method.invoke(webApp, actualParamsList.toArray());
+               break;
+            }
+            catch (IllegalAccessException e)
+            {
+               e.printStackTrace();
+            }
+            catch (InvocationTargetException e)
+            {
+               e.printStackTrace();
+            }
+         }
+      }
+   }
+
+
+   private ArrayList<String> getParamsList(String cmd)
+   {
+      ArrayList<String> cmdMap = new ArrayList<>();
+      if (cmd.startsWith("{")) {
+         String content = cmd.substring(1, cmd.lastIndexOf('}'));
+         String[] split = content.split(",");
+         for (String pair : split)
+         {
+            String[] keyValue = pair.split(":");
+            String key = keyValue[0];
+            key = key.substring(1, key.length()-1);
+            String value = keyValue[1];
+            value = value.substring(1, value.length()-1);
+            cmdMap.add(value);
+         }
+      }
+      return cmdMap;
+   }
+
+
+   private LinkedHashMap<String, String> getParamsMap(String cmd)
+   {
+      LinkedHashMap<String, String> cmdMap = new LinkedHashMap<>();
+      if (cmd.startsWith("{")) {
+         String content = cmd.substring(1, cmd.lastIndexOf('}'));
+         String[] split = content.split(",");
+         for (String pair : split)
+         {
+            String[] keyValue = pair.split(":");
+            String key = keyValue[0];
+            key = key.substring(1, key.length()-1);
+            String value = keyValue[1];
+            value = value.substring(1, value.length()-1);
+            cmdMap.put(key, value);
+         }
+      }
+      return cmdMap;
+   }
+
+
+   public static String getBody(HttpExchange exchange)
+   {
+      try
+      {
+         URI requestURI = exchange.getRequestURI();
+         InputStream requestBody = exchange.getRequestBody();
+         BufferedReader buf = new BufferedReader(new InputStreamReader(requestBody, StandardCharsets.UTF_8));
+         StringBuilder text = new StringBuilder();
+
+         while (true) {
+            String line = buf.readLine();
+            if (line == null) {
+               break;
+            }
+
+            text.append(line).append("\n");
+         }
+
+         String yaml = text.toString();
+         return yaml;
+      }
+      catch (IOException e)
+      {
+         e.printStackTrace();
+      }
+
+      return null;
+   }
+
+   private void writeAnswer(HttpExchange x, String page)
+   {
+      try
+      {
          byte[] bytes = page.getBytes();
          x.sendResponseHeaders(200, bytes.length);
          x.getResponseBody().write(bytes);
@@ -75,10 +236,7 @@ public class Service
          StringWriter stringWriter = new StringWriter();
          MockupTools.htmlTool().dumpScreen(stringWriter, webApp);
          String page = stringWriter.toString();
-         byte[] bytes = page.getBytes();
-         x.sendResponseHeaders(200, bytes.length);
-         x.getResponseBody().write(bytes);
-         x.getResponseBody().close();
+         writeAnswer(x, page);
       }
       catch (IOException e)
       {

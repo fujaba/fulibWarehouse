@@ -5,6 +5,33 @@ import java.util.stream.Collectors;
 
 public class Warehouse  
 {
+   public Warehouse init() {
+      Warehouse warehouse = this;
+      Area fastArea = new Area();
+      Area middleArea = new Area();
+      Area slowArea = new Area();
+      fastArea.setName("fast area");
+      middleArea.setName("middle area");
+      slowArea.setName("slow area");
+      warehouse.withAreas(fastArea, middleArea, slowArea);
+      Place f1 = new Place();
+      Place f2 = new Place();
+      Place f3 = new Place();
+      Place m1 = new Place();
+      Place m2 = new Place();
+      Place s1 = new Place();
+      f1.setName("f1");
+      f2.setName("f2");
+      f3.setName("f3");
+      m1.setName("m1");
+      m2.setName("m2");
+      s1.setName("s1");
+      fastArea.withPlaces(f1, f2, f3);
+      middleArea.withPlaces(m1, m2);
+      slowArea.withPlaces(s1);
+
+      return this;
+   }
 
    public static final java.util.ArrayList<Area> EMPTY_areas = new java.util.ArrayList<Area>()
    { @Override public boolean add(Area value){ throw new UnsupportedOperationException("No direct add! Use xy.withAreas(obj)"); }};

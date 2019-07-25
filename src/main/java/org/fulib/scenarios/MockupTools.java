@@ -53,13 +53,14 @@ public class MockupTools
 			"            var request = {};\n" +
 			"            request['_cmd'] = words[0];\n" +
 			"\n" +
-			"            for (var i = 1; i < words.length; i++) {\n" +
+			"            for (var i = 1; i < words.length - 1; i++) {\n" +
 			"                const divElem = document.getElementById(words[i]);\n" +
 			"                const subDiv = divElem.getElementsByTagName('div')[0];\n" +
 			"                const inputElem = subDiv.getElementsByTagName('input')[0];\n" +
 			"                const value = inputElem.value;\n" +
 			"                request[words[i]] = value;\n" +
 			"            }\n" +
+			"            request['_newPage'] = words[words.length-1];\n" +
 			"            const requestString = JSON.stringify(request);\n" +
 			"            const httpRequest = new XMLHttpRequest();\n" +
 			"            httpRequest.overrideMimeType('application/json');\n" +
@@ -536,7 +537,7 @@ public class MockupTools
 					writer.write(indent);
 					writer.write('\t');
 					writer.write('\t');
-					this.generateOneCell(root, reflector, elem.trim(), writer);
+					this.generateOneCell(elemObject, elemReflector, elem.trim(), writer);
 					writer.write('\n');
 				}
 			}
@@ -652,9 +653,13 @@ public class MockupTools
 			writer.write("><button onclick='submit(\"");
 
 			final String action = (String) reflector.getValue(root, ACTION);
-			if (action != null)
-			{
+
+			if (action != null) {
 				writer.write(action);
+			}
+			else {
+				String buttonName = rootDescription.substring("button ".length());
+				writer.write(buttonName);
 			}
 
 			writer.write("\")' style='margin: 1rem'>");

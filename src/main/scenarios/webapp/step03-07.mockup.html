@@ -7,6 +7,7 @@
 <script>
     function handler (response) {
         console.log(response);
+        document.documentElement.innerHTML = response;
     }
 
     function submit(cmd) {
@@ -16,20 +17,21 @@
             var request = {};
             request['_cmd'] = words[0];
 
-            for (var i = 1; i < words.length; i++) {
+            for (var i = 1; i < words.length - 1; i++) {
                 const divElem = document.getElementById(words[i]);
                 const subDiv = divElem.getElementsByTagName('div')[0];
                 const inputElem = subDiv.getElementsByTagName('input')[0];
                 const value = inputElem.value;
                 request[words[i]] = value;
             }
+            request['_newPage'] = words[words.length-1];
             const requestString = JSON.stringify(request);
             const httpRequest = new XMLHttpRequest();
             httpRequest.overrideMimeType('application/json');
             httpRequest.addEventListener('load', function() {
-                handler(JSON.parse(this.responseText));
+                handler(this.responseText);
             });
-            httpRequest.open('POST', 'localhost:6677/cmd', true);
+            httpRequest.open('POST', '/cmd', true);
             httpRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
             httpRequest.send(requestString);
         }
@@ -50,7 +52,7 @@
 	<div id='add-supply-page' >
 	    <div class='row justify-content-center'>
 			<div class='col col-lg-2 text-center' style='margin: 1rem'>New Supply</div>
-			<div class='col col-lg-2 text-center'><button onclick='submit()' style='margin: 1rem'>Store Palettes</button></div>
+			<div class='col col-lg-2 text-center'><button onclick='submit("Store Palettes")' style='margin: 1rem'>Store Palettes</button></div>
 	    </div>
 		<div id='pal-in' >
 		    <div class='row justify-content-center'>
@@ -69,7 +71,15 @@
 		</div>
 		<div id='add-palette-button' >
 		    <div class='row justify-content-center'>
-				<div class='col col-lg-2 text-center'><button onclick='submit(submit('add-palette pal-in product-in items-in'))' style='margin: 1rem'>submit</button></div>
+				<div class='col col-lg-2 text-center'><button onclick='submit("submit('add-palette pal-in product-in items-in')")' style='margin: 1rem'>submit</button></div>
+		    </div>
+		</div>
+		<div id='pal-line1' >
+		    <div class='row justify-content-center'>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>eu42</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>Sneakers</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>42</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>Place</div>
 		    </div>
 		</div>
 	</div>
@@ -83,7 +93,7 @@
 	<div id='add-supply-page' >
 	    <div class='row justify-content-center'>
 			<div class='col col-lg-2 text-center' style='margin: 1rem'>New Supply</div>
-			<div class='col col-lg-2 text-center'><button onclick='submit()' style='margin: 1rem'>Store Palettes</button></div>
+			<div class='col col-lg-2 text-center'><button onclick='submit("Store Palettes")' style='margin: 1rem'>Store Palettes</button></div>
 	    </div>
 		<div id='pal-in' >
 		    <div class='row justify-content-center'>
@@ -102,7 +112,15 @@
 		</div>
 		<div id='add-palette-button' >
 		    <div class='row justify-content-center'>
-				<div class='col col-lg-2 text-center'><button onclick='submit(submit('add-palette pal-in product-in items-in'))' style='margin: 1rem'>submit</button></div>
+				<div class='col col-lg-2 text-center'><button onclick='submit("submit('add-palette pal-in product-in items-in')")' style='margin: 1rem'>submit</button></div>
+		    </div>
+		</div>
+		<div id='pal-line1' >
+		    <div class='row justify-content-center'>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>eu42</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>Sneakers</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>42</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>Place</div>
 		    </div>
 		</div>
 	</div>
@@ -116,7 +134,7 @@
 	<div id='add-supply-page' >
 	    <div class='row justify-content-center'>
 			<div class='col col-lg-2 text-center' style='margin: 1rem'>New Supply</div>
-			<div class='col col-lg-2 text-center'><button onclick='submit()' style='margin: 1rem'>Store Palettes</button></div>
+			<div class='col col-lg-2 text-center'><button onclick='submit("Store Palettes")' style='margin: 1rem'>Store Palettes</button></div>
 	    </div>
 		<div id='pal-in' >
 		    <div class='row justify-content-center'>
@@ -135,7 +153,15 @@
 		</div>
 		<div id='add-palette-button' >
 		    <div class='row justify-content-center'>
-				<div class='col col-lg-2 text-center'><button onclick='submit(submit('add-palette pal-in product-in items-in'))' style='margin: 1rem'>submit</button></div>
+				<div class='col col-lg-2 text-center'><button onclick='submit("submit('add-palette pal-in product-in items-in')")' style='margin: 1rem'>submit</button></div>
+		    </div>
+		</div>
+		<div id='pal-line1' >
+		    <div class='row justify-content-center'>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>eu42</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>Sneakers</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>42</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>Place</div>
 		    </div>
 		</div>
 	</div>
@@ -149,7 +175,7 @@
 	<div id='add-supply-page' >
 	    <div class='row justify-content-center'>
 			<div class='col col-lg-2 text-center' style='margin: 1rem'>New Supply</div>
-			<div class='col col-lg-2 text-center'><button onclick='submit()' style='margin: 1rem'>Store Palettes</button></div>
+			<div class='col col-lg-2 text-center'><button onclick='submit("Store Palettes")' style='margin: 1rem'>Store Palettes</button></div>
 	    </div>
 		<div id='pal-in' >
 		    <div class='row justify-content-center'>
@@ -168,7 +194,15 @@
 		</div>
 		<div id='add-palette-button' >
 		    <div class='row justify-content-center'>
-				<div class='col col-lg-2 text-center'><button onclick='submit(submit('add-palette pal-in product-in items-in'))' style='margin: 1rem'>submit</button></div>
+				<div class='col col-lg-2 text-center'><button onclick='submit("submit('add-palette pal-in product-in items-in')")' style='margin: 1rem'>submit</button></div>
+		    </div>
+		</div>
+		<div id='pal-line1' >
+		    <div class='row justify-content-center'>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>eu42</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>Sneakers</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>42</div>
+				<div class='col col-lg-2 text-center' style='margin: 1rem'>Place</div>
 		    </div>
 		</div>
 	</div>

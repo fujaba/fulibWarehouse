@@ -149,4 +149,83 @@ public class Content
       return this;
    }
 
+   public static final java.util.ArrayList<Element> EMPTY_elements = new java.util.ArrayList<Element>()
+   { @Override public boolean add(Element value){ throw new UnsupportedOperationException("No direct add! Use xy.withElements(obj)"); }};
+
+   public static final String PROPERTY_elements = "elements";
+
+   private java.util.ArrayList<Element> elements = null;
+
+   public java.util.ArrayList<Element> getElements()
+   {
+      if (this.elements == null)
+      {
+         return EMPTY_elements;
+      }
+
+      return this.elements;
+   }
+
+   public Content withElements(Object... value)
+   {
+      if(value==null) return this;
+      for (Object item : value)
+      {
+         if (item == null) continue;
+         if (item instanceof java.util.Collection)
+         {
+            for (Object i : (java.util.Collection) item)
+            {
+               this.withElements(i);
+            }
+         }
+         else if (item instanceof Element)
+         {
+            if (this.elements == null)
+            {
+               this.elements = new java.util.ArrayList<Element>();
+            }
+            if ( ! this.elements.contains(item))
+            {
+               this.elements.add((Element)item);
+               firePropertyChange("elements", null, item);
+            }
+         }
+         else throw new IllegalArgumentException();
+      }
+      return this;
+   }
+
+   public Content withoutElements(Object... value)
+   {
+      if (this.elements == null || value==null) return this;
+      for (Object item : value)
+      {
+         if (item == null) continue;
+         if (item instanceof java.util.Collection)
+         {
+            for (Object i : (java.util.Collection) item)
+            {
+               this.withoutElements(i);
+            }
+         }
+         else if (item instanceof Element)
+         {
+            if (this.elements.contains(item))
+            {
+               this.elements.remove((Element)item);
+               firePropertyChange("elements", item, null);
+            }
+         }
+      }
+      return this;
+   }
+
+   public void removeYou()
+   {
+      this.withoutElements(this.getElements().clone());
+
+
+   }
+
 }

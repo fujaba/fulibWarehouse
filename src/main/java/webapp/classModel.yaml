@@ -1,5 +1,5 @@
 - c1: 	ClassModel
-  classes: 	palette2 	product3 	place4 	warehouse5 	area6 	producer7 	content8 	page9 	arrival10 	webApp11 	
+  classes: 	palette2 	product3 	place4 	warehouse5 	area6 	producer7 	content8 	element9 	page10 	arrival11 	webApp12 	
   defaultPropertyStyle: 	POJO
   defaultRoleType: 	"java.util.ArrayList<%s>"
   mainJavaDir: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java"
@@ -7,189 +7,197 @@
   packageSrcFolder: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java/webapp"
 
 - palette2: 	Clazz
-  attributes: 	id12 	quantity13 	items14 	
+  attributes: 	id13 	quantity14 	items15 	
   model: 	c1
   modified: 	false
   name: 	Palette
   propertyStyle: 	POJO
-  roles: 	product15 	place16 	ramp17 	
+  roles: 	product16 	place17 	ramp18 	
 
 - product3: 	Clazz
-  attributes: 	name18 	
+  attributes: 	name19 	
   model: 	c1
   modified: 	false
   name: 	Product
   propertyStyle: 	POJO
-  roles: 	palettes19 	warehouse20 	
+  roles: 	palettes20 	warehouse21 	
 
 - place4: 	Clazz
-  attributes: 	name21 	
+  attributes: 	name22 	
   model: 	c1
   modified: 	false
   name: 	Place
   propertyStyle: 	POJO
-  roles: 	palette22 	area23 	
+  roles: 	palette23 	area24 	
 
 - warehouse5: 	Clazz
-  methods: 	f24 	f25 	
+  methods: 	f25 	f26 	
   model: 	c1
   modified: 	false
   name: 	Warehouse
   propertyStyle: 	POJO
-  roles: 	atRamp26 	areas27 	products28 	
+  roles: 	atRamp27 	areas28 	products29 	
 
 - area6: 	Clazz
-  attributes: 	name29 	
+  attributes: 	name30 	
   model: 	c1
   modified: 	false
   name: 	Area
   propertyStyle: 	POJO
-  roles: 	warehouse30 	places31 	
+  roles: 	warehouse31 	places32 	
 
 - producer7: 	Clazz
-  attributes: 	name32 	
+  attributes: 	name33 	
   model: 	c1
   modified: 	false
   name: 	Producer
   propertyStyle: 	POJO
 
 - content8: 	Clazz
-  attributes: 	id33 	description34 	action35 	value36 	
+  attributes: 	id34 	description35 	action36 	value37 	
   model: 	c1
   modified: 	false
   name: 	Content
   propertyStyle: 	POJO
+  roles: 	elements38 	
 
-- page9: 	Clazz
-  attributes: 	id37 	description38 	
+- element9: 	Clazz
+  attributes: 	id39 	text40 	value41 	action42 	
+  model: 	c1
+  modified: 	false
+  name: 	Element
+  propertyStyle: 	POJO
+
+- page10: 	Clazz
+  attributes: 	id43 	description44 	
   model: 	c1
   modified: 	false
   name: 	Page
   propertyStyle: 	POJO
-  roles: 	content39 	
+  roles: 	content45 	
 
-- arrival10: 	Clazz
-  attributes: 	id40 	producer41 	
+- arrival11: 	Clazz
+  attributes: 	id46 	producer47 	
   model: 	c1
   modified: 	false
   name: 	Arrival
   propertyStyle: 	POJO
-  roles: 	palettes42 	
+  roles: 	palettes48 	
 
-- webApp11: 	Clazz
-  attributes: 	id43 	description44 	content45 	
-  methods: 	f46 	
+- webApp12: 	Clazz
+  attributes: 	id49 	description50 	content51 	
+  methods: 	f52 	
   model: 	c1
   modified: 	false
   name: 	WebApp
   propertyStyle: 	POJO
 
-- id12: 	Attribute
+- id13: 	Attribute
   clazz: 	palette2
   modified: 	false
   name: 	id
   propertyStyle: 	POJO
   type: 	String
 
-- quantity13: 	Attribute
+- quantity14: 	Attribute
   clazz: 	palette2
   modified: 	false
   name: 	quantity
   propertyStyle: 	POJO
   type: 	int
 
-- items14: 	Attribute
+- items15: 	Attribute
   clazz: 	palette2
   modified: 	false
   name: 	items
   propertyStyle: 	POJO
   type: 	String
 
-- product15: 	AssocRole
+- product16: 	AssocRole
   aggregation: 	false
   cardinality: 	1
   clazz: 	palette2
   modified: 	false
   name: 	product
-  other: 	palettes19
+  other: 	palettes20
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- place16: 	AssocRole
+- place17: 	AssocRole
   aggregation: 	false
   cardinality: 	1
   clazz: 	palette2
   modified: 	false
   name: 	place
-  other: 	palette22
+  other: 	palette23
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- ramp17: 	AssocRole
+- ramp18: 	AssocRole
   aggregation: 	false
   cardinality: 	1
   clazz: 	palette2
   modified: 	false
   name: 	ramp
-  other: 	atRamp26
+  other: 	atRamp27
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- name18: 	Attribute
+- name19: 	Attribute
   clazz: 	product3
   modified: 	false
   name: 	name
   propertyStyle: 	POJO
   type: 	String
 
-- palettes19: 	AssocRole
+- palettes20: 	AssocRole
   aggregation: 	false
   cardinality: 	42
   clazz: 	product3
   modified: 	false
   name: 	palettes
-  other: 	product15
+  other: 	product16
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- warehouse20: 	AssocRole
+- warehouse21: 	AssocRole
   aggregation: 	false
   cardinality: 	1
   clazz: 	product3
   modified: 	false
   name: 	warehouse
-  other: 	products28
+  other: 	products29
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- name21: 	Attribute
+- name22: 	Attribute
   clazz: 	place4
   modified: 	false
   name: 	name
   propertyStyle: 	POJO
   type: 	String
 
-- palette22: 	AssocRole
+- palette23: 	AssocRole
   aggregation: 	false
   cardinality: 	1
   clazz: 	place4
   modified: 	false
   name: 	palette
-  other: 	place16
+  other: 	place17
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- area23: 	AssocRole
+- area24: 	AssocRole
   aggregation: 	false
   cardinality: 	1
   clazz: 	place4
   modified: 	false
   name: 	area
-  other: 	places31
+  other: 	places32
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- f24: 	FMethod
+- f25: 	FMethod
   clazz: 	warehouse5
   declaration: 	"public Product findProduct(String productName)"
   methodBody: 	"      for (final Product someProduct : this.getProducts()) {
@@ -204,7 +212,7 @@
 "
   modified: 	false
 
-- f25: 	FMethod
+- f26: 	FMethod
   clazz: 	warehouse5
   declaration: 	"public void newStock(String newPalId, String newProductName, String newItems)"
   methodBody: 	"      Palette newPal = new Palette();
@@ -214,184 +222,221 @@
 "
   modified: 	false
 
-- atRamp26: 	AssocRole
+- atRamp27: 	AssocRole
   aggregation: 	false
   cardinality: 	42
   clazz: 	warehouse5
   modified: 	false
   name: 	atRamp
-  other: 	ramp17
+  other: 	ramp18
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- areas27: 	AssocRole
+- areas28: 	AssocRole
   aggregation: 	false
   cardinality: 	42
   clazz: 	warehouse5
   modified: 	false
   name: 	areas
-  other: 	warehouse30
+  other: 	warehouse31
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- products28: 	AssocRole
+- products29: 	AssocRole
   aggregation: 	false
   cardinality: 	42
   clazz: 	warehouse5
   modified: 	false
   name: 	products
-  other: 	warehouse20
+  other: 	warehouse21
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- name29: 	Attribute
+- name30: 	Attribute
   clazz: 	area6
   modified: 	false
   name: 	name
   propertyStyle: 	POJO
   type: 	String
 
-- warehouse30: 	AssocRole
+- warehouse31: 	AssocRole
   aggregation: 	false
   cardinality: 	1
   clazz: 	area6
   modified: 	false
   name: 	warehouse
-  other: 	areas27
+  other: 	areas28
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- places31: 	AssocRole
+- places32: 	AssocRole
   aggregation: 	false
   cardinality: 	42
   clazz: 	area6
   modified: 	false
   name: 	places
-  other: 	area23
+  other: 	area24
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- name32: 	Attribute
+- name33: 	Attribute
   clazz: 	producer7
   modified: 	false
   name: 	name
   propertyStyle: 	POJO
   type: 	String
 
-- id33: 	Attribute
+- id34: 	Attribute
   clazz: 	content8
   modified: 	false
   name: 	id
   propertyStyle: 	POJO
   type: 	String
 
-- description34: 	Attribute
+- description35: 	Attribute
   clazz: 	content8
   modified: 	false
   name: 	description
   propertyStyle: 	POJO
   type: 	String
 
-- action35: 	Attribute
+- action36: 	Attribute
   clazz: 	content8
   modified: 	false
   name: 	action
   propertyStyle: 	POJO
   type: 	String
 
-- value36: 	Attribute
+- value37: 	Attribute
   clazz: 	content8
   modified: 	false
   name: 	value
   propertyStyle: 	POJO
   type: 	String
 
-- id37: 	Attribute
-  clazz: 	page9
+- elements38: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	content8
+  modified: 	false
+  name: 	elements
+  other: 	a53
+  roleType: 	"java.util.ArrayList<%s>"
+
+- id39: 	Attribute
+  clazz: 	element9
   modified: 	false
   name: 	id
   propertyStyle: 	POJO
   type: 	String
 
-- description38: 	Attribute
-  clazz: 	page9
+- text40: 	Attribute
+  clazz: 	element9
   modified: 	false
-  name: 	description
+  name: 	text
   propertyStyle: 	POJO
   type: 	String
 
-- content39: 	AssocRole
-  aggregation: 	false
-  cardinality: 	42
-  clazz: 	page9
+- value41: 	Attribute
+  clazz: 	element9
   modified: 	false
-  name: 	content
-  other: 	a47
-  roleType: 	"java.util.ArrayList<%s>"
-
-- id40: 	Attribute
-  clazz: 	arrival10
-  modified: 	false
-  name: 	id
+  name: 	value
   propertyStyle: 	POJO
   type: 	String
 
-- producer41: 	Attribute
-  clazz: 	arrival10
+- action42: 	Attribute
+  clazz: 	element9
   modified: 	false
-  name: 	producer
+  name: 	action
   propertyStyle: 	POJO
-  type: 	Producer
-
-- palettes42: 	AssocRole
-  aggregation: 	false
-  cardinality: 	42
-  clazz: 	arrival10
-  modified: 	false
-  name: 	palettes
-  other: 	a48
-  roleType: 	"java.util.ArrayList<%s>"
+  type: 	String
 
 - id43: 	Attribute
-  clazz: 	webApp11
+  clazz: 	page10
   modified: 	false
   name: 	id
   propertyStyle: 	POJO
   type: 	String
 
 - description44: 	Attribute
-  clazz: 	webApp11
+  clazz: 	page10
   modified: 	false
   name: 	description
   propertyStyle: 	POJO
   type: 	String
 
-- content45: 	Attribute
-  clazz: 	webApp11
+- content45: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	page10
+  modified: 	false
+  name: 	content
+  other: 	a54
+  roleType: 	"java.util.ArrayList<%s>"
+
+- id46: 	Attribute
+  clazz: 	arrival11
+  modified: 	false
+  name: 	id
+  propertyStyle: 	POJO
+  type: 	String
+
+- producer47: 	Attribute
+  clazz: 	arrival11
+  modified: 	false
+  name: 	producer
+  propertyStyle: 	POJO
+  type: 	Producer
+
+- palettes48: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	arrival11
+  modified: 	false
+  name: 	palettes
+  other: 	a55
+  roleType: 	"java.util.ArrayList<%s>"
+
+- id49: 	Attribute
+  clazz: 	webApp12
+  modified: 	false
+  name: 	id
+  propertyStyle: 	POJO
+  type: 	String
+
+- description50: 	Attribute
+  clazz: 	webApp12
+  modified: 	false
+  name: 	description
+  propertyStyle: 	POJO
+  type: 	String
+
+- content51: 	Attribute
+  clazz: 	webApp12
   modified: 	false
   name: 	content
   propertyStyle: 	POJO
   type: 	Page
 
-- f46: 	FMethod
-  clazz: 	webApp11
+- f52: 	FMethod
+  clazz: 	webApp12
   declaration: 	"public WebApp init()"
   methodBody: 	"      Content palIn = new Content();
       Content productIn = new Content();
       Content itemsIn = new Content();
-      palIn.setId(\"pal-in\");
-      productIn.setId(\"product-in\");
-      itemsIn.setId(\"items-in\");
+      palIn.setId(\"palIn\");
+      productIn.setId(\"productIn\");
+      itemsIn.setId(\"itemsIn\");
       palIn.setDescription(\"input palette id?\");
       productIn.setDescription(\"input product?\");
       itemsIn.setDescription(\"input number of items?\");
       Content addPaletteButton = new Content();
       addPaletteButton.setId(\"add-palette-button\");
       addPaletteButton.setDescription(\"button submit\");
-      addPaletteButton.setAction(\"add-palette pal-in product-in items-in\");
+      addPaletteButton.setAction(\"addPalette palIn productIn itemsIn Store_Palettes\");
       Page addSupplyPage = new Page();
       addSupplyPage.setId(\"add-supply-page\");
-      addSupplyPage.setDescription(\"New Supply | button Store Palettes\");
+      addSupplyPage.setDescription(\"New_Supply | button Store_Palettes\");
       addSupplyPage.withContent(palIn, productIn, itemsIn, addPaletteButton);
       this.setId(\"fork-lift-guide\");
       this.setDescription(\"Fork Lift Guide\");
@@ -400,27 +445,39 @@
 "
   modified: 	false
 
-- a47: 	AssocRole
+- a53: 	AssocRole
   aggregation: 	false
   cardinality: 	1
-  clazz: 	content49
+  clazz: 	element56
   modified: 	false
-  other: 	content39
+  other: 	elements38
 
-- a48: 	AssocRole
+- a54: 	AssocRole
   aggregation: 	false
   cardinality: 	1
-  clazz: 	palette50
+  clazz: 	content57
   modified: 	false
-  other: 	palettes42
+  other: 	content45
 
-- content49: 	Clazz
+- a55: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	palette58
+  modified: 	false
+  other: 	palettes48
+
+- element56: 	Clazz
+  modified: 	false
+  name: 	Element
+  roles: 	a53 	
+
+- content57: 	Clazz
   modified: 	false
   name: 	Content
-  roles: 	a47 	
+  roles: 	a54 	
 
-- palette50: 	Clazz
+- palette58: 	Clazz
   modified: 	false
   name: 	Palette
-  roles: 	a48 	
+  roles: 	a55 	
 

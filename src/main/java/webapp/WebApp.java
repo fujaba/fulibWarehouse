@@ -5,6 +5,12 @@ import java.beans.PropertyChangeListener;
 public class WebApp  
 {
 
+   public final Warehouse warehouse;
+
+   public WebApp() {
+      warehouse = new Warehouse().init();
+   }
+
    public static final String PROPERTY_id = "id";
 
    private String id;
@@ -127,27 +133,99 @@ public class WebApp
       return this;
    }
 
-   public WebApp init() { 
+   public WebApp New_Supply() {
       Content palIn = new Content();
       Content productIn = new Content();
       Content itemsIn = new Content();
-      palIn.setId("pal-in");
-      productIn.setId("product-in");
-      itemsIn.setId("items-in");
+      palIn.setId("palIn");
+      productIn.setId("productIn");
+      itemsIn.setId("itemsIn");
       palIn.setDescription("input palette id?");
       productIn.setDescription("input product?");
       itemsIn.setDescription("input number of items?");
       Content addPaletteButton = new Content();
       addPaletteButton.setId("add-palette-button");
       addPaletteButton.setDescription("button submit");
-      addPaletteButton.setAction("add-palette pal-in product-in items-in");
+      addPaletteButton.setAction("addPalette palIn productIn itemsIn Store_Palettes");
       Page addSupplyPage = new Page();
       addSupplyPage.setId("add-supply-page");
-      addSupplyPage.setDescription("New Supply | button Store Palettes");
+      addSupplyPage.setDescription("New_Supply | button Store_Palettes");
       addSupplyPage.withContent(palIn, productIn, itemsIn, addPaletteButton);
+
+      this.setContent(addSupplyPage);
+
+      return this;
+   }
+
+   public WebApp ask4Place(Palette palIn) {
+      Page placePage = new Page()
+            .setId("place-page")
+            .setDescription("button New_Supply | Store_Palettes");
+
+      Content palId = new Content().setId("palId").setDescription("input pal id?");
+      palId.setValue(palIn.getId());
+      Content productName = new Content().setId("productName").setDescription(palIn.getProduct().getName());
+      Content placeIn = new Content().setId("placeIn").setDescription("input place?");
+      Content button = new Content().setId("button").setDescription("button OK");
+      button.setAction("assignPlace palId placeIn Store_Palettes");
+
+      placePage.withContent(palId, placeIn, button);
+
+      this.setContent(placePage);
+
+      return this;
+   }
+
+   public WebApp Place() {
+      return this;
+   }
+
+   public WebApp assignPlace(Palette palIn, Place placeIn) {
+      palIn.setRamp(null);
+      palIn.setPlace(placeIn);
+      return this;
+   }
+
+   public WebApp Store_Palettes() {
+
+      Page storeSupplyPage = new Page()
+            .setId("store-supply-page")
+            .setDescription("button New_Supply | Store_Palettes");
+
+      for (Palette palette : warehouse.getAtRamp())
+      {
+         Element palId = new Element().setText("input palette id?");
+         palId.setId(palette.getId());
+         palId.setValue(palette.getId());
+
+         Element productName = new Element().setText(palette.getProduct().getName());
+         Element button = new Element().setText("button Place");
+         button.setAction("ask4Place " + palette.getId() + " Place");
+
+         Content content = new Content().setId(palette.getId()).withElements(palId, productName, button);
+         storeSupplyPage.withContent(content);
+      }
+
+      this.setContent(storeSupplyPage);
+
+      return this;
+   }
+
+   public Palette addPalette(Palette palIn, Product productIn, int itemsIn) {
+      warehouse.withProducts(productIn);
+      palIn.setProduct(productIn);
+      palIn.setQuantity(itemsIn);
+      warehouse.withAtRamp(palIn);
+
+      return palIn;
+   }
+
+   public WebApp init() { // no fulib
+
       this.setId("fork-lift-guide");
       this.setDescription("Fork Lift Guide");
-      this.setContent(addSupplyPage);
+      this.New_Supply();
+
       return this;
    }
 

@@ -1,131 +1,146 @@
-<svg width="430pt" height="439pt"
- viewBox="0.00 0.00 430.00 439.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 435)">
+<svg width="452pt" height="472pt"
+ viewBox="0.00 0.00 452.00 472.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 468)">
 <title>H</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-435 426,-435 426,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-468 448,-468 448,4 -4,4"/>
 <!-- Palette -->
 <g id="node1" class="node"><title>Palette</title>
-<polygon fill="none" stroke="black" points="72,-321 72,-338 128,-338 128,-321 72,-321"/>
-<text text-anchor="start" x="86" y="-327" font-family="Times New Roman,serif" font-size="10.00">Palette</text>
-<polygon fill="none" stroke="black" points="72,-282 72,-321 128,-321 128,-282 72,-282"/>
-<text text-anchor="start" x="75" y="-310" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
-<text text-anchor="start" x="75" y="-299" font-family="Times New Roman,serif" font-size="10.00">quantity :int</text>
-<text text-anchor="start" x="75" y="-288" font-family="Times New Roman,serif" font-size="10.00">items :String</text>
+<polygon fill="none" stroke="black" points="72,-354 72,-371 128,-371 128,-354 72,-354"/>
+<text text-anchor="start" x="86" y="-360" font-family="Times New Roman,serif" font-size="10.00">Palette</text>
+<polygon fill="none" stroke="black" points="72,-315 72,-354 128,-354 128,-315 72,-315"/>
+<text text-anchor="start" x="75" y="-343" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
+<text text-anchor="start" x="75" y="-332" font-family="Times New Roman,serif" font-size="10.00">quantity :int</text>
+<text text-anchor="start" x="75" y="-321" font-family="Times New Roman,serif" font-size="10.00">items :String</text>
 </g>
 <!-- Arrival -->
-<g id="node9" class="node"><title>Arrival</title>
-<polygon fill="none" stroke="black" points="59,-409.5 59,-426.5 142,-426.5 142,-409.5 59,-409.5"/>
-<text text-anchor="start" x="86.5" y="-415.5" font-family="Times New Roman,serif" font-size="10.00">Arrival</text>
-<polygon fill="none" stroke="black" points="59,-381.5 59,-409.5 142,-409.5 142,-381.5 59,-381.5"/>
-<text text-anchor="start" x="62" y="-398.5" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
-<text text-anchor="start" x="62" y="-387.5" font-family="Times New Roman,serif" font-size="10.00">producer :Producer</text>
+<g id="node10" class="node"><title>Arrival</title>
+<polygon fill="none" stroke="black" points="59,-442.5 59,-459.5 142,-459.5 142,-442.5 59,-442.5"/>
+<text text-anchor="start" x="86.5" y="-448.5" font-family="Times New Roman,serif" font-size="10.00">Arrival</text>
+<polygon fill="none" stroke="black" points="59,-414.5 59,-442.5 142,-442.5 142,-414.5 59,-414.5"/>
+<text text-anchor="start" x="62" y="-431.5" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
+<text text-anchor="start" x="62" y="-420.5" font-family="Times New Roman,serif" font-size="10.00">producer :Producer</text>
 </g>
 <!-- Palette&#45;&gt;Arrival -->
-<g id="edge8" class="edge"><title>Palette&#45;&gt;Arrival</title>
-<path fill="none" stroke="black" d="M100,-342.058C100,-353.71 100,-366.809 100,-377.909"/>
-<text text-anchor="middle" x="80" y="-345.058" font-family="Times New Roman,serif" font-size="10.00">palettes *</text>
+<g id="edge9" class="edge"><title>Palette&#45;&gt;Arrival</title>
+<path fill="none" stroke="black" d="M100,-375.058C100,-386.71 100,-399.809 100,-410.909"/>
+<text text-anchor="middle" x="80" y="-378.058" font-family="Times New Roman,serif" font-size="10.00">palettes *</text>
 </g>
 <!-- Product -->
 <g id="node2" class="node"><title>Product</title>
-<polygon fill="none" stroke="black" points="136,-221 136,-238 192,-238 192,-221 136,-221"/>
-<text text-anchor="start" x="148" y="-227" font-family="Times New Roman,serif" font-size="10.00">Product</text>
-<polygon fill="none" stroke="black" points="136,-204 136,-221 192,-221 192,-204 136,-204"/>
-<text text-anchor="start" x="139" y="-210" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
+<polygon fill="none" stroke="black" points="136,-248.5 136,-265.5 192,-265.5 192,-248.5 136,-248.5"/>
+<text text-anchor="start" x="148" y="-254.5" font-family="Times New Roman,serif" font-size="10.00">Product</text>
+<polygon fill="none" stroke="black" points="136,-231.5 136,-248.5 192,-248.5 192,-231.5 136,-231.5"/>
+<text text-anchor="start" x="139" y="-237.5" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
 </g>
 <!-- Product&#45;&gt;Palette -->
 <g id="edge1" class="edge"><title>Product&#45;&gt;Palette</title>
-<path fill="none" stroke="black" d="M149.156,-242.178C141.402,-252.72 131.739,-265.855 123.038,-277.683"/>
-<text text-anchor="middle" x="103.038" y="-269.683" font-family="Times New Roman,serif" font-size="10.00">palettes *</text>
-<text text-anchor="middle" x="133.156" y="-245.178" font-family="Times New Roman,serif" font-size="10.00">product</text>
+<path fill="none" stroke="black" d="M150.113,-269.571C141.804,-281.58 131.067,-297.099 121.663,-310.69"/>
+<text text-anchor="middle" x="101.663" y="-302.69" font-family="Times New Roman,serif" font-size="10.00">palettes *</text>
+<text text-anchor="middle" x="134.113" y="-272.571" font-family="Times New Roman,serif" font-size="10.00">product</text>
 </g>
 <!-- Place -->
 <g id="node3" class="node"><title>Place</title>
-<polygon fill="none" stroke="black" points="8,-221 8,-238 64,-238 64,-221 8,-221"/>
-<text text-anchor="start" x="25" y="-227" font-family="Times New Roman,serif" font-size="10.00">Place</text>
-<polygon fill="none" stroke="black" points="8,-204 8,-221 64,-221 64,-204 8,-204"/>
-<text text-anchor="start" x="11" y="-210" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
+<polygon fill="none" stroke="black" points="8,-248.5 8,-265.5 64,-265.5 64,-248.5 8,-248.5"/>
+<text text-anchor="start" x="25" y="-254.5" font-family="Times New Roman,serif" font-size="10.00">Place</text>
+<polygon fill="none" stroke="black" points="8,-231.5 8,-248.5 64,-248.5 64,-231.5 8,-231.5"/>
+<text text-anchor="start" x="11" y="-237.5" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
 </g>
 <!-- Place&#45;&gt;Palette -->
 <g id="edge2" class="edge"><title>Place&#45;&gt;Palette</title>
-<path fill="none" stroke="black" d="M50.8438,-242.178C58.5983,-252.72 68.2611,-265.855 76.9624,-277.683"/>
-<text text-anchor="middle" x="62.9624" y="-269.683" font-family="Times New Roman,serif" font-size="10.00">palette</text>
-<text text-anchor="middle" x="39.8438" y="-245.178" font-family="Times New Roman,serif" font-size="10.00">place</text>
+<path fill="none" stroke="black" d="M49.887,-269.571C58.1956,-281.58 68.9332,-297.099 78.3367,-310.69"/>
+<text text-anchor="middle" x="64.3367" y="-302.69" font-family="Times New Roman,serif" font-size="10.00">palette</text>
+<text text-anchor="middle" x="38.887" y="-272.571" font-family="Times New Roman,serif" font-size="10.00">place</text>
 </g>
 <!-- Warehouse -->
 <g id="node4" class="node"><title>Warehouse</title>
-<polygon fill="none" stroke="black" points="74,-131.5 74,-148.5 127,-148.5 127,-131.5 74,-131.5"/>
-<text text-anchor="start" x="77" y="-137.5" font-family="Times New Roman,serif" font-size="10.00">Warehouse</text>
-<polygon fill="none" stroke="black" points="74,-125.5 74,-131.5 127,-131.5 127,-125.5 74,-125.5"/>
+<polygon fill="none" stroke="black" points="74,-142.5 74,-159.5 127,-159.5 127,-142.5 74,-142.5"/>
+<text text-anchor="start" x="77" y="-148.5" font-family="Times New Roman,serif" font-size="10.00">Warehouse</text>
+<polygon fill="none" stroke="black" points="74,-136.5 74,-142.5 127,-142.5 127,-136.5 74,-136.5"/>
 </g>
 <!-- Warehouse&#45;&gt;Palette -->
 <g id="edge3" class="edge"><title>Warehouse&#45;&gt;Palette</title>
-<path fill="none" stroke="black" d="M100,-155.787C100,-184.402 100,-242.007 100,-277.856"/>
-<text text-anchor="middle" x="119" y="-269.856" font-family="Times New Roman,serif" font-size="10.00">atRamp *</text>
-<text text-anchor="middle" x="90" y="-158.787" font-family="Times New Roman,serif" font-size="10.00">ramp</text>
+<path fill="none" stroke="black" d="M100,-166.583C100,-198.973 100,-269.738 100,-310.804"/>
+<text text-anchor="middle" x="119" y="-302.804" font-family="Times New Roman,serif" font-size="10.00">atRamp *</text>
+<text text-anchor="middle" x="90" y="-169.583" font-family="Times New Roman,serif" font-size="10.00">ramp</text>
 </g>
 <!-- Warehouse&#45;&gt;Product -->
 <g id="edge4" class="edge"><title>Warehouse&#45;&gt;Product</title>
-<path fill="none" stroke="black" d="M113.573,-155.784C123.7,-168.68 137.562,-186.333 148.19,-199.867"/>
-<text text-anchor="middle" x="126.19" y="-191.867" font-family="Times New Roman,serif" font-size="10.00">products *</text>
-<text text-anchor="middle" x="135.573" y="-158.784" font-family="Times New Roman,serif" font-size="10.00">warehouse</text>
+<path fill="none" stroke="black" d="M111.148,-166.57C122.178,-183.461 139.064,-209.317 150.768,-227.239"/>
+<text text-anchor="middle" x="128.768" y="-219.239" font-family="Times New Roman,serif" font-size="10.00">products *</text>
+<text text-anchor="middle" x="133.148" y="-169.57" font-family="Times New Roman,serif" font-size="10.00">warehouse</text>
 </g>
 <!-- Area -->
 <g id="node5" class="node"><title>Area</title>
-<polygon fill="none" stroke="black" points="40,-37.5 40,-54.5 96,-54.5 96,-37.5 40,-37.5"/>
-<text text-anchor="start" x="58" y="-43.5" font-family="Times New Roman,serif" font-size="10.00">Area</text>
-<polygon fill="none" stroke="black" points="40,-20.5 40,-37.5 96,-37.5 96,-20.5 40,-20.5"/>
-<text text-anchor="start" x="43" y="-26.5" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
+<polygon fill="none" stroke="black" points="46,-37.5 46,-54.5 102,-54.5 102,-37.5 46,-37.5"/>
+<text text-anchor="start" x="64" y="-43.5" font-family="Times New Roman,serif" font-size="10.00">Area</text>
+<polygon fill="none" stroke="black" points="46,-20.5 46,-37.5 102,-37.5 102,-20.5 46,-20.5"/>
+<text text-anchor="start" x="49" y="-26.5" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
 </g>
 <!-- Area&#45;&gt;Place -->
 <g id="edge5" class="edge"><title>Area&#45;&gt;Place</title>
-<path fill="none" stroke="black" d="M64.4532,-58.6172C58.3021,-93.5052 45.7248,-164.842 39.5627,-199.793"/>
-<text text-anchor="middle" x="22.5627" y="-191.793" font-family="Times New Roman,serif" font-size="10.00">places *</text>
-<text text-anchor="middle" x="55.9532" y="-61.6172" font-family="Times New Roman,serif" font-size="10.00">area</text>
+<path fill="none" stroke="black" d="M68.4226,-58.6942C64.5622,-73.1729 59.5078,-93.1856 56,-111 47.9486,-151.889 41.6025,-200.254 38.3632,-227.043"/>
+<text text-anchor="middle" x="21.3632" y="-219.043" font-family="Times New Roman,serif" font-size="10.00">places *</text>
+<text text-anchor="middle" x="59.9226" y="-61.6942" font-family="Times New Roman,serif" font-size="10.00">area</text>
 </g>
 <!-- Area&#45;&gt;Warehouse -->
 <g id="edge6" class="edge"><title>Area&#45;&gt;Warehouse</title>
-<path fill="none" stroke="black" d="M74.6304,-58.8057C80.4885,-76.7462 88.934,-102.61 94.4443,-119.486"/>
-<text text-anchor="middle" x="72.4443" y="-111.486" font-family="Times New Roman,serif" font-size="10.00">warehouse</text>
-<text text-anchor="middle" x="89.1304" y="-61.8057" font-family="Times New Roman,serif" font-size="10.00">areas *</text>
+<path fill="none" stroke="black" d="M78.8295,-58.7466C83.7344,-79.3098 91.2491,-110.814 95.8813,-130.233"/>
+<text text-anchor="middle" x="73.8813" y="-122.233" font-family="Times New Roman,serif" font-size="10.00">warehouse</text>
+<text text-anchor="middle" x="93.3295" y="-61.7466" font-family="Times New Roman,serif" font-size="10.00">areas *</text>
 </g>
 <!-- Producer -->
 <g id="node6" class="node"><title>Producer</title>
-<polygon fill="none" stroke="black" points="130,-37.5 130,-54.5 186,-54.5 186,-37.5 130,-37.5"/>
-<text text-anchor="start" x="139.5" y="-43.5" font-family="Times New Roman,serif" font-size="10.00">Producer</text>
-<polygon fill="none" stroke="black" points="130,-20.5 130,-37.5 186,-37.5 186,-20.5 130,-20.5"/>
-<text text-anchor="start" x="133" y="-26.5" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
+<polygon fill="none" stroke="black" points="160,-37.5 160,-54.5 216,-54.5 216,-37.5 160,-37.5"/>
+<text text-anchor="start" x="169.5" y="-43.5" font-family="Times New Roman,serif" font-size="10.00">Producer</text>
+<polygon fill="none" stroke="black" points="160,-20.5 160,-37.5 216,-37.5 216,-20.5 160,-20.5"/>
+<text text-anchor="start" x="163" y="-26.5" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
 </g>
 <!-- Content -->
 <g id="node7" class="node"><title>Content</title>
-<polygon fill="none" stroke="black" points="220,-53.5 220,-70.5 300,-70.5 300,-53.5 220,-53.5"/>
-<text text-anchor="start" x="243.5" y="-59.5" font-family="Times New Roman,serif" font-size="10.00">Content</text>
-<polygon fill="none" stroke="black" points="220,-3.5 220,-53.5 300,-53.5 300,-3.5 220,-3.5"/>
-<text text-anchor="start" x="223" y="-42.5" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
-<text text-anchor="start" x="223" y="-31.5" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
-<text text-anchor="start" x="223" y="-20.5" font-family="Times New Roman,serif" font-size="10.00">action :String</text>
-<text text-anchor="start" x="223" y="-9.5" font-family="Times New Roman,serif" font-size="10.00">value :String</text>
+<polygon fill="none" stroke="black" points="252,-164.5 252,-181.5 332,-181.5 332,-164.5 252,-164.5"/>
+<text text-anchor="start" x="275.5" y="-170.5" font-family="Times New Roman,serif" font-size="10.00">Content</text>
+<polygon fill="none" stroke="black" points="252,-114.5 252,-164.5 332,-164.5 332,-114.5 252,-114.5"/>
+<text text-anchor="start" x="255" y="-153.5" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
+<text text-anchor="start" x="255" y="-142.5" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
+<text text-anchor="start" x="255" y="-131.5" font-family="Times New Roman,serif" font-size="10.00">action :String</text>
+<text text-anchor="start" x="255" y="-120.5" font-family="Times New Roman,serif" font-size="10.00">value :String</text>
 </g>
 <!-- Page -->
-<g id="node8" class="node"><title>Page</title>
-<polygon fill="none" stroke="black" points="220,-142.5 220,-159.5 300,-159.5 300,-142.5 220,-142.5"/>
-<text text-anchor="start" x="250" y="-148.5" font-family="Times New Roman,serif" font-size="10.00">Page</text>
-<polygon fill="none" stroke="black" points="220,-114.5 220,-142.5 300,-142.5 300,-114.5 220,-114.5"/>
-<text text-anchor="start" x="223" y="-131.5" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
-<text text-anchor="start" x="223" y="-120.5" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
+<g id="node9" class="node"><title>Page</title>
+<polygon fill="none" stroke="black" points="252,-253.5 252,-270.5 332,-270.5 332,-253.5 252,-253.5"/>
+<text text-anchor="start" x="282" y="-259.5" font-family="Times New Roman,serif" font-size="10.00">Page</text>
+<polygon fill="none" stroke="black" points="252,-225.5 252,-253.5 332,-253.5 332,-225.5 252,-225.5"/>
+<text text-anchor="start" x="255" y="-242.5" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
+<text text-anchor="start" x="255" y="-231.5" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
 </g>
 <!-- Content&#45;&gt;Page -->
-<g id="edge7" class="edge"><title>Content&#45;&gt;Page</title>
-<path fill="none" stroke="black" d="M260,-75.2704C260,-87.1105 260,-99.9683 260,-110.831"/>
-<text text-anchor="middle" x="240.5" y="-78.2704" font-family="Times New Roman,serif" font-size="10.00">content *</text>
+<g id="edge8" class="edge"><title>Content&#45;&gt;Page</title>
+<path fill="none" stroke="black" d="M292,-186.27C292,-198.11 292,-210.968 292,-221.831"/>
+<text text-anchor="middle" x="272.5" y="-189.27" font-family="Times New Roman,serif" font-size="10.00">content *</text>
+</g>
+<!-- Element -->
+<g id="node8" class="node"><title>Element</title>
+<polygon fill="none" stroke="black" points="262,-53.5 262,-70.5 322,-70.5 322,-53.5 262,-53.5"/>
+<text text-anchor="start" x="276" y="-59.5" font-family="Times New Roman,serif" font-size="10.00">Element</text>
+<polygon fill="none" stroke="black" points="262,-3.5 262,-53.5 322,-53.5 322,-3.5 262,-3.5"/>
+<text text-anchor="start" x="265" y="-42.5" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
+<text text-anchor="start" x="265" y="-31.5" font-family="Times New Roman,serif" font-size="10.00">text :String</text>
+<text text-anchor="start" x="265" y="-20.5" font-family="Times New Roman,serif" font-size="10.00">value :String</text>
+<text text-anchor="start" x="265" y="-9.5" font-family="Times New Roman,serif" font-size="10.00">action :String</text>
+</g>
+<!-- Element&#45;&gt;Content -->
+<g id="edge7" class="edge"><title>Element&#45;&gt;Content</title>
+<path fill="none" stroke="black" d="M292,-75.0986C292,-86.6022 292,-99.3027 292,-110.812"/>
+<text text-anchor="middle" x="270.5" y="-78.0986" font-family="Times New Roman,serif" font-size="10.00">elements *</text>
 </g>
 <!-- WebApp -->
-<g id="node10" class="node"><title>WebApp</title>
-<polygon fill="none" stroke="black" points="334,-48.5 334,-65.5 414,-65.5 414,-48.5 334,-48.5"/>
-<text text-anchor="start" x="355" y="-54.5" font-family="Times New Roman,serif" font-size="10.00">WebApp</text>
-<polygon fill="none" stroke="black" points="334,-9.5 334,-48.5 414,-48.5 414,-9.5 334,-9.5"/>
-<text text-anchor="start" x="337" y="-37.5" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
-<text text-anchor="start" x="337" y="-26.5" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
-<text text-anchor="start" x="337" y="-15.5" font-family="Times New Roman,serif" font-size="10.00">content :Page</text>
+<g id="node11" class="node"><title>WebApp</title>
+<polygon fill="none" stroke="black" points="356,-48.5 356,-65.5 436,-65.5 436,-48.5 356,-48.5"/>
+<text text-anchor="start" x="377" y="-54.5" font-family="Times New Roman,serif" font-size="10.00">WebApp</text>
+<polygon fill="none" stroke="black" points="356,-9.5 356,-48.5 436,-48.5 436,-9.5 356,-9.5"/>
+<text text-anchor="start" x="359" y="-37.5" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
+<text text-anchor="start" x="359" y="-26.5" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
+<text text-anchor="start" x="359" y="-15.5" font-family="Times New Roman,serif" font-size="10.00">content :Page</text>
 </g>
 </g>
 </svg>
