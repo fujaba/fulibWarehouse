@@ -133,6 +133,22 @@ public class WebApp
       return this;
    }
 
+
+   public Place findPlace(String placeId) {
+      for (Area area : warehouse.getAreas())
+      {
+         for (Place place : area.getPlaces())
+         {
+            if (placeId.equalsIgnoreCase(place.getName())) {
+               return place;
+            }
+         }
+      }
+
+      return null;
+   }
+
+
    public WebApp New_Supply() {
       Content palIn = new Content();
       Content productIn = new Content();

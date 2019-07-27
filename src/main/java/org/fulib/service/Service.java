@@ -27,15 +27,23 @@ public class Service
 
    public static void main(String[] args)
    {
-      new Service().start();
+      String webAppClassName = "webapp.WebApp";
+      if (args != null && args.length > 0) {
+         webAppClassName = args[0];
+      }
+      new Service().start(webAppClassName);
 
    }
 
-   private void start()
+   private void start(String webAppClassName)
    {
       try
       {
-         webApp = new WebApp().init();
+         Class<?> webAppClass = this.getClass().getClassLoader().loadClass(webAppClassName);
+         webApp = webAppClass.newInstance();
+         Method init = webAppClass.getMethod("init");
+         init.invoke(webApp);
+
          idMap = new YamlIdMap(webApp.getClass().getPackage().getName());
 
          server = HttpServer.create(new InetSocketAddress(6677), 0);
@@ -51,7 +59,7 @@ public class Service
          server.start();
          System.out.println("Server is listening on port 6677" );
       }
-      catch (IOException e)
+      catch (Exception e)
       {
          e.printStackTrace();
       }
@@ -112,10 +120,18 @@ public class Service
                   // it is a model class
                   String simpleName = parameterType.getSimpleName();
                   String objId = params.get(i);
-                  Object object = idMap.decode("- " + objId + ": " + simpleName + " id: " + objId + " name: " + objId);
+                  String findMethodName = "find" + simpleName;
+                  Object object = null;
+                  try
+                  {
+                     Method findMethod = webApp.getClass().getMethod(findMethodName, new Class[]{String.class});
+                     object = findMethod.invoke(webApp, new Object[]{objId});
+                  }
+                  catch (Exception e)
+                  {
+                     object = idMap.decode("- " + objId + ": " + simpleName + " id: " + objId + " name: " + objId);
+                  }
                   actualParamsList.add(object);
-
-
                }
                else if (paramTypeName.equals("int")){
                   Integer value = Integer.valueOf(params.get(i));
