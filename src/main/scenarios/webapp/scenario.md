@@ -47,7 +47,7 @@ Warehouse has at-ramp and is ramp of eu200, eu333.
   There is a Content with id pal-line1 and with elements id1, p1, items1, button1.
   
   There is a Page with id add-supply-page 
-  and with description "New Supply | button Store Palettes"
+  and with description "New Supply | button Store Palettes | button Tables"
   and with content pal-in, product-in, items-in, add-palette-button, pal-line1.
   
   There is a Web-App with id fork-lift-guide 
@@ -56,6 +56,23 @@ Warehouse has at-ramp and is ramp of eu200, eu333.
   
   ![fork-lift-guide](step03.html)
   
+  We write "eu500" into value of pal-in.
+  ![fork-lift-guide](step04.html)
+  We write Sneakers into value of product-in. 
+  ![fork-lift-guide](step05.html)
+  We write "50" into value of items-in. 
+  ![fork-lift-guide](step06.html)
+
+  
+  There is a Page with id tables-page 
+  and with description "button New Supply | button Store Palettes | Tables"
+  and with tables Warehouse, mondayArrival.
+  
+  Fork-lift-guide has content tables-page.
+  
+  ![fork-lift-guide](step07.html)
+
+
 
   There is a Web-App with id first-screen.
   We call init on first-Screen. 
@@ -66,7 +83,7 @@ Warehouse has at-ramp and is ramp of eu200, eu333.
   and with action "addPalette palIn productIn itemsIn Store_Palettes".
   
   Init creates a Page with id add-supply-page
-  and with description "New_Supply | button Store_Palettes"
+  and with description "New_Supply | button Store_Palettes | Tables"
   and with content palIn, productIn, itemsIn, add-palette-button. 
   
   Init writes "fork-lift-guide" into id of first-screen.
@@ -76,13 +93,7 @@ Warehouse has at-ramp and is ramp of eu200, eu333.
   Init answers with first-Screen. 
   
   
-  We write "eu500" into value of pal-in.
-  ![fork-lift-guide](step04.html)
-  We write Sneakers into value of product-in. 
-  ![fork-lift-guide](step05.html)
-  We write "50" into value of items-in. 
-  ![fork-lift-guide](step06.html)
-
+  
 ## Operations
 
   We call find-product on Warehouse with product-name value of product-in.

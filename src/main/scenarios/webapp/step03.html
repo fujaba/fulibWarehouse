@@ -21,7 +21,14 @@
                 const divElem = document.getElementById(words[i]);
                 const subDiv = divElem.getElementsByTagName('div')[0];
                 const inputElem = subDiv.getElementsByTagName('input')[0];
-                const value = inputElem.value;
+                const subSubDiv = subDiv.getElementsByTagName('div')[0];
+                var value = words[i];
+                if (inputElem) {
+                    value = inputElem.value;
+                }
+                else if (subSubDiv) {
+                    value = subSubDiv.textContent;
+                }
                 request[words[i]] = value;
             }
             request['_newPage'] = words[words.length-1];
@@ -46,6 +53,7 @@
 	    <div class='row justify-content-center'>
 			<div class='col col-lg-2 text-center' style='margin: 1rem'>New Supply</div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Store Palettes")' style='margin: 1rem'>Store Palettes</button></div>
+			<div class='col col-lg-2 text-center'><button onclick='submit("Tables")' style='margin: 1rem'>Tables</button></div>
 	    </div>
 		<div id='pal-in' >
 		    <div class='row justify-content-center'>

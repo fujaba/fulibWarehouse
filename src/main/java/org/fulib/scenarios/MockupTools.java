@@ -57,7 +57,14 @@ public class MockupTools
 			"                const divElem = document.getElementById(words[i]);\n" +
 			"                const subDiv = divElem.getElementsByTagName('div')[0];\n" +
 			"                const inputElem = subDiv.getElementsByTagName('input')[0];\n" +
-			"                const value = inputElem.value;\n" +
+			"                const subSubDiv = subDiv.getElementsByTagName('div')[0];\n" +
+			"                var value = words[i];\n" +
+			"                if (inputElem) {\n" +
+			"                    value = inputElem.value;\n" +
+			"                }\n" +
+			"                else if (subSubDiv) {\n" +
+			"                    value = subSubDiv.textContent;\n" +
+			"                }\n" +
 			"                request[words[i]] = value;\n" +
 			"            }\n" +
 			"            request['_newPage'] = words[words.length-1];\n" +
@@ -75,6 +82,7 @@ public class MockupTools
 			"</script>\n\n";
 
 	private static final String COLS = "class='col col-lg-2 text-center'";
+	public static final String TABLES = "tables";
 
 	// =============== Fields ===============
 
@@ -257,6 +265,13 @@ public class MockupTools
 
 	public void dumpTables(Writer writer, Object... rootList) throws IOException
 	{
+		writer.write(BOOTSTRAP);
+
+		dumpPlainTables(writer, rootList);
+	}
+
+	private void dumpPlainTables(Writer writer, Object... rootList) throws IOException
+	{
 		ArrayList flatList = new ArrayList();
 		for (Object obj : rootList)
 		{
@@ -278,7 +293,6 @@ public class MockupTools
 		final Map<Class<?>, List<Object>> groupedObjects = idMap.getObjIdMap().values().stream()
 		                                                        .collect(Collectors.groupingBy(Object::getClass));
 
-		writer.write(BOOTSTRAP);
 		writer.write("<div class='container'>\n");
 
 		for (final Map.Entry<Class<?>, List<Object>> entry : groupedObjects.entrySet())
@@ -601,6 +615,13 @@ public class MockupTools
 		else if (content != null)
 		{
 			this.generateElement(content, indent + '\t', writer);
+		}
+
+		// --- tables ---
+		Collection<Object> tables = (Collection<Object>) reflector.getValue(root, TABLES);
+
+		if (tables != null && tables.size() > 0) {
+			this.dumpPlainTables(writer, tables);
 		}
 
 		writer.write(indent);

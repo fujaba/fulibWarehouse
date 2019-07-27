@@ -67,21 +67,21 @@ public class Service
       String packageName = webApp.getClass().getPackage().getName();
 
       // call builder method generically.
-      if (params.size() > 1) {
+      if (params.size() > 2 || ! params.get(0).equals(params.get(params.size()-1))) {
          callButtonAction(params, packageName);
       }
 
-      callNewPage(params);
+      callNewPage(params.get(params.size()-1));
 
       handleRoot(x);
 
    }
 
-   private void callNewPage(ArrayList<String> params)
+   private void callNewPage(String param)
    {
       try
       {
-         Method method = webApp.getClass().getMethod(params.get(params.size() - 1));
+         Method method = webApp.getClass().getMethod(param);
          method.invoke(webApp);
       }
       catch (Exception e)

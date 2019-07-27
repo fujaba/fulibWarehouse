@@ -181,9 +181,84 @@ public class Page
 
    public void removeYou()
    {
+      this.withoutTables(this.getTables().clone());
+
+
       this.withoutContent(this.getContent().clone());
 
 
+   }
+
+   public static final java.util.ArrayList<Object> EMPTY_tables = new java.util.ArrayList<Object>()
+   { @Override public boolean add(Object value){ throw new UnsupportedOperationException("No direct add! Use xy.withTables(obj)"); }};
+
+   public static final String PROPERTY_tables = "tables";
+
+   private java.util.ArrayList<Object> tables = null;
+
+   public java.util.ArrayList<Object> getTables()
+   {
+      if (this.tables == null)
+      {
+         return EMPTY_tables;
+      }
+
+      return this.tables;
+   }
+
+   public Page withTables(Object... value)
+   {
+      if(value==null) return this;
+      for (Object item : value)
+      {
+         if (item == null) continue;
+         if (item instanceof java.util.Collection)
+         {
+            for (Object i : (java.util.Collection) item)
+            {
+               this.withTables(i);
+            }
+         }
+         else if (item instanceof Object)
+         {
+            if (this.tables == null)
+            {
+               this.tables = new java.util.ArrayList<Object>();
+            }
+            if ( ! this.tables.contains(item))
+            {
+               this.tables.add((Object)item);
+               firePropertyChange("tables", null, item);
+            }
+         }
+         else throw new IllegalArgumentException();
+      }
+      return this;
+   }
+
+   public Page withoutTables(Object... value)
+   {
+      if (this.tables == null || value==null) return this;
+      for (Object item : value)
+      {
+         if (item == null) continue;
+         if (item instanceof java.util.Collection)
+         {
+            for (Object i : (java.util.Collection) item)
+            {
+               this.withoutTables(i);
+            }
+         }
+         else if (item instanceof Object)
+         {
+            if (this.tables.contains(item))
+            {
+               this.tables.remove((Object)item);
+               firePropertyChange("tables", item, null);
+            }
+         }
+      }
+      return this;
    }
 
 }

@@ -149,7 +149,7 @@ public class WebApp
       addPaletteButton.setAction("addPalette palIn productIn itemsIn Store_Palettes");
       Page addSupplyPage = new Page();
       addSupplyPage.setId("add-supply-page");
-      addSupplyPage.setDescription("New_Supply | button Store_Palettes");
+      addSupplyPage.setDescription("New_Supply | button Store_Palettes | button Tables");
       addSupplyPage.withContent(palIn, productIn, itemsIn, addPaletteButton);
 
       this.setContent(addSupplyPage);
@@ -160,10 +160,9 @@ public class WebApp
    public WebApp ask4Place(Palette palIn) {
       Page placePage = new Page()
             .setId("place-page")
-            .setDescription("button New_Supply | Store_Palettes");
+            .setDescription("button New_Supply | Store_Palettes | button Tables");
 
-      Content palId = new Content().setId("palId").setDescription("input pal id?");
-      palId.setValue(palIn.getId());
+      Content palId = new Content().setId("palId").setDescription(palIn.getId());
       Content productName = new Content().setId("productName").setDescription(palIn.getProduct().getName());
       Content placeIn = new Content().setId("placeIn").setDescription("input place?");
       Content button = new Content().setId("button").setDescription("button OK");
@@ -190,14 +189,11 @@ public class WebApp
 
       Page storeSupplyPage = new Page()
             .setId("store-supply-page")
-            .setDescription("button New_Supply | Store_Palettes");
+            .setDescription("button New_Supply | Store_Palettes | button Tables");
 
       for (Palette palette : warehouse.getAtRamp())
       {
-         Element palId = new Element().setText("input palette id?");
-         palId.setId(palette.getId());
-         palId.setValue(palette.getId());
-
+         Element palId = new Element().setText(palette.getId());
          Element productName = new Element().setText(palette.getProduct().getName());
          Element button = new Element().setText("button Place");
          button.setAction("ask4Place " + palette.getId() + " Place");
@@ -208,6 +204,16 @@ public class WebApp
 
       this.setContent(storeSupplyPage);
 
+      return this;
+   }
+
+
+   public WebApp Tables() {
+      Page tablesPage = new Page().setId("tables-page")
+            .setDescription("button New_Supply | button Store_Palettes | Tables")
+            .withTables(warehouse);
+
+      this.setContent(tablesPage);
       return this;
    }
 

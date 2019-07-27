@@ -21,7 +21,14 @@
                 const divElem = document.getElementById(words[i]);
                 const subDiv = divElem.getElementsByTagName('div')[0];
                 const inputElem = subDiv.getElementsByTagName('input')[0];
-                const value = inputElem.value;
+                const subSubDiv = subDiv.getElementsByTagName('div')[0];
+                var value = words[i];
+                if (inputElem) {
+                    value = inputElem.value;
+                }
+                else if (subSubDiv) {
+                    value = subSubDiv.textContent;
+                }
                 request[words[i]] = value;
             }
             request['_newPage'] = words[words.length-1];
@@ -39,21 +46,6 @@
 </script>
 
 <div class='container'>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold'>Warehouse</div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold border'>areas</div>
-        <div class='col text-center font-weight-bold border'>atRamp</div>
-        <div class='col text-center font-weight-bold border'>products</div>
-    </div>
-    <div class='row justify-content-center' id='w1'>
-        <div class='col text-center border'><a href='#fast_area2'>fast area</a> <a href='#middle_area3'>middle area</a> <a href='#slow_area4'>slow area</a> </div>
-        <div class='col text-center border'><a href='#eu2005'>eu200</a> <a href='#eu3336'>eu333</a> </div>
-        <div class='col text-center border'><a href='#high_Heels7'>High Heels</a> <a href='#nike_Airs8'>Nike Airs</a> </div>
-    </div>
-    <br>
     <div class='row justify-content-center '>
         <div class='col text-center font-weight-bold'>Place</div>
     </div>
@@ -95,6 +87,26 @@
     </div>
     <br>
     <div class='row justify-content-center '>
+        <div class='col text-center font-weight-bold'>Product</div>
+    </div>
+    <br>
+    <div class='row justify-content-center '>
+        <div class='col text-center font-weight-bold border'>name</div>
+        <div class='col text-center font-weight-bold border'>palettes</div>
+        <div class='col text-center font-weight-bold border'>warehouse</div>
+    </div>
+    <div class='row justify-content-center' id='high_Heels7'>
+        <div class='col text-center border'>High Heels</div>
+        <div class='col text-center border'><a href='#eu2005'>eu200</a> <a href='#eu3336'>eu333</a> </div>
+        <div class='col text-center border'><a href='#w1'>w1</a> </div>
+    </div>
+    <div class='row justify-content-center' id='nike_Airs8'>
+        <div class='col text-center border'>Nike Airs</div>
+        <div class='col text-center border'><a href='#eu10015'>eu100</a> </div>
+        <div class='col text-center border'><a href='#w1'>w1</a> </div>
+    </div>
+    <br>
+    <div class='row justify-content-center '>
         <div class='col text-center font-weight-bold'>Palette</div>
     </div>
     <br>
@@ -132,23 +144,18 @@
     </div>
     <br>
     <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold'>Product</div>
+        <div class='col text-center font-weight-bold'>Warehouse</div>
     </div>
     <br>
     <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold border'>name</div>
-        <div class='col text-center font-weight-bold border'>palettes</div>
-        <div class='col text-center font-weight-bold border'>warehouse</div>
+        <div class='col text-center font-weight-bold border'>areas</div>
+        <div class='col text-center font-weight-bold border'>atRamp</div>
+        <div class='col text-center font-weight-bold border'>products</div>
     </div>
-    <div class='row justify-content-center' id='high_Heels7'>
-        <div class='col text-center border'>High Heels</div>
+    <div class='row justify-content-center' id='w1'>
+        <div class='col text-center border'><a href='#fast_area2'>fast area</a> <a href='#middle_area3'>middle area</a> <a href='#slow_area4'>slow area</a> </div>
         <div class='col text-center border'><a href='#eu2005'>eu200</a> <a href='#eu3336'>eu333</a> </div>
-        <div class='col text-center border'><a href='#w1'>w1</a> </div>
-    </div>
-    <div class='row justify-content-center' id='nike_Airs8'>
-        <div class='col text-center border'>Nike Airs</div>
-        <div class='col text-center border'><a href='#eu10015'>eu100</a> </div>
-        <div class='col text-center border'><a href='#w1'>w1</a> </div>
+        <div class='col text-center border'><a href='#high_Heels7'>High Heels</a> <a href='#nike_Airs8'>Nike Airs</a> </div>
     </div>
     <br>
     <div class='row justify-content-center '>
