@@ -133,7 +133,6 @@ public class WebApp
       return this;
    }
 
-
    public Place findPlace(String placeId) {
       for (Area area : warehouse.getAreas())
       {
@@ -147,7 +146,6 @@ public class WebApp
 
       return null;
    }
-
 
    public WebApp New_Supply() {
       Content palIn = new Content();
@@ -222,7 +220,6 @@ public class WebApp
 
       return this;
    }
-
 
    public WebApp Tables() {
       Page tablesPage = new Page().setId("tables-page")

@@ -50,8 +50,11 @@ public class Service
          executor = Executors.newSingleThreadExecutor();
          server.setExecutor(executor);
 
-         HttpContext doContext = server.createContext("/start");
+         HttpContext doContext = server.createContext("/");
          doContext.setHandler(x -> handleRoot(x));
+
+         HttpContext initContext = server.createContext("/index.html");
+         initContext.setHandler(x -> handleRoot(x));
 
          HttpContext cmdContext = server.createContext("/cmd");
          cmdContext.setHandler(x -> handleCmd(x));

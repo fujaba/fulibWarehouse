@@ -1,5 +1,6 @@
 plugins {
 	id 'java'
+	id 'application'
 	id 'org.fulib.fulibGradle' version '0.1.0'
 }
 
@@ -27,4 +28,15 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/junit/junit
 	testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+application {
+	mainClassName = 'org.fulib.service.Service'
+}
+
+task webapp(type:Exec) {
+	workingDir './build/reports/tests'
+
+	//on windows:
+	commandLine 'cmd', '/c', 'explorer "http://localhost:6677/index.html"'
 }
