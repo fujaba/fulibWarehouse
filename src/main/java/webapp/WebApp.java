@@ -147,7 +147,7 @@ public class WebApp
       return null;
    }
 
-   public WebApp New_Supply() {
+   public WebApp new_Supply() {
       Content palIn = new Content();
       Content productIn = new Content();
       Content itemsIn = new Content();
@@ -163,7 +163,7 @@ public class WebApp
       addPaletteButton.setAction("addPalette palIn productIn itemsIn Store_Palettes");
       Page addSupplyPage = new Page();
       addSupplyPage.setId("add-supply-page");
-      addSupplyPage.setDescription("New_Supply | button Store_Palettes | button Tables");
+      addSupplyPage.setDescription("New_Supply | button Store_Palettes | button Data");
       addSupplyPage.withContent(palIn, productIn, itemsIn, addPaletteButton);
 
       this.setContent(addSupplyPage);
@@ -174,7 +174,7 @@ public class WebApp
    public WebApp ask4Place(Palette palIn) {
       Page placePage = new Page()
             .setId("place-page")
-            .setDescription("button New_Supply | Store_Palettes | button Tables");
+            .setDescription("button New_Supply | Store_Palettes | button Data");
 
       Content palId = new Content().setId("palId").setDescription(palIn.getId());
       Content productName = new Content().setId("productName").setDescription(palIn.getProduct().getName());
@@ -189,7 +189,7 @@ public class WebApp
       return this;
    }
 
-   public WebApp Place() {
+   public WebApp place() {
       return this;
    }
 
@@ -199,11 +199,11 @@ public class WebApp
       return this;
    }
 
-   public WebApp Store_Palettes() {
+   public WebApp store_Palettes() {
 
       Page storeSupplyPage = new Page()
             .setId("store-supply-page")
-            .setDescription("button New_Supply | Store_Palettes | button Tables");
+            .setDescription("button New_Supply | Store_Palettes | button Data");
 
       for (Palette palette : warehouse.getAtRamp())
       {
@@ -221,9 +221,9 @@ public class WebApp
       return this;
    }
 
-   public WebApp Tables() {
+   public WebApp data() {
       Page tablesPage = new Page().setId("tables-page")
-            .setDescription("button New_Supply | button Store_Palettes | Tables")
+            .setDescription("button New_Supply | button Store_Palettes | Data")
             .withTables(warehouse);
 
       this.setContent(tablesPage);
@@ -243,7 +243,7 @@ public class WebApp
 
       this.setId("fork-lift-guide");
       this.setDescription("Fork Lift Guide");
-      this.New_Supply();
+      this.new_Supply();
 
       return this;
    }

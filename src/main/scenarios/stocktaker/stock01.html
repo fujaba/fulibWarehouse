@@ -1,0 +1,74 @@
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous">
+
+<script>
+    function handler (response) {
+        console.log(response);
+        document.documentElement.innerHTML = response;
+    }
+
+    function submit(cmd) {
+        if (cmd) {
+            const words = cmd.split(' ');
+            // collect actual parameters
+            var request = {};
+            request['_cmd'] = words[0];
+
+            for (var i = 1; i < words.length - 1; i++) {
+                const divElem = document.getElementById(words[i]);
+                const subDiv = divElem.getElementsByTagName('div')[0];
+                const inputElem = subDiv.getElementsByTagName('input')[0];
+                const subSubDiv = subDiv.getElementsByTagName('div')[0];
+                var value = words[i];
+                if (inputElem) {
+                    value = inputElem.value;
+                }
+                else if (subSubDiv) {
+                    value = subSubDiv.textContent;
+                }
+                request[words[i]] = value;
+            }
+            request['_newPage'] = words[words.length-1];
+            const requestString = JSON.stringify(request);
+            const httpRequest = new XMLHttpRequest();
+            httpRequest.overrideMimeType('application/json');
+            httpRequest.addEventListener('load', function() {
+                handler(this.responseText);
+            });
+            httpRequest.open('POST', '/cmd', true);
+            httpRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+            httpRequest.send(requestString);
+        }
+    }
+</script>
+
+<div id='stock-taker' class='container'>
+    <div class='row justify-content-center'>
+		<div class='col col-lg-2 text-center' style='margin: 1rem'>Stock Taker</div>
+    </div>
+	<div id='login-page' >
+	    <div class='row justify-content-center'>
+			<div class='col col-lg-2 text-center' style='margin: 1rem'>Login</div>
+			<div class='col col-lg-2 text-center'><button onclick='submit("Scan")' style='margin: 1rem'>Scan</button></div>
+			<div class='col col-lg-2 text-center'><button onclick='submit("Log")' style='margin: 1rem'>Log</button></div>
+	    </div>
+		<div id='name-in' >
+		    <div class='row justify-content-center'>
+				<input class='col col-lg-2 text-center' placeholder='name?' style='margin: 1rem'></input>
+		    </div>
+		</div>
+		<div id='pass-in' >
+		    <div class='row justify-content-center'>
+				<input class='col col-lg-2 text-center' placeholder='password?' style='margin: 1rem'></input>
+		    </div>
+		</div>
+		<div id='login-button' >
+		    <div class='row justify-content-center'>
+				<div class='col col-lg-2 text-center'><button onclick='submit("do-login pal-in product-in items-in Scan")' style='margin: 1rem'>login</button></div>
+		    </div>
+		</div>
+	</div>
+</div>

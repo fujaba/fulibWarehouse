@@ -77,20 +77,21 @@ Warehouse has at-ramp and is ramp of eu200, eu333.
   There is a Web-App with id first-screen.
   We call init on first-Screen. 
   
-  Init creates a Content with id palIn, productIn, itemsIn
-  and with description "input palette id?", "input product?", "input number of items?".
-  Init creates a Content with id add-palette-button and with description "button submit"
-  and with action "addPalette palIn productIn itemsIn Store_Palettes".
-  
-  Init creates a Page with id add-supply-page
-  and with description "New_Supply | button Store_Palettes | Tables"
-  and with content palIn, productIn, itemsIn, add-palette-button. 
-  
-  Init writes "fork-lift-guide" into id of first-screen.
-  Init writes "Fork Lift Guide" into description of first-screen.
-  Init writes add-supply-page into content of first-screen. 
-  
-  Init answers with first-Screen. 
+  Init writes hello into world. 
+  // Init creates a Content with id palIn, productIn, itemsIn
+  // and with description "input palette id?", "input product?", "input number of items?".
+  // Init creates a Content with id add-palette-button and with description "button submit"
+  // and with action "addPalette palIn productIn itemsIn Store_Palettes".
+  // 
+  // Init creates a Page with id add-supply-page
+  // and with description "New_Supply | button Store_Palettes | Tables"
+  // and with content palIn, productIn, itemsIn, add-palette-button. 
+  // 
+  // Init writes "fork-lift-guide" into id of first-screen.
+  // Init writes "Fork Lift Guide" into description of first-screen.
+  // Init writes add-supply-page into content of first-screen. 
+  // 
+  // Init answers with first-Screen. 
   
   
   

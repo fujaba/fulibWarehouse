@@ -178,6 +178,15 @@ public class Product
       return true;
    }
 
+   public void removeYou()
+   {
+      this.setWarehouse(null);
+
+      this.withoutPalettes(this.getPalettes().clone());
+
+
+   }
+
    @Override
    public String toString()
    {
@@ -187,15 +196,6 @@ public class Product
 
 
       return result.substring(1);
-   }
-
-   public void removeYou()
-   {
-      this.setWarehouse(null);
-
-      this.withoutPalettes(this.getPalettes().clone());
-
-
    }
 
 }

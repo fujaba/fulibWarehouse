@@ -34,7 +34,15 @@ application {
 	mainClassName = 'org.fulib.service.Service'
 }
 
+task stockTaker(type:JavaExec, dependsOn: check) {
+	main = 'org.fulib.service.Service'
+	args('stocktaker.StockApp')
+	classpath = sourceSets.main.runtimeClasspath
+}
+
 task webapp(type:Exec) {
+	dependsOn ':check'
+
 	workingDir './build/reports/tests'
 
 	//on windows:

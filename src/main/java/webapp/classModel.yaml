@@ -429,28 +429,23 @@
 
 - f53: 	FMethod
   clazz: 	webApp12
-  declaration: 	"public WebApp init()"
-  methodBody: 	"      Content palIn = new Content();
-      Content productIn = new Content();
-      Content itemsIn = new Content();
-      palIn.setId(\"palIn\");
-      productIn.setId(\"productIn\");
-      itemsIn.setId(\"itemsIn\");
-      palIn.setDescription(\"input palette id?\");
-      productIn.setDescription(\"input product?\");
-      itemsIn.setDescription(\"input number of items?\");
-      Content addPaletteButton = new Content();
-      addPaletteButton.setId(\"add-palette-button\");
-      addPaletteButton.setDescription(\"button submit\");
-      addPaletteButton.setAction(\"addPalette palIn productIn itemsIn Store_Palettes\");
-      Page addSupplyPage = new Page();
-      addSupplyPage.setId(\"add-supply-page\");
-      addSupplyPage.setDescription(\"New_Supply | button Store_Palettes | Tables\");
-      addSupplyPage.withContent(palIn, productIn, itemsIn, addPaletteButton);
-      this.setId(\"fork-lift-guide\");
-      this.setDescription(\"Fork Lift Guide\");
-      this.setContent(addSupplyPage);
-      return this;
+  declaration: 	"public void init()"
+  methodBody: 	"      String world = \"hello\";
+      // Init creates a Content with id palIn, productIn, itemsIn
+      // and with description \"input palette id?\", \"input product?\", \"input number of items?\".
+      // Init creates a Content with id add-palette-button and with description \"button submit\"
+      // and with action \"addPalette palIn productIn itemsIn Store_Palettes\".
+      // 
+      // Init creates a Page with id add-supply-page
+      // and with description \"New_Supply | button Store_Palettes | Tables\"
+      // and with content palIn, productIn, itemsIn, add-palette-button.
+      // 
+      // Init writes \"fork-lift-guide\" into id of first-screen.
+      // Init writes \"Fork Lift Guide\" into description of first-screen.
+      // Init writes add-supply-page into content of first-screen.
+      // 
+      // Init answers with first-Screen.
+      // --- Operations ---
 "
   modified: 	false
 
