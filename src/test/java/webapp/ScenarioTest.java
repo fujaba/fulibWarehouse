@@ -112,7 +112,7 @@ public class ScenarioTest
       WebApp firstScreen = new WebApp();
       firstScreen.setId("first-screen");
       firstScreen.init();
-      Product result = warehouse.findProduct(productIn.getValue());
+      Product newProduct = warehouse.findProduct(productIn.getValue());
       warehouse.newStock(palIn.getValue(), productIn.getValue(), itemsIn.getValue());
       MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/step03-07.mockup.html", forkLiftGuide);
       MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/Tables.tables.html", warehouse);

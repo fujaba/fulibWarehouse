@@ -40,6 +40,12 @@ public class Service
    {
       try
       {
+         int port = 6677;
+         String portString = System.getenv("PORT");
+         if (portString != null)
+         {
+            port = Integer.parseInt(portString);
+         }
          Class<?> webAppClass = this.getClass().getClassLoader().loadClass(webAppClassName);
          webApp = webAppClass.newInstance();
          Method init = webAppClass.getMethod("init");
@@ -47,7 +53,7 @@ public class Service
 
          idMap = new YamlIdMap(webApp.getClass().getPackage().getName());
 
-         server = HttpServer.create(new InetSocketAddress(6677), 0);
+         server = HttpServer.create(new InetSocketAddress(port), 0);
          executor = Executors.newSingleThreadExecutor();
          server.setExecutor(executor);
 
@@ -61,7 +67,7 @@ public class Service
          cmdContext.setHandler(x -> handleCmd(x));
 
          server.start();
-         System.out.println("Server is listening on port 6677" );
+         System.out.println("Server is listening on port " + port);
       }
       catch (Exception e)
       {

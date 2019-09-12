@@ -1,102 +1,94 @@
-<svg width="419pt" height="283pt"
- viewBox="0.00 0.00 418.90 283.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="336pt" height="283pt"
+ viewBox="0.00 0.00 336.11 283.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 279)">
 <title>H</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-279 414.902,-279 414.902,4 -4,4"/>
+<polygon fill="white" stroke="none" points="-4,4 -4,-279 332.113,-279 332.113,4 -4,4"/>
 <!-- Storage -->
 <g id="node1" class="node"><title>Storage</title>
-<polygon fill="none" stroke="black" points="19.9018,-248.5 19.9018,-265.5 75.9018,-265.5 75.9018,-248.5 19.9018,-248.5"/>
-<text text-anchor="start" x="32.4018" y="-254.5" font-family="Times New Roman,serif" font-size="10.00">Storage</text>
-<polygon fill="none" stroke="black" points="19.9018,-231.5 19.9018,-248.5 75.9018,-248.5 75.9018,-231.5 19.9018,-231.5"/>
-<text text-anchor="start" x="22.9018" y="-237.5" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
+<polygon fill="none" stroke="black" points="19.113,-248.5 19.113,-265.5 75.113,-265.5 75.113,-248.5 19.113,-248.5"/>
+<text text-anchor="start" x="31.613" y="-254.5" font-family="Times New Roman,serif" font-size="10.00">Storage</text>
+<polygon fill="none" stroke="black" points="19.113,-231.5 19.113,-248.5 75.113,-248.5 75.113,-231.5 19.113,-231.5"/>
+<text text-anchor="start" x="22.113" y="-237.5" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
 </g>
 <!-- Board -->
 <g id="node2" class="node"><title>Board</title>
-<polygon fill="none" stroke="black" points="56.9018,-154 56.9018,-171 99.9018,-171 99.9018,-154 56.9018,-154"/>
-<text text-anchor="start" x="65.9018" y="-160" font-family="Times New Roman,serif" font-size="10.00">Board</text>
-<polygon fill="none" stroke="black" points="56.9018,-137 56.9018,-154 99.9018,-154 99.9018,-137 56.9018,-137"/>
-<text text-anchor="start" x="59.9018" y="-143" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
+<polygon fill="none" stroke="black" points="56.113,-154 56.113,-171 99.113,-171 99.113,-154 56.113,-154"/>
+<text text-anchor="start" x="65.113" y="-160" font-family="Times New Roman,serif" font-size="10.00">Board</text>
+<polygon fill="none" stroke="black" points="56.113,-137 56.113,-154 99.113,-154 99.113,-137 56.113,-137"/>
+<text text-anchor="start" x="59.113" y="-143" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
 </g>
 <!-- Board&#45;&gt;Storage -->
 <g id="edge1" class="edge"><title>Board&#45;&gt;Storage</title>
-<path fill="none" stroke="black" d="M71.3922,-175.071C66.3602,-190.586 59.4274,-211.963 54.3986,-227.468"/>
-<text text-anchor="middle" x="64.8986" y="-219.468" font-family="Times New Roman,serif" font-size="10.00">store</text>
-<text text-anchor="middle" x="53.3922" y="-178.071" font-family="Times New Roman,serif" font-size="10.00">boards *</text>
+<path fill="none" stroke="black" d="M70.6034,-175.071C65.5714,-190.586 58.6386,-211.963 53.6098,-227.468"/>
+<text text-anchor="middle" x="64.1098" y="-219.468" font-family="Times New Roman,serif" font-size="10.00">store</text>
+<text text-anchor="middle" x="52.6034" y="-178.071" font-family="Times New Roman,serif" font-size="10.00">boards *</text>
 </g>
 <!-- Product -->
 <g id="node3" class="node"><title>Product</title>
-<polygon fill="none" stroke="black" points="20.9018,-54 20.9018,-71 76.9018,-71 76.9018,-54 20.9018,-54"/>
-<text text-anchor="start" x="32.9018" y="-60" font-family="Times New Roman,serif" font-size="10.00">Product</text>
-<polygon fill="none" stroke="black" points="20.9018,-15 20.9018,-54 76.9018,-54 76.9018,-15 20.9018,-15"/>
-<text text-anchor="start" x="23.9018" y="-43" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
-<text text-anchor="start" x="23.9018" y="-32" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
-<text text-anchor="start" x="23.9018" y="-21" font-family="Times New Roman,serif" font-size="10.00">items :int</text>
+<polygon fill="none" stroke="black" points="20.113,-48 20.113,-65 76.113,-65 76.113,-48 20.113,-48"/>
+<text text-anchor="start" x="32.113" y="-54" font-family="Times New Roman,serif" font-size="10.00">Product</text>
+<polygon fill="none" stroke="black" points="20.113,-20 20.113,-48 76.113,-48 76.113,-20 20.113,-20"/>
+<text text-anchor="start" x="23.113" y="-37" font-family="Times New Roman,serif" font-size="10.00">name :String</text>
+<text text-anchor="start" x="23.113" y="-26" font-family="Times New Roman,serif" font-size="10.00">items :int</text>
 </g>
 <!-- Product&#45;&gt;Storage -->
 <g id="edge2" class="edge"><title>Product&#45;&gt;Storage</title>
-<path fill="none" stroke="black" d="M44,-75.0361C41.9848,-89.3013 39.8934,-106.468 38.9018,-122 37.0895,-150.387 36.8369,-157.631 38.9018,-186 39.9122,-199.883 42.1896,-215.391 44.2006,-227.361"/>
-<text text-anchor="middle" x="33.7006" y="-219.361" font-family="Times New Roman,serif" font-size="10.00">store</text>
-<text text-anchor="middle" x="22" y="-78.0361" font-family="Times New Roman,serif" font-size="10.00">products *</text>
+<path fill="none" stroke="black" d="M44,-69.5662C41.7655,-84.7555 39.235,-104.424 38.113,-122 36.3007,-150.387 36.0481,-157.631 38.113,-186 39.1234,-199.883 41.4008,-215.391 43.4117,-227.361"/>
+<text text-anchor="middle" x="32.9117" y="-219.361" font-family="Times New Roman,serif" font-size="10.00">store</text>
+<text text-anchor="middle" x="22" y="-72.5662" font-family="Times New Roman,serif" font-size="10.00">products *</text>
 </g>
 <!-- Product&#45;&gt;Board -->
 <g id="edge3" class="edge"><title>Product&#45;&gt;Board</title>
-<path fill="none" stroke="black" d="M57.212,-75.235C62.1327,-93.7302 68.2243,-116.626 72.5196,-132.77"/>
-<text text-anchor="middle" x="60.5196" y="-124.77" font-family="Times New Roman,serif" font-size="10.00">board</text>
-<text text-anchor="middle" x="79.212" y="-78.235" font-family="Times New Roman,serif" font-size="10.00">products *</text>
+<path fill="none" stroke="black" d="M54.9122,-69.5557C60.035,-88.8104 66.9644,-114.855 71.7111,-132.697"/>
+<text text-anchor="middle" x="59.7111" y="-124.697" font-family="Times New Roman,serif" font-size="10.00">board</text>
+<text text-anchor="middle" x="76.9122" y="-72.5557" font-family="Times New Roman,serif" font-size="10.00">products *</text>
 </g>
 <!-- Content -->
 <g id="node4" class="node"><title>Content</title>
-<polygon fill="none" stroke="black" points="136.902,-165 136.902,-182 216.902,-182 216.902,-165 136.902,-165"/>
-<text text-anchor="start" x="160.402" y="-171" font-family="Times New Roman,serif" font-size="10.00">Content</text>
-<polygon fill="none" stroke="black" points="136.902,-126 136.902,-165 216.902,-165 216.902,-126 136.902,-126"/>
-<text text-anchor="start" x="139.902" y="-154" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
-<text text-anchor="start" x="139.902" y="-143" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
-<text text-anchor="start" x="139.902" y="-132" font-family="Times New Roman,serif" font-size="10.00">action :String</text>
+<polygon fill="none" stroke="black" points="136.113,-165 136.113,-182 216.113,-182 216.113,-165 136.113,-165"/>
+<text text-anchor="start" x="159.613" y="-171" font-family="Times New Roman,serif" font-size="10.00">Content</text>
+<polygon fill="none" stroke="black" points="136.113,-126 136.113,-165 216.113,-165 216.113,-126 136.113,-126"/>
+<text text-anchor="start" x="139.113" y="-154" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
+<text text-anchor="start" x="139.113" y="-143" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
+<text text-anchor="start" x="139.113" y="-132" font-family="Times New Roman,serif" font-size="10.00">action :String</text>
 </g>
 <!-- Page -->
 <g id="node7" class="node"><title>Page</title>
-<polygon fill="none" stroke="black" points="136.902,-253.5 136.902,-270.5 216.902,-270.5 216.902,-253.5 136.902,-253.5"/>
-<text text-anchor="start" x="166.902" y="-259.5" font-family="Times New Roman,serif" font-size="10.00">Page</text>
-<polygon fill="none" stroke="black" points="136.902,-225.5 136.902,-253.5 216.902,-253.5 216.902,-225.5 136.902,-225.5"/>
-<text text-anchor="start" x="139.902" y="-242.5" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
-<text text-anchor="start" x="139.902" y="-231.5" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
+<polygon fill="none" stroke="black" points="136.113,-253.5 136.113,-270.5 216.113,-270.5 216.113,-253.5 136.113,-253.5"/>
+<text text-anchor="start" x="166.113" y="-259.5" font-family="Times New Roman,serif" font-size="10.00">Page</text>
+<polygon fill="none" stroke="black" points="136.113,-225.5 136.113,-253.5 216.113,-253.5 216.113,-225.5 136.113,-225.5"/>
+<text text-anchor="start" x="139.113" y="-242.5" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
+<text text-anchor="start" x="139.113" y="-231.5" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
 </g>
 <!-- Content&#45;&gt;Page -->
 <g id="edge5" class="edge"><title>Content&#45;&gt;Page</title>
-<path fill="none" stroke="black" d="M176.902,-186.058C176.902,-197.71 176.902,-210.809 176.902,-221.909"/>
-<text text-anchor="middle" x="157.402" y="-189.058" font-family="Times New Roman,serif" font-size="10.00">content *</text>
+<path fill="none" stroke="black" d="M176.113,-186.058C176.113,-197.71 176.113,-210.809 176.113,-221.909"/>
+<text text-anchor="middle" x="156.613" y="-189.058" font-family="Times New Roman,serif" font-size="10.00">content *</text>
 </g>
 <!-- Element -->
 <g id="node5" class="node"><title>Element</title>
-<polygon fill="none" stroke="black" points="146.902,-54 146.902,-71 206.902,-71 206.902,-54 146.902,-54"/>
-<text text-anchor="start" x="160.902" y="-60" font-family="Times New Roman,serif" font-size="10.00">Element</text>
-<polygon fill="none" stroke="black" points="146.902,-15 146.902,-54 206.902,-54 206.902,-15 146.902,-15"/>
-<text text-anchor="start" x="149.902" y="-43" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
-<text text-anchor="start" x="149.902" y="-32" font-family="Times New Roman,serif" font-size="10.00">text :String</text>
-<text text-anchor="start" x="149.902" y="-21" font-family="Times New Roman,serif" font-size="10.00">action :String</text>
+<polygon fill="none" stroke="black" points="146.113,-54 146.113,-71 206.113,-71 206.113,-54 146.113,-54"/>
+<text text-anchor="start" x="160.113" y="-60" font-family="Times New Roman,serif" font-size="10.00">Element</text>
+<polygon fill="none" stroke="black" points="146.113,-15 146.113,-54 206.113,-54 206.113,-15 146.113,-15"/>
+<text text-anchor="start" x="149.113" y="-43" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
+<text text-anchor="start" x="149.113" y="-32" font-family="Times New Roman,serif" font-size="10.00">text :String</text>
+<text text-anchor="start" x="149.113" y="-21" font-family="Times New Roman,serif" font-size="10.00">action :String</text>
 </g>
 <!-- Element&#45;&gt;Content -->
 <g id="edge4" class="edge"><title>Element&#45;&gt;Content</title>
-<path fill="none" stroke="black" d="M176.902,-75.235C176.902,-89.8299 176.902,-107.165 176.902,-121.76"/>
-<text text-anchor="middle" x="155.402" y="-78.235" font-family="Times New Roman,serif" font-size="10.00">elements *</text>
+<path fill="none" stroke="black" d="M176.113,-75.235C176.113,-89.8299 176.113,-107.165 176.113,-121.76"/>
+<text text-anchor="middle" x="154.613" y="-78.235" font-family="Times New Roman,serif" font-size="10.00">elements *</text>
 </g>
 <!-- StockApp -->
 <g id="node6" class="node"><title>StockApp</title>
-<polygon fill="none" stroke="black" points="240.902,-65 240.902,-82 320.902,-82 320.902,-65 240.902,-65"/>
-<text text-anchor="start" x="260.402" y="-71" font-family="Times New Roman,serif" font-size="10.00">StockApp</text>
-<polygon fill="none" stroke="black" points="240.902,-4 240.902,-65 320.902,-65 320.902,-4 240.902,-4"/>
-<text text-anchor="start" x="243.902" y="-54" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
-<text text-anchor="start" x="243.902" y="-43" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
-<text text-anchor="start" x="243.902" y="-32" font-family="Times New Roman,serif" font-size="10.00">user :String</text>
-<text text-anchor="start" x="243.902" y="-21" font-family="Times New Roman,serif" font-size="10.00">content :Page</text>
-<text text-anchor="start" x="243.902" y="-10" font-family="Times New Roman,serif" font-size="10.00">storage :Storage</text>
-</g>
-<!-- Person -->
-<g id="node8" class="node"><title>Person</title>
-<polygon fill="none" stroke="black" points="354.902,-43 354.902,-60 402.902,-60 402.902,-43 354.902,-43"/>
-<text text-anchor="start" x="364.902" y="-49" font-family="Times New Roman,serif" font-size="10.00">Person</text>
-<polygon fill="none" stroke="black" points="354.902,-26 354.902,-43 402.902,-43 402.902,-26 354.902,-26"/>
-<text text-anchor="start" x="357.902" y="-32" font-family="Times New Roman,serif" font-size="10.00">job :String</text>
+<polygon fill="none" stroke="black" points="240.113,-65 240.113,-82 320.113,-82 320.113,-65 240.113,-65"/>
+<text text-anchor="start" x="259.613" y="-71" font-family="Times New Roman,serif" font-size="10.00">StockApp</text>
+<polygon fill="none" stroke="black" points="240.113,-4 240.113,-65 320.113,-65 320.113,-4 240.113,-4"/>
+<text text-anchor="start" x="243.113" y="-54" font-family="Times New Roman,serif" font-size="10.00">id :String</text>
+<text text-anchor="start" x="243.113" y="-43" font-family="Times New Roman,serif" font-size="10.00">description :String</text>
+<text text-anchor="start" x="243.113" y="-32" font-family="Times New Roman,serif" font-size="10.00">user :String</text>
+<text text-anchor="start" x="243.113" y="-21" font-family="Times New Roman,serif" font-size="10.00">content :Page</text>
+<text text-anchor="start" x="243.113" y="-10" font-family="Times New Roman,serif" font-size="10.00">storage :Storage</text>
 </g>
 </g>
 </svg>

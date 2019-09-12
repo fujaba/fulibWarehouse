@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'application'
 	id 'org.fulib.fulibGradle' version '0.1.0'
+	id 'com.github.johnrengelman.shadow' version '5.1.0'
 }
 
 group 'webapp'
@@ -10,21 +11,22 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenLocal()
 	mavenCentral()
 	jcenter()
 
-	maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+	maven { url = 'https://oss.sonatype.org/content/repositories/snapshots'    }
 }
 
 generateScenarioSource.args '--class-diagram-svg'
 
+task stage(dependsOn: ['shadowJar', 'build'])
+
 dependencies {
-	fulibScenarios group: 'org.fulib', name: 'fulibScenarios', version: '[0.6,)'
-	testCompile group: 'org.fulib', name: 'fulibScenarios', version: '[0.6,)'
+	fulibScenarios group: 'org.fulib', name: 'fulibScenarios', version: '[0.8,)'
+	testCompile group: 'org.fulib', name: 'fulibScenarios', version: '[0.8,)'
 	// compile group: 'org.fulib', name: 'fulibMockups', version: '[0.1.0,)'
 	
-	compile group: 'org.fulib', name: 'fulibYaml', version: '[19,)'
+	compile group: 'org.fulib', name: 'fulibYaml', version: '[0.1.0,)'
 
 	// https://mvnrepository.com/artifact/junit/junit
 	testCompile group: 'junit', name: 'junit', version: '4.12'

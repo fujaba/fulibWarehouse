@@ -22,27 +22,23 @@
   methodBody: 	"      // --- Basic elements. ---
       Storage sEStore = new Storage();
       sEStore.setName(\"SE-Store\");
-      Product book4004 = new Product();
-      Product book5005 = new Product();
-      Product beer1 = new Product();
-      book4004.setId(\"book-4004\");
-      book5005.setId(\"book-5005\");
-      beer1.setId(\"beer-1\");
-      book4004.setName(\"Story Driven Modeling\");
-      book5005.setName(\"Java is also an Island\");
-      beer1.setName(\"Veltins\");
-      book4004.setItems(1);
-      book5005.setItems(1);
-      beer1.setItems(24);
-      Board bR1C1 = new Board();
-      Board bR1C2 = new Board();
-      bR1C1.setId(\"b-r1-c1\");
-      bR1C2.setId(\"b-r1-c2\");
-      sEStore.withBoards(bR1C1, bR1C2);
-      sEStore.withProducts(book4004, book5005, beer1);
-      bR1C1.withProducts(book4004, book5005);
-      bR1C2.withProducts(beer1);
-      Person xavier = new Person().setJob(\"hiwi\");
+      Product sDMBook = new Product();
+      Product javaBook = new Product();
+      Product veltinsBottle = new Product();
+      sDMBook.setName(\"SDM book\");
+      javaBook.setName(\"Java book\");
+      veltinsBottle.setName(\"Veltins bottle\");
+      sDMBook.setItems(1);
+      javaBook.setItems(1);
+      veltinsBottle.setItems(24);
+      Board b42 = new Board();
+      Board b43 = new Board();
+      b42.setId(\"b42\");
+      b43.setId(\"b43\");
+      sEStore.withBoards(b42, b43);
+      sEStore.withProducts(sDMBook, javaBook, veltinsBottle);
+      b42.withProducts(sDMBook, javaBook);
+      b43.withProducts(veltinsBottle);
       FulibTools.objectDiagrams().dumpSVG(\"C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/objects.svg\", sEStore);
       // --- GUI ---
       Content nameIn = new Content();
@@ -88,12 +84,17 @@
       stockTaker.setStorage(sEStore);
       // --- Prototype ---
       // --- # builder ---
-      Board newBoard = stockTaker.findBoard(\"b-r1-c1\");
+      Board newBoard = stockTaker.findBoard(\"b42\");
+      Product product = stockTaker.findProduct(\"SDM book\");
+      Product newProduct = stockTaker.findProduct(\"DB book\");
+      FulibTools.objectDiagrams().dumpSVG(\"C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/find-product.svg\", sEStore);
       // --- # gui ---
       stockTaker.login();
       stockTaker.runLogin(\"Albert\", \"geheim\");
       stockTaker.scan();
-      stockTaker.runScan(\"f1\", \"p1\", 42);
+      stockTaker.runScan(\"b45\", \"RE book\", 42);
+      FulibTools.objectDiagrams().dumpSVG(\"C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/run-scan.svg\", sEStore);
+      stockTaker.log();
       stockTaker.init();
 "
   modified: 	false
