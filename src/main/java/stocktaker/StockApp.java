@@ -225,7 +225,7 @@ public class StockApp
    }
 
    public void runScan(String location, String product, int items) { 
-      this.findBoard("f1");
+      Board result1 = this.findBoard("f1");
    }
 
    public void init() { 

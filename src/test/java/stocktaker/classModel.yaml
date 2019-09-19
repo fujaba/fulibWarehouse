@@ -2,9 +2,9 @@
   classes: 	stockTakerScenariosTest2 	
   defaultPropertyStyle: 	POJO
   defaultRoleType: 	"java.util.ArrayList<%s>"
-  mainJavaDir: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\test\java"
+  mainJavaDir: 	"src/test/java"
   packageName: 	stocktaker
-  packageSrcFolder: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\test\java/stocktaker"
+  packageSrcFolder: 	"src/test/java/stocktaker"
 
 - stockTakerScenariosTest2: 	Clazz
   importList: 	null 	null 	null 	
@@ -43,7 +43,7 @@
       bR1C1.withProducts(book4004, book5005);
       bR1C2.withProducts(beer1);
       Person xavier = new Person().setJob(\"hiwi\");
-      FulibTools.objectDiagrams().dumpSVG(\"C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/objects.svg\", sEStore);
+      FulibTools.objectDiagrams().dumpSVG(\"src/main/scenarios/stocktaker/objects.svg\", sEStore);
       // --- GUI ---
       Content nameIn = new Content();
       Content passIn = new Content();
@@ -83,7 +83,7 @@
       stockTaker.setDescription(\"Stock Taker\");
       stockTaker.setContent(loginPage);
       stockTaker.setUser(\"unknown\");
-      MockupTools.htmlTool().dump(\"C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/stock01.html\", stockTaker);
+      MockupTools.htmlTool().dump(\"src/main/scenarios/stocktaker/stock01.html\", stockTaker);
       // --- Controller ---
       stockTaker.setStorage(sEStore);
       // --- Prototype ---

@@ -2,9 +2,9 @@
   classes: 	storage2 	board3 	product4 	content5 	element6 	stockApp7 	page8 	person9 	
   defaultPropertyStyle: 	POJO
   defaultRoleType: 	"java.util.ArrayList<%s>"
-  mainJavaDir: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java"
+  mainJavaDir: 	"src/main/java"
   packageName: 	stocktaker
-  packageSrcFolder: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java/stocktaker"
+  packageSrcFolder: 	"src/main/java/stocktaker"
 
 - storage2: 	Clazz
   attributes: 	name10 	
@@ -320,7 +320,7 @@
 - f37: 	FMethod
   clazz: 	stockApp7
   declaration: 	"public void runScan(String location, String product, int items)"
-  methodBody: 	"      this.findBoard(\"f1\");
+  methodBody: 	"      Board result1 = this.findBoard(\"f1\");
 "
   modified: 	false
 

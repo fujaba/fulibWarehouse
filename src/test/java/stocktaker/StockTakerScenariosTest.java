@@ -32,7 +32,7 @@ public class StockTakerScenariosTest
       bR1C1.withProducts(book4004, book5005);
       bR1C2.withProducts(beer1);
       Person xavier = new Person().setJob("hiwi");
-      FulibTools.objectDiagrams().dumpSVG("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/objects.svg", sEStore);
+      FulibTools.objectDiagrams().dumpSVG("src/main/scenarios/stocktaker/objects.svg", sEStore);
       // --- GUI ---
       Content nameIn = new Content();
       Content passIn = new Content();
@@ -72,7 +72,7 @@ public class StockTakerScenariosTest
       stockTaker.setDescription("Stock Taker");
       stockTaker.setContent(loginPage);
       stockTaker.setUser("unknown");
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/stock01.html", stockTaker);
+      MockupTools.htmlTool().dump("src/main/scenarios/stocktaker/stock01.html", stockTaker);
       // --- Controller ---
       stockTaker.setStorage(sEStore);
       // --- Prototype ---
