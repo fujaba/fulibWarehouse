@@ -1,25 +1,75 @@
-package stocktaker;
+package stocktaker.StudyRight;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 
-public class Person  
+public class Assignment  
 {
-   public static final String PROPERTY_job = "job";
 
-   private String job;
+   public static final String PROPERTY_name = "name";
 
-   public String getJob()
+   private String name;
+
+   public String getName()
    {
-      return job;
+      return name;
    }
 
-   public Person setJob(String value)
+   public Assignment setName(String value)
    {
-      if (value == null ? this.job != null : ! value.equals(this.job))
+      if (value == null ? this.name != null : ! value.equals(this.name))
       {
-         String oldValue = this.job;
-         this.job = value;
-         firePropertyChange("job", oldValue, value);
+         String oldValue = this.name;
+         this.name = value;
+         firePropertyChange("name", oldValue, value);
+      }
+      return this;
+   }
+
+   public static final String PROPERTY_points = "points";
+
+   private int points;
+
+   public int getPoints()
+   {
+      return points;
+   }
+
+   public Assignment setPoints(int value)
+   {
+      if (value != this.points)
+      {
+         int oldValue = this.points;
+         this.points = value;
+         firePropertyChange("points", oldValue, value);
+      }
+      return this;
+   }
+
+   public static final String PROPERTY_room = "room";
+
+   private Room room = null;
+
+   public Room getRoom()
+   {
+      return this.room;
+   }
+
+   public Assignment setRoom(Room value)
+   {
+      if (this.room != value)
+      {
+         Room oldValue = this.room;
+         if (this.room != null)
+         {
+            this.room = null;
+            oldValue.withoutAssignments(this);
+         }
+         this.room = value;
+         if (value != null)
+         {
+            value.withAssignments(this);
+         }
+         firePropertyChange("room", oldValue, value);
       }
       return this;
    }
@@ -79,10 +129,16 @@ public class Person
    {
       StringBuilder result = new StringBuilder();
 
-      result.append(" ").append(this.getJob());
+      result.append(" ").append(this.getName());
 
 
       return result.substring(1);
+   }
+
+   public void removeYou()
+   {
+      this.setRoom(null);
+
    }
 
 }

@@ -98,16 +98,17 @@ Warehouse has at-ramp and is ramp of eu200, eu333.
 ## Operations
 
   We call find-product on Warehouse with product-name value of product-in.
-  Find-product takes some-product High Heels from products of Warehouse and 
-  as name of some-product is product-name, find-product answers with some-product.
-  Find-product creates a Product new-product with name product-name. 
-  Find-product answers with new-product into result.
+  Find-product takes  a product like High Heels from products of Warehouse and 
+  as name of product is product-name, find-product answers with product.
+  Find-product creates the Product new-product. 
+  Find-product writes product-name into name of new-product. 
+  Find-product answers with new-product.
 
   We call new-stock on Warehouse with new-pal-id value of pal-in 
   and with new-product-name value of product-in
   and with new-items value of items-in.
   
-  New-stock creates a Palette new-pal with id new-pal-id
+  New-stock creates the Palette new-pal with id new-pal-id
   and with items new-items.
   New-stock calls find-product on Warehouse with product-name new-product-name.
 

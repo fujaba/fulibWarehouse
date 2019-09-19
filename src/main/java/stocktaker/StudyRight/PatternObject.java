@@ -1,8 +1,8 @@
-package stocktaker;
+package stocktaker.StudyRight;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 
-public class Product  
+public class PatternObject  
 {
 
    public static final String PROPERTY_name = "name";
@@ -14,7 +14,7 @@ public class Product
       return name;
    }
 
-   public Product setName(String value)
+   public PatternObject setName(String value)
    {
       if (value == null ? this.name != null : ! value.equals(this.name))
       {
@@ -25,80 +25,100 @@ public class Product
       return this;
    }
 
-   public static final String PROPERTY_items = "items";
+   public static final String PROPERTY_students = "students";
 
-   private int items;
+   private PatternObject students;
 
-   public int getItems()
+   public PatternObject getStudents()
    {
-      return items;
+      return students;
    }
 
-   public Product setItems(int value)
+   public PatternObject setStudents(PatternObject value)
    {
-      if (value != this.items)
+      if (value != this.students)
       {
-         int oldValue = this.items;
-         this.items = value;
-         firePropertyChange("items", oldValue, value);
+         PatternObject oldValue = this.students;
+         this.students = value;
+         firePropertyChange("students", oldValue, value);
       }
       return this;
    }
 
-   public static final String PROPERTY_store = "store";
+   public static final String PROPERTY_assignments = "assignments";
 
-   private Storage store = null;
+   private PatternObject assignments;
 
-   public Storage getStore()
+   public PatternObject getAssignments()
    {
-      return this.store;
+      return assignments;
    }
 
-   public Product setStore(Storage value)
+   public PatternObject setAssignments(PatternObject value)
    {
-      if (this.store != value)
+      if (value != this.assignments)
       {
-         Storage oldValue = this.store;
-         if (this.store != null)
-         {
-            this.store = null;
-            oldValue.withoutProducts(this);
-         }
-         this.store = value;
-         if (value != null)
-         {
-            value.withProducts(this);
-         }
-         firePropertyChange("store", oldValue, value);
+         PatternObject oldValue = this.assignments;
+         this.assignments = value;
+         firePropertyChange("assignments", oldValue, value);
       }
       return this;
    }
 
-   public static final String PROPERTY_board = "board";
+   public static final String PROPERTY_rooms = "rooms";
 
-   private Board board = null;
+   private PatternObject rooms = null;
 
-   public Board getBoard()
+   public PatternObject getRooms()
    {
-      return this.board;
+      return this.rooms;
    }
 
-   public Product setBoard(Board value)
+   public PatternObject setRooms(PatternObject value)
    {
-      if (this.board != value)
+      if (this.rooms != value)
       {
-         Board oldValue = this.board;
-         if (this.board != null)
+         PatternObject oldValue = this.rooms;
+         if (this.rooms != null)
          {
-            this.board = null;
-            oldValue.withoutProducts(this);
+            this.rooms = null;
+            oldValue.setUni(null);
          }
-         this.board = value;
+         this.rooms = value;
          if (value != null)
          {
-            value.withProducts(this);
+            value.setUni(this);
          }
-         firePropertyChange("board", oldValue, value);
+         firePropertyChange("rooms", oldValue, value);
+      }
+      return this;
+   }
+
+   public static final String PROPERTY_uni = "uni";
+
+   private PatternObject uni = null;
+
+   public PatternObject getUni()
+   {
+      return this.uni;
+   }
+
+   public PatternObject setUni(PatternObject value)
+   {
+      if (this.uni != value)
+      {
+         PatternObject oldValue = this.uni;
+         if (this.uni != null)
+         {
+            this.uni = null;
+            oldValue.setRooms(null);
+         }
+         this.uni = value;
+         if (value != null)
+         {
+            value.setRooms(this);
+         }
+         firePropertyChange("uni", oldValue, value);
       }
       return this;
    }
@@ -153,13 +173,6 @@ public class Product
       return true;
    }
 
-   public void removeYou()
-   {
-      this.setStore(null);
-      this.setBoard(null);
-
-   }
-
    @Override
    public String toString()
    {
@@ -169,6 +182,13 @@ public class Product
 
 
       return result.substring(1);
+   }
+
+   public void removeYou()
+   {
+      this.setRooms(null);
+      this.setUni(null);
+
    }
 
 }

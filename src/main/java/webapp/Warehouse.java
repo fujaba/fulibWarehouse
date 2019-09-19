@@ -328,9 +328,9 @@ public class Warehouse
    }
 
    public Product findProduct(String productName) { 
-      for (final Product someProduct : this.getProducts()) {
-         if (someProduct.getName().equals(productName)) {
-            return someProduct;
+      for (final Product product : this.getProducts()) {
+         if (product.getName().equals(productName)) {
+            return product;
          }
       }
       Product newProduct = new Product();

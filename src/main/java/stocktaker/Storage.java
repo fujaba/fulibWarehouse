@@ -25,80 +25,6 @@ public class Storage
       return this;
    }
 
-   public static final java.util.ArrayList<Board> EMPTY_boards = new java.util.ArrayList<Board>()
-   { @Override public boolean add(Board value){ throw new UnsupportedOperationException("No direct add! Use xy.withBoards(obj)"); }};
-
-   public static final String PROPERTY_boards = "boards";
-
-   private java.util.ArrayList<Board> boards = null;
-
-   public java.util.ArrayList<Board> getBoards()
-   {
-      if (this.boards == null)
-      {
-         return EMPTY_boards;
-      }
-
-      return this.boards;
-   }
-
-   public Storage withBoards(Object... value)
-   {
-      if(value==null) return this;
-      for (Object item : value)
-      {
-         if (item == null) continue;
-         if (item instanceof java.util.Collection)
-         {
-            for (Object i : (java.util.Collection) item)
-            {
-               this.withBoards(i);
-            }
-         }
-         else if (item instanceof Board)
-         {
-            if (this.boards == null)
-            {
-               this.boards = new java.util.ArrayList<Board>();
-            }
-            if ( ! this.boards.contains(item))
-            {
-               this.boards.add((Board)item);
-               ((Board)item).setStore(this);
-               firePropertyChange("boards", null, item);
-            }
-         }
-         else throw new IllegalArgumentException();
-      }
-      return this;
-   }
-
-   public Storage withoutBoards(Object... value)
-   {
-      if (this.boards == null || value==null) return this;
-      for (Object item : value)
-      {
-         if (item == null) continue;
-         if (item instanceof java.util.Collection)
-         {
-            for (Object i : (java.util.Collection) item)
-            {
-               this.withoutBoards(i);
-            }
-         }
-         else if (item instanceof Board)
-         {
-            if (this.boards.contains(item))
-            {
-               this.boards.remove((Board)item);
-               ((Board)item).setStore(null);
-               firePropertyChange("boards", item, null);
-            }
-         }
-      }
-      return this;
-   }
-
    public static final java.util.ArrayList<Product> EMPTY_products = new java.util.ArrayList<Product>()
    { @Override public boolean add(Product value){ throw new UnsupportedOperationException("No direct add! Use xy.withProducts(obj)"); }};
 
@@ -223,6 +149,90 @@ public class Storage
       return true;
    }
 
+   public void removeYou()
+   {
+      this.withoutBoards(this.getBoards().clone());
+
+
+      this.withoutProducts(this.getProducts().clone());
+
+
+   }
+
+   public static final java.util.ArrayList<Board> EMPTY_boards = new java.util.ArrayList<Board>()
+   { @Override public boolean add(Board value){ throw new UnsupportedOperationException("No direct add! Use xy.withBoards(obj)"); }};
+
+   public static final String PROPERTY_boards = "boards";
+
+   private java.util.ArrayList<Board> boards = null;
+
+   public java.util.ArrayList<Board> getBoards()
+   {
+      if (this.boards == null)
+      {
+         return EMPTY_boards;
+      }
+
+      return this.boards;
+   }
+
+   public Storage withBoards(Object... value)
+   {
+      if(value==null) return this;
+      for (Object item : value)
+      {
+         if (item == null) continue;
+         if (item instanceof java.util.Collection)
+         {
+            for (Object i : (java.util.Collection) item)
+            {
+               this.withBoards(i);
+            }
+         }
+         else if (item instanceof Board)
+         {
+            if (this.boards == null)
+            {
+               this.boards = new java.util.ArrayList<Board>();
+            }
+            if ( ! this.boards.contains(item))
+            {
+               this.boards.add((Board)item);
+               ((Board)item).setStore(this);
+               firePropertyChange("boards", null, item);
+            }
+         }
+         else throw new IllegalArgumentException();
+      }
+      return this;
+   }
+
+   public Storage withoutBoards(Object... value)
+   {
+      if (this.boards == null || value==null) return this;
+      for (Object item : value)
+      {
+         if (item == null) continue;
+         if (item instanceof java.util.Collection)
+         {
+            for (Object i : (java.util.Collection) item)
+            {
+               this.withoutBoards(i);
+            }
+         }
+         else if (item instanceof Board)
+         {
+            if (this.boards.contains(item))
+            {
+               this.boards.remove((Board)item);
+               ((Board)item).setStore(null);
+               firePropertyChange("boards", item, null);
+            }
+         }
+      }
+      return this;
+   }
+
    @Override
    public String toString()
    {
@@ -232,16 +242,6 @@ public class Storage
 
 
       return result.substring(1);
-   }
-
-   public void removeYou()
-   {
-      this.withoutBoards(this.getBoards().clone());
-
-
-      this.withoutProducts(this.getProducts().clone());
-
-
    }
 
 }

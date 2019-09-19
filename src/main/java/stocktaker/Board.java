@@ -25,35 +25,6 @@ public class Board
       return this;
    }
 
-   public static final String PROPERTY_store = "store";
-
-   private Storage store = null;
-
-   public Storage getStore()
-   {
-      return this.store;
-   }
-
-   public Board setStore(Storage value)
-   {
-      if (this.store != value)
-      {
-         Storage oldValue = this.store;
-         if (this.store != null)
-         {
-            this.store = null;
-            oldValue.withoutBoards(this);
-         }
-         this.store = value;
-         if (value != null)
-         {
-            value.withBoards(this);
-         }
-         firePropertyChange("store", oldValue, value);
-      }
-      return this;
-   }
-
    public static final java.util.ArrayList<Product> EMPTY_products = new java.util.ArrayList<Product>()
    { @Override public boolean add(Product value){ throw new UnsupportedOperationException("No direct add! Use xy.withProducts(obj)"); }};
 
@@ -196,6 +167,35 @@ public class Board
       this.withoutProducts(this.getProducts().clone());
 
 
+   }
+
+   public static final String PROPERTY_store = "store";
+
+   private Storage store = null;
+
+   public Storage getStore()
+   {
+      return this.store;
+   }
+
+   public Board setStore(Storage value)
+   {
+      if (this.store != value)
+      {
+         Storage oldValue = this.store;
+         if (this.store != null)
+         {
+            this.store = null;
+            oldValue.withoutBoards(this);
+         }
+         this.store = value;
+         if (value != null)
+         {
+            value.withBoards(this);
+         }
+         firePropertyChange("store", oldValue, value);
+      }
+      return this;
    }
 
 }

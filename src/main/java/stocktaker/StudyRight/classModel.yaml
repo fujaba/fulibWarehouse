@@ -1,0 +1,226 @@
+- c1: 	ClassModel
+  classes: 	assignment2 	room3 	university4 	student5 	patternObject6 	modelPattern7 	
+  defaultPropertyStyle: 	POJO
+  defaultRoleType: 	"java.util.ArrayList<%s>"
+  mainJavaDir: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java"
+  packageName: 	stocktaker.StudyRight
+  packageSrcFolder: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java/stocktaker/StudyRight"
+
+- assignment2: 	Clazz
+  attributes: 	name8 	points9 	
+  model: 	c1
+  modified: 	false
+  name: 	Assignment
+  propertyStyle: 	POJO
+  roles: 	room10 	
+
+- room3: 	Clazz
+  attributes: 	topic11 	credits12 	
+  model: 	c1
+  modified: 	false
+  name: 	Room
+  propertyStyle: 	POJO
+  roles: 	assignments13 	uni14 	
+
+- university4: 	Clazz
+  attributes: 	name15 	
+  model: 	c1
+  modified: 	false
+  name: 	University
+  propertyStyle: 	POJO
+  roles: 	rooms16 	students17 	
+
+- student5: 	Clazz
+  attributes: 	name18 	studentId19 	
+  model: 	c1
+  modified: 	false
+  name: 	Student
+  propertyStyle: 	POJO
+  roles: 	uni20 	
+
+- patternObject6: 	Clazz
+  attributes: 	name21 	students22 	assignments23 	
+  model: 	c1
+  modified: 	false
+  name: 	PatternObject
+  propertyStyle: 	POJO
+  roles: 	rooms24 	uni25 	
+
+- modelPattern7: 	Clazz
+  model: 	c1
+  modified: 	false
+  name: 	ModelPattern
+  propertyStyle: 	POJO
+  roles: 	objects26 	
+
+- name8: 	Attribute
+  clazz: 	assignment2
+  modified: 	false
+  name: 	name
+  propertyStyle: 	POJO
+  type: 	String
+
+- points9: 	Attribute
+  clazz: 	assignment2
+  modified: 	false
+  name: 	points
+  propertyStyle: 	POJO
+  type: 	int
+
+- room10: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	assignment2
+  modified: 	false
+  name: 	room
+  other: 	assignments13
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- topic11: 	Attribute
+  clazz: 	room3
+  modified: 	false
+  name: 	topic
+  propertyStyle: 	POJO
+  type: 	String
+
+- credits12: 	Attribute
+  clazz: 	room3
+  modified: 	false
+  name: 	credits
+  propertyStyle: 	POJO
+  type: 	double
+
+- assignments13: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	room3
+  modified: 	false
+  name: 	assignments
+  other: 	room10
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- uni14: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	room3
+  modified: 	false
+  name: 	uni
+  other: 	rooms16
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- name15: 	Attribute
+  clazz: 	university4
+  modified: 	false
+  name: 	name
+  propertyStyle: 	POJO
+  type: 	String
+
+- rooms16: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	university4
+  modified: 	false
+  name: 	rooms
+  other: 	uni14
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- students17: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	university4
+  modified: 	false
+  name: 	students
+  other: 	uni20
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- name18: 	Attribute
+  clazz: 	student5
+  modified: 	false
+  name: 	name
+  propertyStyle: 	POJO
+  type: 	String
+
+- studentId19: 	Attribute
+  clazz: 	student5
+  modified: 	false
+  name: 	studentId
+  propertyStyle: 	POJO
+  type: 	String
+
+- uni20: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	student5
+  modified: 	false
+  name: 	uni
+  other: 	students17
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- name21: 	Attribute
+  clazz: 	patternObject6
+  modified: 	false
+  name: 	name
+  propertyStyle: 	POJO
+  type: 	String
+
+- students22: 	Attribute
+  clazz: 	patternObject6
+  modified: 	false
+  name: 	students
+  propertyStyle: 	POJO
+  type: 	PatternObject
+
+- assignments23: 	Attribute
+  clazz: 	patternObject6
+  modified: 	false
+  name: 	assignments
+  propertyStyle: 	POJO
+  type: 	PatternObject
+
+- rooms24: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	patternObject6
+  modified: 	false
+  name: 	rooms
+  other: 	uni25
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- uni25: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	patternObject6
+  modified: 	false
+  name: 	uni
+  other: 	rooms24
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- objects26: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	modelPattern7
+  modified: 	false
+  name: 	objects
+  other: 	a27
+  roleType: 	"java.util.ArrayList<%s>"
+
+- a27: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	patternObject28
+  modified: 	false
+  other: 	objects26
+
+- patternObject28: 	Clazz
+  modified: 	false
+  name: 	PatternObject
+  roles: 	a27 	
+

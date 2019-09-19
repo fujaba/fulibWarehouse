@@ -1,8 +1,8 @@
-package stocktaker;
+package stocktaker.StudyRight;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 
-public class Product  
+public class Student  
 {
 
    public static final String PROPERTY_name = "name";
@@ -14,7 +14,7 @@ public class Product
       return name;
    }
 
-   public Product setName(String value)
+   public Student setName(String value)
    {
       if (value == null ? this.name != null : ! value.equals(this.name))
       {
@@ -25,80 +25,51 @@ public class Product
       return this;
    }
 
-   public static final String PROPERTY_items = "items";
+   public static final String PROPERTY_studentId = "studentId";
 
-   private int items;
+   private String studentId;
 
-   public int getItems()
+   public String getStudentId()
    {
-      return items;
+      return studentId;
    }
 
-   public Product setItems(int value)
+   public Student setStudentId(String value)
    {
-      if (value != this.items)
+      if (value == null ? this.studentId != null : ! value.equals(this.studentId))
       {
-         int oldValue = this.items;
-         this.items = value;
-         firePropertyChange("items", oldValue, value);
+         String oldValue = this.studentId;
+         this.studentId = value;
+         firePropertyChange("studentId", oldValue, value);
       }
       return this;
    }
 
-   public static final String PROPERTY_store = "store";
+   public static final String PROPERTY_uni = "uni";
 
-   private Storage store = null;
+   private University uni = null;
 
-   public Storage getStore()
+   public University getUni()
    {
-      return this.store;
+      return this.uni;
    }
 
-   public Product setStore(Storage value)
+   public Student setUni(University value)
    {
-      if (this.store != value)
+      if (this.uni != value)
       {
-         Storage oldValue = this.store;
-         if (this.store != null)
+         University oldValue = this.uni;
+         if (this.uni != null)
          {
-            this.store = null;
-            oldValue.withoutProducts(this);
+            this.uni = null;
+            oldValue.withoutStudents(this);
          }
-         this.store = value;
+         this.uni = value;
          if (value != null)
          {
-            value.withProducts(this);
+            value.withStudents(this);
          }
-         firePropertyChange("store", oldValue, value);
-      }
-      return this;
-   }
-
-   public static final String PROPERTY_board = "board";
-
-   private Board board = null;
-
-   public Board getBoard()
-   {
-      return this.board;
-   }
-
-   public Product setBoard(Board value)
-   {
-      if (this.board != value)
-      {
-         Board oldValue = this.board;
-         if (this.board != null)
-         {
-            this.board = null;
-            oldValue.withoutProducts(this);
-         }
-         this.board = value;
-         if (value != null)
-         {
-            value.withProducts(this);
-         }
-         firePropertyChange("board", oldValue, value);
+         firePropertyChange("uni", oldValue, value);
       }
       return this;
    }
@@ -153,22 +124,22 @@ public class Product
       return true;
    }
 
-   public void removeYou()
-   {
-      this.setStore(null);
-      this.setBoard(null);
-
-   }
-
    @Override
    public String toString()
    {
       StringBuilder result = new StringBuilder();
 
       result.append(" ").append(this.getName());
+      result.append(" ").append(this.getStudentId());
 
 
       return result.substring(1);
+   }
+
+   public void removeYou()
+   {
+      this.setUni(null);
+
    }
 
 }

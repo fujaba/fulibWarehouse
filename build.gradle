@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'application'
 	id 'org.fulib.fulibGradle' version '0.2.0'
+	id 'com.github.johnrengelman.shadow' version '5.1.0'
 }
 
 group = 'webapp'
@@ -10,11 +11,10 @@ version = '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenLocal()
 	mavenCentral()
 	jcenter()
 
-	maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+	maven { url = 'https://oss.sonatype.org/content/repositories/snapshots'    }
 }
 
 dependencies {
@@ -38,6 +38,10 @@ application {
 
 generateScenarioSource {
 	classDiagramSVG = true
+}
+
+tasks.register('stage') {
+	dependsOn 'shadowJar', 'build'
 }
 
 tasks.register('stockTaker', JavaExec) {
