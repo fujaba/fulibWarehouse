@@ -5,395 +5,393 @@
       crossorigin="anonymous">
 
 <script>
-    function handler (response) {
-        console.log(response);
-        document.documentElement.innerHTML = response;
-    }
+	function handler(response) {
+		console.log(response);
+		document.documentElement.innerHTML = response;
+	}
 
-    function submit(cmd) {
-        if (cmd) {
-            const words = cmd.split(' ');
-            // collect actual parameters
-            var request = {};
-            request['_cmd'] = words[0];
+	function submit(cmd) {
+		if (cmd) {
+			const words = cmd.split(' ');
+			const request = { _cmd: words[0], _newPage: words[words.length - 1]};
 
-            for (var i = 1; i < words.length - 1; i++) {
-                const divElem = document.getElementById(words[i]);
-                const subDiv = divElem.getElementsByTagName('div')[0];
-                const inputElem = subDiv.getElementsByTagName('input')[0];
-                const subSubDiv = subDiv.getElementsByTagName('div')[0];
-                var value = words[i];
-                if (inputElem) {
-                    value = inputElem.value;
-                }
-                else if (subSubDiv) {
-                    value = subSubDiv.textContent;
-                }
-                request[words[i]] = value;
-            }
-            request['_newPage'] = words[words.length-1];
-            const requestString = JSON.stringify(request);
-            const httpRequest = new XMLHttpRequest();
-            httpRequest.overrideMimeType('application/json');
-            httpRequest.addEventListener('load', function() {
-                handler(this.responseText);
-            });
-            httpRequest.open('POST', '/cmd', true);
-            httpRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-            httpRequest.send(requestString);
-        }
-    }
+			// collect actual parameters
+			for (let i = 1; i < words.length - 1; i++) {
+				const divElem = document.getElementById(words[i]);
+				const subDiv = divElem.getElementsByTagName('div')[0];
+				const inputElem = subDiv.getElementsByTagName('input')[0];
+				const subSubDiv = subDiv.getElementsByTagName('div')[0];
+				let value = words[i];
+				if (inputElem) {
+					value = inputElem.value;
+				} else if (subSubDiv) {
+					value = subSubDiv.textContent;
+				}
+				request[words[i]] = value;
+			}
+
+			const requestString = JSON.stringify(request);
+			const httpRequest = new XMLHttpRequest();
+
+			httpRequest.overrideMimeType('application/json');
+			httpRequest.addEventListener('load', function() {
+				handler(this.responseText);
+			});
+			httpRequest.open('POST', '/cmd', true);
+			httpRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+			httpRequest.send(requestString);
+		}
+	}
 </script>
-
 <div id='thePanel'>
 </div>
 
 <script>
-    const thePanel = document.getElementById('thePanel');
-    const stepList = [
+	const thePanel = document.getElementById('thePanel');
+	const stepList = [
 /* step03.html */
 `<div id='fork-lift-guide' class='container'>
-    <div class='row justify-content-center'>
+	<div class='row justify-content-center'>
 		<div class='col col-lg-2 text-center' style='margin: 1rem'>Fork Lift Guide</div>
-    </div>
+	</div>
 	<div id='add-supply-page' >
-	    <div class='row justify-content-center'>
+		<div class='row justify-content-center'>
 			<div class='col col-lg-2 text-center' style='margin: 1rem'>New Supply</div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Store Palettes")' style='margin: 1rem'>Store Palettes</button></div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Tables")' style='margin: 1rem'>Tables</button></div>
-	    </div>
+		</div>
 		<div id='pal-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='palette id?' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='product-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='product?' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='items-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='number of items?' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='add-palette-button' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<div class='col col-lg-2 text-center'><button onclick='submit("submit('add-palette pal-in product-in items-in')")' style='margin: 1rem'>submit</button></div>
-		    </div>
+			</div>
 		</div>
 		<div id='pal-line1' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>eu42</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>Sneakers</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>42</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>Place</div>
-		    </div>
+			</div>
 		</div>
 	</div>
 </div>
 `,
 /* step04.html */
 `<div id='fork-lift-guide' class='container'>
-    <div class='row justify-content-center'>
+	<div class='row justify-content-center'>
 		<div class='col col-lg-2 text-center' style='margin: 1rem'>Fork Lift Guide</div>
-    </div>
+	</div>
 	<div id='add-supply-page' >
-	    <div class='row justify-content-center'>
+		<div class='row justify-content-center'>
 			<div class='col col-lg-2 text-center' style='margin: 1rem'>New Supply</div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Store Palettes")' style='margin: 1rem'>Store Palettes</button></div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Tables")' style='margin: 1rem'>Tables</button></div>
-	    </div>
+		</div>
 		<div id='pal-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='palette id?' value='eu500' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='product-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='product?' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='items-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='number of items?' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='add-palette-button' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<div class='col col-lg-2 text-center'><button onclick='submit("submit('add-palette pal-in product-in items-in')")' style='margin: 1rem'>submit</button></div>
-		    </div>
+			</div>
 		</div>
 		<div id='pal-line1' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>eu42</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>Sneakers</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>42</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>Place</div>
-		    </div>
+			</div>
 		</div>
 	</div>
 </div>
 `,
 /* step05.html */
 `<div id='fork-lift-guide' class='container'>
-    <div class='row justify-content-center'>
+	<div class='row justify-content-center'>
 		<div class='col col-lg-2 text-center' style='margin: 1rem'>Fork Lift Guide</div>
-    </div>
+	</div>
 	<div id='add-supply-page' >
-	    <div class='row justify-content-center'>
+		<div class='row justify-content-center'>
 			<div class='col col-lg-2 text-center' style='margin: 1rem'>New Supply</div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Store Palettes")' style='margin: 1rem'>Store Palettes</button></div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Tables")' style='margin: 1rem'>Tables</button></div>
-	    </div>
+		</div>
 		<div id='pal-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='palette id?' value='eu500' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='product-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='product?' value='Sneakers' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='items-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='number of items?' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='add-palette-button' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<div class='col col-lg-2 text-center'><button onclick='submit("submit('add-palette pal-in product-in items-in')")' style='margin: 1rem'>submit</button></div>
-		    </div>
+			</div>
 		</div>
 		<div id='pal-line1' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>eu42</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>Sneakers</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>42</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>Place</div>
-		    </div>
+			</div>
 		</div>
 	</div>
 </div>
 `,
 /* step06.html */
 `<div id='fork-lift-guide' class='container'>
-    <div class='row justify-content-center'>
+	<div class='row justify-content-center'>
 		<div class='col col-lg-2 text-center' style='margin: 1rem'>Fork Lift Guide</div>
-    </div>
+	</div>
 	<div id='add-supply-page' >
-	    <div class='row justify-content-center'>
+		<div class='row justify-content-center'>
 			<div class='col col-lg-2 text-center' style='margin: 1rem'>New Supply</div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Store Palettes")' style='margin: 1rem'>Store Palettes</button></div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Tables")' style='margin: 1rem'>Tables</button></div>
-	    </div>
+		</div>
 		<div id='pal-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='palette id?' value='eu500' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='product-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='product?' value='Sneakers' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='items-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='number of items?' value='50' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='add-palette-button' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<div class='col col-lg-2 text-center'><button onclick='submit("submit('add-palette pal-in product-in items-in')")' style='margin: 1rem'>submit</button></div>
-		    </div>
+			</div>
 		</div>
 		<div id='pal-line1' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>eu42</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>Sneakers</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>42</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>Place</div>
-		    </div>
+			</div>
 		</div>
 	</div>
 </div>
 `,
 /* step07.html */
 `<div id='fork-lift-guide' class='container'>
-    <div class='row justify-content-center'>
+	<div class='row justify-content-center'>
 		<div class='col col-lg-2 text-center' style='margin: 1rem'>Fork Lift Guide</div>
-    </div>
+	</div>
 	<div id='tables-page' >
-	    <div class='row justify-content-center'>
+		<div class='row justify-content-center'>
 			<div class='col col-lg-2 text-center'><button onclick='submit("New Supply")' style='margin: 1rem'>New Supply</button></div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Store Palettes")' style='margin: 1rem'>Store Palettes</button></div>
 			<div class='col col-lg-2 text-center' style='margin: 1rem'>Tables</div>
-	    </div>
+		</div>
 <div class='container'>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold'>Warehouse</div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold border'>areas</div>
-        <div class='col text-center font-weight-bold border'>atRamp</div>
-        <div class='col text-center font-weight-bold border'>products</div>
-    </div>
-    <div class='row justify-content-center' id='w1'>
-        <div class='col text-center border'><a href='#fast_area3'>fast area</a> <a href='#middle_area4'>middle area</a> <a href='#slow_area5'>slow area</a> </div>
-        <div class='col text-center border'><a href='#eu2006'>eu200</a> <a href='#eu3337'>eu333</a> </div>
-        <div class='col text-center border'><a href='#high_Heels8'>High Heels</a> <a href='#nike_Airs9'>Nike Airs</a> </div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold'>Place</div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold border'>area</div>
-        <div class='col text-center font-weight-bold border'>name</div>
-        <div class='col text-center font-weight-bold border'>palette</div>
-    </div>
-    <div class='row justify-content-center' id='f112'>
-        <div class='col text-center border'><a href='#fast_area3'>fast area</a> </div>
-        <div class='col text-center border'>f1</div>
-        <div class='col text-center border'>N/A</div>
-    </div>
-    <div class='row justify-content-center' id='f213'>
-        <div class='col text-center border'><a href='#fast_area3'>fast area</a> </div>
-        <div class='col text-center border'>f2</div>
-        <div class='col text-center border'><a href='#eu10010'>eu100</a> </div>
-    </div>
-    <div class='row justify-content-center' id='f314'>
-        <div class='col text-center border'><a href='#fast_area3'>fast area</a> </div>
-        <div class='col text-center border'>f3</div>
-        <div class='col text-center border'>N/A</div>
-    </div>
-    <div class='row justify-content-center' id='m115'>
-        <div class='col text-center border'><a href='#middle_area4'>middle area</a> </div>
-        <div class='col text-center border'>m1</div>
-        <div class='col text-center border'>N/A</div>
-    </div>
-    <div class='row justify-content-center' id='m216'>
-        <div class='col text-center border'><a href='#middle_area4'>middle area</a> </div>
-        <div class='col text-center border'>m2</div>
-        <div class='col text-center border'>N/A</div>
-    </div>
-    <div class='row justify-content-center' id='s117'>
-        <div class='col text-center border'><a href='#slow_area5'>slow area</a> </div>
-        <div class='col text-center border'>s1</div>
-        <div class='col text-center border'>N/A</div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold'>Arrival</div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold border'>id</div>
-        <div class='col text-center font-weight-bold border'>palettes</div>
-        <div class='col text-center font-weight-bold border'>producer</div>
-    </div>
-    <div class='row justify-content-center' id='mondayArrival2'>
-        <div class='col text-center border'>mondayArrival</div>
-        <div class='col text-center border'><a href='#eu10010'>eu100</a> <a href='#eu2006'>eu200</a> <a href='#eu3337'>eu333</a> </div>
-        <div class='col text-center border'><a href='#italy11'>Italy</a> </div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold'>Product</div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold border'>name</div>
-        <div class='col text-center font-weight-bold border'>palettes</div>
-        <div class='col text-center font-weight-bold border'>warehouse</div>
-    </div>
-    <div class='row justify-content-center' id='high_Heels8'>
-        <div class='col text-center border'>High Heels</div>
-        <div class='col text-center border'><a href='#eu2006'>eu200</a> <a href='#eu3337'>eu333</a> </div>
-        <div class='col text-center border'><a href='#w1'>w1</a> </div>
-    </div>
-    <div class='row justify-content-center' id='nike_Airs9'>
-        <div class='col text-center border'>Nike Airs</div>
-        <div class='col text-center border'><a href='#eu10010'>eu100</a> </div>
-        <div class='col text-center border'><a href='#w1'>w1</a> </div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold'>Palette</div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold border'>id</div>
-        <div class='col text-center font-weight-bold border'>items</div>
-        <div class='col text-center font-weight-bold border'>place</div>
-        <div class='col text-center font-weight-bold border'>product</div>
-        <div class='col text-center font-weight-bold border'>quantity</div>
-        <div class='col text-center font-weight-bold border'>ramp</div>
-    </div>
-    <div class='row justify-content-center' id='eu2006'>
-        <div class='col text-center border'>eu200</div>
-        <div class='col text-center border'>N/A</div>
-        <div class='col text-center border'>N/A</div>
-        <div class='col text-center border'><a href='#high_Heels8'>High Heels</a> </div>
-        <div class='col text-center border'>150</div>
-        <div class='col text-center border'><a href='#w1'>w1</a> </div>
-    </div>
-    <div class='row justify-content-center' id='eu3337'>
-        <div class='col text-center border'>eu333</div>
-        <div class='col text-center border'>N/A</div>
-        <div class='col text-center border'>N/A</div>
-        <div class='col text-center border'><a href='#high_Heels8'>High Heels</a> </div>
-        <div class='col text-center border'>150</div>
-        <div class='col text-center border'><a href='#w1'>w1</a> </div>
-    </div>
-    <div class='row justify-content-center' id='eu10010'>
-        <div class='col text-center border'>eu100</div>
-        <div class='col text-center border'>N/A</div>
-        <div class='col text-center border'><a href='#f213'>f2</a> </div>
-        <div class='col text-center border'><a href='#nike_Airs9'>Nike Airs</a> </div>
-        <div class='col text-center border'>100</div>
-        <div class='col text-center border'>N/A</div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold'>Producer</div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold border'>name</div>
-    </div>
-    <div class='row justify-content-center' id='italy11'>
-        <div class='col text-center border'>Italy</div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold'>Area</div>
-    </div>
-    <br>
-    <div class='row justify-content-center '>
-        <div class='col text-center font-weight-bold border'>name</div>
-        <div class='col text-center font-weight-bold border'>places</div>
-        <div class='col text-center font-weight-bold border'>warehouse</div>
-    </div>
-    <div class='row justify-content-center' id='fast_area3'>
-        <div class='col text-center border'>fast area</div>
-        <div class='col text-center border'><a href='#f112'>f1</a> <a href='#f213'>f2</a> <a href='#f314'>f3</a> </div>
-        <div class='col text-center border'><a href='#w1'>w1</a> </div>
-    </div>
-    <div class='row justify-content-center' id='middle_area4'>
-        <div class='col text-center border'>middle area</div>
-        <div class='col text-center border'><a href='#m115'>m1</a> <a href='#m216'>m2</a> </div>
-        <div class='col text-center border'><a href='#w1'>w1</a> </div>
-    </div>
-    <div class='row justify-content-center' id='slow_area5'>
-        <div class='col text-center border'>slow area</div>
-        <div class='col text-center border'><a href='#s117'>s1</a> </div>
-        <div class='col text-center border'><a href='#w1'>w1</a> </div>
-    </div>
-    <br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold'>Palette</div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold border'>id</div>
+		<div class='col text-center font-weight-bold border'>items</div>
+		<div class='col text-center font-weight-bold border'>place</div>
+		<div class='col text-center font-weight-bold border'>product</div>
+		<div class='col text-center font-weight-bold border'>quantity</div>
+		<div class='col text-center font-weight-bold border'>ramp</div>
+	</div>
+	<div class='row justify-content-center' id='eu2006'>
+		<div class='col text-center border'>eu200</div>
+		<div class='col text-center border'>N/A</div>
+		<div class='col text-center border'>N/A</div>
+		<div class='col text-center border'><a href='#high_Heels8'>High Heels</a> </div>
+		<div class='col text-center border'>150</div>
+		<div class='col text-center border'><a href='#w1'>w1</a> </div>
+	</div>
+	<div class='row justify-content-center' id='eu3337'>
+		<div class='col text-center border'>eu333</div>
+		<div class='col text-center border'>N/A</div>
+		<div class='col text-center border'>N/A</div>
+		<div class='col text-center border'><a href='#high_Heels8'>High Heels</a> </div>
+		<div class='col text-center border'>150</div>
+		<div class='col text-center border'><a href='#w1'>w1</a> </div>
+	</div>
+	<div class='row justify-content-center' id='eu10010'>
+		<div class='col text-center border'>eu100</div>
+		<div class='col text-center border'>N/A</div>
+		<div class='col text-center border'><a href='#f213'>f2</a> </div>
+		<div class='col text-center border'><a href='#nike_Airs9'>Nike Airs</a> </div>
+		<div class='col text-center border'>100</div>
+		<div class='col text-center border'>N/A</div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold'>Warehouse</div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold border'>areas</div>
+		<div class='col text-center font-weight-bold border'>atRamp</div>
+		<div class='col text-center font-weight-bold border'>products</div>
+	</div>
+	<div class='row justify-content-center' id='w1'>
+		<div class='col text-center border'><a href='#fast_area3'>fast area</a> <a href='#middle_area4'>middle area</a> <a href='#slow_area5'>slow area</a> </div>
+		<div class='col text-center border'><a href='#eu2006'>eu200</a> <a href='#eu3337'>eu333</a> </div>
+		<div class='col text-center border'><a href='#high_Heels8'>High Heels</a> <a href='#nike_Airs9'>Nike Airs</a> </div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold'>Producer</div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold border'>name</div>
+	</div>
+	<div class='row justify-content-center' id='italy11'>
+		<div class='col text-center border'>Italy</div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold'>Place</div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold border'>area</div>
+		<div class='col text-center font-weight-bold border'>name</div>
+		<div class='col text-center font-weight-bold border'>palette</div>
+	</div>
+	<div class='row justify-content-center' id='f112'>
+		<div class='col text-center border'><a href='#fast_area3'>fast area</a> </div>
+		<div class='col text-center border'>f1</div>
+		<div class='col text-center border'>N/A</div>
+	</div>
+	<div class='row justify-content-center' id='f213'>
+		<div class='col text-center border'><a href='#fast_area3'>fast area</a> </div>
+		<div class='col text-center border'>f2</div>
+		<div class='col text-center border'><a href='#eu10010'>eu100</a> </div>
+	</div>
+	<div class='row justify-content-center' id='f314'>
+		<div class='col text-center border'><a href='#fast_area3'>fast area</a> </div>
+		<div class='col text-center border'>f3</div>
+		<div class='col text-center border'>N/A</div>
+	</div>
+	<div class='row justify-content-center' id='m115'>
+		<div class='col text-center border'><a href='#middle_area4'>middle area</a> </div>
+		<div class='col text-center border'>m1</div>
+		<div class='col text-center border'>N/A</div>
+	</div>
+	<div class='row justify-content-center' id='m216'>
+		<div class='col text-center border'><a href='#middle_area4'>middle area</a> </div>
+		<div class='col text-center border'>m2</div>
+		<div class='col text-center border'>N/A</div>
+	</div>
+	<div class='row justify-content-center' id='s117'>
+		<div class='col text-center border'><a href='#slow_area5'>slow area</a> </div>
+		<div class='col text-center border'>s1</div>
+		<div class='col text-center border'>N/A</div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold'>Product</div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold border'>name</div>
+		<div class='col text-center font-weight-bold border'>palettes</div>
+		<div class='col text-center font-weight-bold border'>warehouse</div>
+	</div>
+	<div class='row justify-content-center' id='high_Heels8'>
+		<div class='col text-center border'>High Heels</div>
+		<div class='col text-center border'><a href='#eu2006'>eu200</a> <a href='#eu3337'>eu333</a> </div>
+		<div class='col text-center border'><a href='#w1'>w1</a> </div>
+	</div>
+	<div class='row justify-content-center' id='nike_Airs9'>
+		<div class='col text-center border'>Nike Airs</div>
+		<div class='col text-center border'><a href='#eu10010'>eu100</a> </div>
+		<div class='col text-center border'><a href='#w1'>w1</a> </div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold'>Arrival</div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold border'>id</div>
+		<div class='col text-center font-weight-bold border'>palettes</div>
+		<div class='col text-center font-weight-bold border'>producer</div>
+	</div>
+	<div class='row justify-content-center' id='mondayArrival2'>
+		<div class='col text-center border'>mondayArrival</div>
+		<div class='col text-center border'><a href='#eu10010'>eu100</a> <a href='#eu2006'>eu200</a> <a href='#eu3337'>eu333</a> </div>
+		<div class='col text-center border'><a href='#italy11'>Italy</a> </div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold'>Area</div>
+	</div>
+	<br>
+	<div class='row justify-content-center '>
+		<div class='col text-center font-weight-bold border'>name</div>
+		<div class='col text-center font-weight-bold border'>places</div>
+		<div class='col text-center font-weight-bold border'>warehouse</div>
+	</div>
+	<div class='row justify-content-center' id='fast_area3'>
+		<div class='col text-center border'>fast area</div>
+		<div class='col text-center border'><a href='#f112'>f1</a> <a href='#f213'>f2</a> <a href='#f314'>f3</a> </div>
+		<div class='col text-center border'><a href='#w1'>w1</a> </div>
+	</div>
+	<div class='row justify-content-center' id='middle_area4'>
+		<div class='col text-center border'>middle area</div>
+		<div class='col text-center border'><a href='#m115'>m1</a> <a href='#m216'>m2</a> </div>
+		<div class='col text-center border'><a href='#w1'>w1</a> </div>
+	</div>
+	<div class='row justify-content-center' id='slow_area5'>
+		<div class='col text-center border'>slow area</div>
+		<div class='col text-center border'><a href='#s117'>s1</a> </div>
+		<div class='col text-center border'><a href='#w1'>w1</a> </div>
+	</div>
+	<br>
 </div>
 	</div>
 </div>
@@ -401,21 +399,20 @@
 /* end */
 `<h2 class='row justify-content-center' style='margin: 1rem'>The End</h2>
 `
-    ];
-    var stepCount = 0;
-    
-    thePanel.innerHTML = stepList[stepCount];
-    thePanel.onclick = nextStep;
-    
-    function nextStep(event) {
-        if (event && (event.ctrlKey || event.shiftKey)) {
-            if (stepCount > 0) {
-                stepCount--;
-                thePanel.innerHTML = stepList[stepCount];
-            }
-        } else if (stepCount + 1 < stepList.length) {
-            stepCount++;
-            thePanel.innerHTML = stepList[stepCount];
-        }
-    }
-</script>
+	];
+var stepCount = 0;
+thePanel.innerHTML = stepList[stepCount];
+
+thePanel.onclick = nextStep;
+
+function nextStep(event) {
+	if (event && (event.ctrlKey || event.shiftKey)) {
+		if (stepCount > 0) {
+			stepCount--;
+			thePanel.innerHTML = stepList[stepCount];
+		}
+	} else if (stepCount + 1 < stepList.length) {
+		stepCount++;
+		thePanel.innerHTML = stepList[stepCount];
+	}
+}</script>

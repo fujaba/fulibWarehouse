@@ -2,9 +2,9 @@
   classes: 	assignment2 	room3 	university4 	student5 	patternObject6 	modelPattern7 	
   defaultPropertyStyle: 	POJO
   defaultRoleType: 	"java.util.ArrayList<%s>"
-  mainJavaDir: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java"
+  mainJavaDir: 	"src/main/java"
   packageName: 	stocktaker.StudyRight
-  packageSrcFolder: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java/stocktaker/StudyRight"
+  packageSrcFolder: 	"src/main/java/stocktaker/StudyRight"
 
 - assignment2: 	Clazz
   attributes: 	name8 	points9 	

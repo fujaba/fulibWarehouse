@@ -2,9 +2,9 @@
   classes: 	patternMatchingTest2 	
   defaultPropertyStyle: 	POJO
   defaultRoleType: 	"java.util.ArrayList<%s>"
-  mainJavaDir: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\test\java"
+  mainJavaDir: 	"src/test/java"
   packageName: 	stocktaker.StudyRight
-  packageSrcFolder: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\test\java/stocktaker/StudyRight"
+  packageSrcFolder: 	"src/test/java/stocktaker/StudyRight"
 
 - patternMatchingTest2: 	Clazz
   importList: 	null 	

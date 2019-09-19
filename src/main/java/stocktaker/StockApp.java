@@ -180,6 +180,18 @@ public class StockApp
       return newBoard;
    }
 
+   public Product findProduct(String productName) { 
+      for (final Product product : this.getStorage().getProducts()) {
+         if (product.getName().equals(productName)) {
+            return product;
+         }
+      }
+      Product newProduct = new Product();
+      newProduct.setName(productName);
+      this.getStorage().withProducts(newProduct);
+      return newProduct;
+   }
+
    public void login() { 
       Page loginScreen = new Page();
       loginScreen.setId("login-screen");
@@ -216,7 +228,7 @@ public class StockApp
       productCodeIn.setDescription("input product bar code?");
       itemsIn.setDescription("input number of items?");
       scanButton.setDescription("button Done");
-      scanButton.setAction("run-scan location-in product-code-in items-in log");
+      scanButton.setAction("runScan location-in product-code-in items-in log");
       Page scanScreen = new Page();
       scanScreen.setId("scan-screen");
       scanScreen.setDescription("button Login | Scan | button Log");
@@ -224,8 +236,36 @@ public class StockApp
       this.setContent(scanScreen);
    }
 
-   public void runScan(String location, String product, int items) { 
-      Board result1 = this.findBoard("f1");
+   public void runScan(String location, String productCode, int items) { 
+      Board result1 = this.findBoard(location);
+      Board myBoard = result1;
+      Product result2 = this.findProduct(productCode);
+      Product myProduct = result2;
+      myProduct.setItems(items);
+      myBoard.withProducts(myProduct);
+   }
+
+   public void log() { 
+      Page logScreen = new Page();
+      logScreen.setId("log-screen");
+      logScreen.setDescription("button Login | button Scan | Log");
+      for (final Product product : this.getStorage().getProducts()) {
+         Content newContent = new Content();
+         newContent.setId(product.getName());
+         logScreen.withContent(newContent);
+         Element nameElem = new Element();
+         nameElem.setText(product.getName());
+         newContent.withElements(nameElem);
+         Element itemsElem = new Element();
+         itemsElem.setText("items of product");
+         newContent.withElements(itemsElem);
+         if (product.getBoard() != null) {
+            Element boardElem = new Element();
+            boardElem.setText(product.getBoard().getId());
+            newContent.withElements(boardElem);
+         }
+      }
+      this.setContent(logScreen);
    }
 
    public void init() { 
