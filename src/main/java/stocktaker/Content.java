@@ -195,6 +195,7 @@ public class Content
       result.append(" ").append(this.getId());
       result.append(" ").append(this.getDescription());
       result.append(" ").append(this.getAction());
+      result.append(" ").append(this.getValue());
 
 
       return result.substring(1);
@@ -205,6 +206,26 @@ public class Content
       this.withoutElements(this.getElements().clone());
 
 
+   }
+
+   public static final String PROPERTY_value = "value";
+
+   private String value;
+
+   public String getValue()
+   {
+      return value;
+   }
+
+   public Content setValue(String value)
+   {
+      if (value == null ? this.value != null : ! value.equals(this.value))
+      {
+         String oldValue = this.value;
+         this.value = value;
+         firePropertyChange("value", oldValue, value);
+      }
+      return this;
    }
 
 }

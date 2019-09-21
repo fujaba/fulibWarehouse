@@ -5,83 +5,81 @@
       crossorigin="anonymous">
 
 <script>
-    function handler (response) {
-        console.log(response);
-        document.documentElement.innerHTML = response;
-    }
+	function handler(response) {
+		console.log(response);
+		document.documentElement.innerHTML = response;
+	}
 
-    function submit(cmd) {
-        if (cmd) {
-            const words = cmd.split(' ');
-            // collect actual parameters
-            var request = {};
-            request['_cmd'] = words[0];
+	function submit(cmd) {
+		if (cmd) {
+			const words = cmd.split(' ');
+			const request = { _cmd: words[0], _newPage: words[words.length - 1]};
 
-            for (var i = 1; i < words.length - 1; i++) {
-                const divElem = document.getElementById(words[i]);
-                const subDiv = divElem.getElementsByTagName('div')[0];
-                const inputElem = subDiv.getElementsByTagName('input')[0];
-                const subSubDiv = subDiv.getElementsByTagName('div')[0];
-                var value = words[i];
-                if (inputElem) {
-                    value = inputElem.value;
-                }
-                else if (subSubDiv) {
-                    value = subSubDiv.textContent;
-                }
-                request[words[i]] = value;
-            }
-            request['_newPage'] = words[words.length-1];
-            const requestString = JSON.stringify(request);
-            const httpRequest = new XMLHttpRequest();
-            httpRequest.overrideMimeType('application/json');
-            httpRequest.addEventListener('load', function() {
-                handler(this.responseText);
-            });
-            httpRequest.open('POST', '/cmd', true);
-            httpRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-            httpRequest.send(requestString);
-        }
-    }
+			// collect actual parameters
+			for (let i = 1; i < words.length - 1; i++) {
+				const divElem = document.getElementById(words[i]);
+				const subDiv = divElem.getElementsByTagName('div')[0];
+				const inputElem = subDiv.getElementsByTagName('input')[0];
+				const subSubDiv = subDiv.getElementsByTagName('div')[0];
+				let value = words[i];
+				if (inputElem) {
+					value = inputElem.value;
+				} else if (subSubDiv) {
+					value = subSubDiv.textContent;
+				}
+				request[words[i]] = value;
+			}
+
+			const requestString = JSON.stringify(request);
+			const httpRequest = new XMLHttpRequest();
+
+			httpRequest.overrideMimeType('application/json');
+			httpRequest.addEventListener('load', function() {
+				handler(this.responseText);
+			});
+			httpRequest.open('POST', '/cmd', true);
+			httpRequest.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+			httpRequest.send(requestString);
+		}
+	}
 </script>
-
 <div id='fork-lift-guide' class='container'>
-    <div class='row justify-content-center'>
+	<div class='row justify-content-center'>
 		<div class='col col-lg-2 text-center' style='margin: 1rem'>Fork Lift Guide</div>
-    </div>
+	</div>
 	<div id='add-supply-page' >
-	    <div class='row justify-content-center'>
+		<div class='row justify-content-center'>
 			<div class='col col-lg-2 text-center' style='margin: 1rem'>New Supply</div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Store Palettes")' style='margin: 1rem'>Store Palettes</button></div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Tables")' style='margin: 1rem'>Tables</button></div>
-	    </div>
+		</div>
 		<div id='pal-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='palette id?' value='eu500' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='product-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='product?' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='items-in' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<input class='col col-lg-2 text-center' placeholder='number of items?' style='margin: 1rem'></input>
-		    </div>
+			</div>
 		</div>
 		<div id='add-palette-button' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<div class='col col-lg-2 text-center'><button onclick='submit("submit('add-palette pal-in product-in items-in')")' style='margin: 1rem'>submit</button></div>
-		    </div>
+			</div>
 		</div>
 		<div id='pal-line1' >
-		    <div class='row justify-content-center'>
+			<div class='row justify-content-center'>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>eu42</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>Sneakers</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>42</div>
 				<div class='col col-lg-2 text-center' style='margin: 1rem'>Place</div>
-		    </div>
+			</div>
 		</div>
 	</div>
 </div>

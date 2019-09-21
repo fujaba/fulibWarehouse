@@ -39,7 +39,42 @@ and with description "Stock Taker"
 and with content login-page 
 and with user unknown.
 
+![stock-taker](gui.svg)
+
 ![stock-taker](stock01.html)
+
+We write Albert into value of name-in. 
+
+![stock-taker](stock02.html)
+
+We write geheim into value of pass-in. 
+
+![stock-taker](stock03.html)
+
+We call login on SE-Store with name value of name-in and with passwd value of pass-in. 
+Login creates a user and
+Login writes name into name of user and 
+Login writes passwd into passwd of user and 
+Login writes user into user of SE-Store. 
+
+![SE-Store](user.svg)
+
+
+We write "Albert Stock Taker" into description of stock-taker.
+There is a Page with id scan-page 
+and with description "button Login | Scan | button Log".
+There is a content with id barcode-in and with description "input barcode?".
+There is a content with id submit-button and with description "button submit"
+and with action "do-scan barcode-in Log".
+Scan-page has content barcode-in and submit-button. 
+We write scan-page into content of stock-taker. 
+
+![stock-taker](stock04.html)
+
+
+![stock-taker](stock01-04.mockup.html)
+
+
 
 
 ## Controller
