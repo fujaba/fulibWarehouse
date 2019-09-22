@@ -9,12 +9,12 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 213)">
 <title>H</title>
 <polygon fill="white" stroke="none" points="-4,4 -4,-213 378,-213 378,4 -4,4"/>
-<!-- store241 -->
-<g id="node1" class="node"><title>store241</title>
+<!-- shop241 -->
+<g id="node1" class="node"><title>shop241</title>
 <polygon fill="none" stroke="black" points="143,-188 143,-205 224,-205 224,-188 143,-188"/>
-<text text-anchor="start" x="151" y="-195" font-family="Times New Roman,serif" text-decoration="underline" font-size="10.00">store24 :Storage</text>
+<text text-anchor="start" x="151" y="-195" font-family="Times New Roman,serif" text-decoration="underline" font-size="10.00">shop24 :Storage</text>
 <polygon fill="none" stroke="black" points="143,-171 143,-188 224,-188 224,-171 143,-171"/>
-<text text-anchor="start" x="146" y="-177" font-family="Times New Roman,serif" font-size="10.00"> &#160;name = &quot;Store24&quot;</text>
+<text text-anchor="start" x="146" y="-177" font-family="Times New Roman,serif" font-size="10.00"> &#160;name = &quot;Shop24&quot;</text>
 </g>
 <!-- b422 -->
 <g id="node2" class="node"><title>b422</title>
@@ -23,8 +23,8 @@
 <polygon fill="none" stroke="black" points="95,-93 95,-110 147,-110 147,-93 95,-93"/>
 <text text-anchor="start" x="98" y="-99" font-family="Times New Roman,serif" font-size="10.00"> &#160;id = &quot;b42&quot;</text>
 </g>
-<!-- store241&#45;&gt;b422 -->
-<g id="edge1" class="edge"><title>store241&#45;&gt;b422</title>
+<!-- shop241&#45;&gt;b422 -->
+<g id="edge1" class="edge"><title>shop241&#45;&gt;b422</title>
 <path fill="none" stroke="black" d="M166.385,-166.633C157.418,-155.641 146.387,-142.119 137.446,-131.159"/>
 <text text-anchor="middle" x="123.446" y="-134.159" font-family="Times New Roman,serif" font-size="10.00">boards</text>
 <text text-anchor="middle" x="155.885" y="-158.633" font-family="Times New Roman,serif" font-size="10.00">store</text>
@@ -36,8 +36,8 @@
 <polygon fill="none" stroke="black" points="221,-93 221,-110 273,-110 273,-93 221,-93"/>
 <text text-anchor="start" x="224" y="-99" font-family="Times New Roman,serif" font-size="10.00"> &#160;id = &quot;b43&quot;</text>
 </g>
-<!-- store241&#45;&gt;b433 -->
-<g id="edge2" class="edge"><title>store241&#45;&gt;b433</title>
+<!-- shop241&#45;&gt;b433 -->
+<g id="edge2" class="edge"><title>shop241&#45;&gt;b433</title>
 <path fill="none" stroke="black" d="M200.151,-166.633C209.407,-155.641 220.794,-142.119 230.024,-131.159"/>
 <text text-anchor="middle" x="216.024" y="-134.159" font-family="Times New Roman,serif" font-size="10.00">boards</text>
 <text text-anchor="middle" x="189.651" y="-158.633" font-family="Times New Roman,serif" font-size="10.00">store</text>
@@ -47,11 +47,11 @@
 <polygon fill="none" stroke="black" points="8,-31.5 8,-48.5 102,-48.5 102,-31.5 8,-31.5"/>
 <text text-anchor="start" x="15.5" y="-38.5" font-family="Times New Roman,serif" text-decoration="underline" font-size="10.00">sDM book :Product</text>
 <polygon fill="none" stroke="black" points="8,-3.5 8,-31.5 102,-31.5 102,-3.5 8,-3.5"/>
-<text text-anchor="start" x="11" y="-20.5" font-family="Times New Roman,serif" font-size="10.00"> &#160;items = 1</text>
+<text text-anchor="start" x="11" y="-20.5" font-family="Times New Roman,serif" font-size="10.00"> &#160;items = &quot;1&quot;</text>
 <text text-anchor="start" x="11" y="-9.5" font-family="Times New Roman,serif" font-size="10.00"> &#160;name = &quot;SDM book&quot;</text>
 </g>
-<!-- store241&#45;&gt;sDM_book4 -->
-<g id="edge3" class="edge"><title>store241&#45;&gt;sDM_book4</title>
+<!-- shop241&#45;&gt;sDM_book4 -->
+<g id="edge3" class="edge"><title>shop241&#45;&gt;sDM_book4</title>
 <path fill="none" stroke="black" d="M134.265,-171.384C114.042,-162.562 92.0613,-149.506 78,-131 60.9618,-108.576 56.0741,-75.9861 54.8992,-53.3915"/>
 <text text-anchor="middle" x="36.3992" y="-56.3915" font-family="Times New Roman,serif" font-size="10.00">products</text>
 <text text-anchor="middle" x="123.765" y="-174.384" font-family="Times New Roman,serif" font-size="10.00">store</text>
@@ -61,11 +61,11 @@
 <polygon fill="none" stroke="black" points="137,-31.5 137,-48.5 228,-48.5 228,-31.5 137,-31.5"/>
 <text text-anchor="start" x="144.5" y="-38.5" font-family="Times New Roman,serif" text-decoration="underline" font-size="10.00">java book :Product</text>
 <polygon fill="none" stroke="black" points="137,-3.5 137,-31.5 228,-31.5 228,-3.5 137,-3.5"/>
-<text text-anchor="start" x="140" y="-20.5" font-family="Times New Roman,serif" font-size="10.00"> &#160;items = 1</text>
+<text text-anchor="start" x="140" y="-20.5" font-family="Times New Roman,serif" font-size="10.00"> &#160;items = &quot;2&quot;</text>
 <text text-anchor="start" x="140" y="-9.5" font-family="Times New Roman,serif" font-size="10.00"> &#160;name = &quot;Java book&quot;</text>
 </g>
-<!-- store241&#45;&gt;java_book5 -->
-<g id="edge4" class="edge"><title>store241&#45;&gt;java_book5</title>
+<!-- shop241&#45;&gt;java_book5 -->
+<g id="edge4" class="edge"><title>shop241&#45;&gt;java_book5</title>
 <path fill="none" stroke="black" d="M182.873,-166.799C182.692,-137.879 182.359,-84.6853 182.16,-53.0615"/>
 <text text-anchor="middle" x="200.66" y="-56.0615" font-family="Times New Roman,serif" font-size="10.00">products</text>
 <text text-anchor="middle" x="172.373" y="-158.799" font-family="Times New Roman,serif" font-size="10.00">store</text>
@@ -75,11 +75,11 @@
 <polygon fill="none" stroke="black" points="262,-31.5 262,-48.5 366,-48.5 366,-31.5 262,-31.5"/>
 <text text-anchor="start" x="269.5" y="-38.5" font-family="Times New Roman,serif" text-decoration="underline" font-size="10.00">veltins bottle :Product</text>
 <polygon fill="none" stroke="black" points="262,-3.5 262,-31.5 366,-31.5 366,-3.5 262,-3.5"/>
-<text text-anchor="start" x="265" y="-20.5" font-family="Times New Roman,serif" font-size="10.00"> &#160;items = 24</text>
+<text text-anchor="start" x="265" y="-20.5" font-family="Times New Roman,serif" font-size="10.00"> &#160;items = &quot;24&quot;</text>
 <text text-anchor="start" x="265" y="-9.5" font-family="Times New Roman,serif" font-size="10.00"> &#160;name = &quot;Veltins bottle&quot;</text>
 </g>
-<!-- store241&#45;&gt;veltins_bottle6 -->
-<g id="edge5" class="edge"><title>store241&#45;&gt;veltins_bottle6</title>
+<!-- shop241&#45;&gt;veltins_bottle6 -->
+<g id="edge5" class="edge"><title>shop241&#45;&gt;veltins_bottle6</title>
 <path fill="none" stroke="black" d="M231.746,-171.877C252.561,-163.081 275.378,-149.908 290,-131 307.264,-108.675 312.465,-76.0657 313.855,-53.4396"/>
 <text text-anchor="middle" x="295.355" y="-56.4396" font-family="Times New Roman,serif" font-size="10.00">products</text>
 <text text-anchor="middle" x="242.246" y="-174.877" font-family="Times New Roman,serif" font-size="10.00">store</text>

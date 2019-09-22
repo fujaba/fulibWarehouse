@@ -45,27 +45,22 @@
 </script>
 <div id='stock-man' class='container'>
 	<div class='row justify-content-center'>
-		<div class='col col-lg-2 text-center' style='margin: 1rem'>Stock Manager</div>
+		<div class='col col-lg-2 text-center' style='margin: 1rem'>Albert Stock Manager</div>
 	</div>
-	<div id='login-page' >
+	<div id='scan-page' >
 		<div class='row justify-content-center'>
-			<div class='col col-lg-2 text-center' style='margin: 1rem'>Login</div>
-			<div class='col col-lg-2 text-center'><button onclick='submit("Scan")' style='margin: 1rem'>Scan</button></div>
+			<div class='col col-lg-2 text-center'><button onclick='submit("Login")' style='margin: 1rem'>Login</button></div>
+			<div class='col col-lg-2 text-center' style='margin: 1rem'>Scan</div>
 			<div class='col col-lg-2 text-center'><button onclick='submit("Log")' style='margin: 1rem'>Log</button></div>
 		</div>
-		<div id='name-in' >
+		<div id='barcode-in' >
 			<div class='row justify-content-center'>
-				<input class='col col-lg-2 text-center' placeholder='name?' style='margin: 1rem'></input>
+				<input class='col col-lg-2 text-center' placeholder='barcode?' style='margin: 1rem'></input>
 			</div>
 		</div>
-		<div id='pass-in' >
+		<div id='submit-button' >
 			<div class='row justify-content-center'>
-				<input class='col col-lg-2 text-center' placeholder='password?' style='margin: 1rem'></input>
-			</div>
-		</div>
-		<div id='login-button' >
-			<div class='row justify-content-center'>
-				<div class='col col-lg-2 text-center'><button onclick='submit("login pal-in product-in items-in Scan")' style='margin: 1rem'>login</button></div>
+				<div class='col col-lg-2 text-center'><button onclick='submit("do-scan barcode-in Log")' style='margin: 1rem'>submit</button></div>
 			</div>
 		</div>
 	</div>

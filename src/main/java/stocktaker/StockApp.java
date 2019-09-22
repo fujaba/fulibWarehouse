@@ -168,29 +168,6 @@ public class StockApp
       return this;
    }
 
-   public void log() { // no fulib
-      Page logScreen = new Page();
-      logScreen.setId("log-screen");
-      logScreen.setDescription("button Login | button Scan | Log");
-      for (final Product product : this.getStorage().getProducts()) {
-         Content newContent = new Content();
-         newContent.setId(product.getName());
-         logScreen.withContent(newContent);
-         Element nameElem = new Element();
-         nameElem.setText(product.getName());
-         newContent.withElements(nameElem);
-         Element itemsElem = new Element();
-         itemsElem.setText("items of product");
-         newContent.withElements(itemsElem);
-         if (product.getBoard() != null) {
-            Element boardElem = new Element();
-            boardElem.setText(product.getBoard().getId());
-            newContent.withElements(boardElem);
-         }
-      }
-      this.setContent(logScreen);
-   }
-
    public Board findBoard(String boardId) { 
       for (final Board board : this.getStorage().getBoards()) {
          if (board.getId().equals(boardId)) {
@@ -234,7 +211,7 @@ public class StockApp
    }
 
    public void runLogin(String loginName, String password) { 
-      this.setDescription("Albert's Stock Taker");
+      this.setDescription(loginName);
       this.setUser(loginName);
    }
 
@@ -268,12 +245,35 @@ public class StockApp
       myBoard.withProducts(myProduct);
    }
 
+   public void log() { 
+      Page logScreen = new Page();
+      logScreen.setId("log-screen");
+      logScreen.setDescription("button Login | button Scan | Log");
+      for (final Product product : this.getStorage().getProducts()) {
+         Content newContent = new Content();
+         newContent.setId(product.getName());
+         logScreen.withContent(newContent);
+         Element nameElem = new Element();
+         nameElem.setText(product.getName());
+         newContent.withElements(nameElem);
+         Element itemsElem = new Element();
+         itemsElem.setText(String.valueOf(product.getItems()));
+         newContent.withElements(itemsElem);
+         if (product.getBoard() != null) {
+            Element boardElem = new Element();
+            boardElem.setText(product.getBoard().getId());
+            newContent.withElements(boardElem);
+         }
+      }
+      this.setContent(logScreen);
+   }
+
    public void init() { 
       Storage theStore = new Storage();
-      theStore.setName("SE-Store");
+      theStore.setName("Store24");
       this.setStorage(theStore);
-      this.setId("stock-taker");
-      this.setDescription("Stock Taker");
+      this.setId("stock-man");
+      this.setDescription("Stock Manager");
       this.login();
    }
 

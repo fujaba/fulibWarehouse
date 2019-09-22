@@ -25,6 +25,7 @@ public class MockupTools
 	private static final String DESCRIPTION = "description";
 	private static final String ID          = "id";
 	private static final String CONTENT     = "content";
+	private static final String COLUMNS     = "columns";
 	private static final String TEXT        = "text";
 	private static final String ICARDS      = "icards";
 	private static final String NAME        = "name";
@@ -65,6 +66,7 @@ public class MockupTools
 
 	private static final String COLS   = "class='col col-lg-2 text-center'";
 	private static final String TABLES = "tables";
+	public static final String CELLS = "cells";
 
 	// =============== Fields ===============
 
@@ -595,13 +597,60 @@ public class MockupTools
 			this.generateElement(content, indent + '\t', writer);
 		}
 
+		// --- columns ---
+		Object value = reflector.getValue(root, COLUMNS);
+		if (value != null && value instanceof Collection) {
+			ArrayList<String> descriptions = new ArrayList<>();
+			Collection columns = (Collection) value;
+			for (Object colData : columns) {
+				Reflector colReflector = this.getReflector(colData);
+				Object cells = colReflector.getValue(colData, CELLS);
+				if (cells != null && cells instanceof Collection) {
+					Collection cellList = (Collection) cells;
+					int i = -1;
+					for (Object obj : cellList) {
+						i++;
+						if (descriptions.size() > i) {
+							String desc = descriptions.get(i) + " | " + obj;
+							descriptions.set(i, desc);
+						} else {
+							descriptions.add(obj.toString());
+						}
+					}
+				}
+			}
+
+			// --- Description ---
+
+
+
+			for (String desc : descriptions) {
+				writer.write(indent);
+				writer.write("\t<div class='row justify-content-center'>\n");
+
+				for (String elem : desc.split("\\|"))
+				{
+					writer.write(indent);
+					writer.write('\t');
+					writer.write('\t');
+					this.generateOneCell(root, reflector, elem.trim(), writer);
+					writer.write('\n');
+				}
+
+				writer.write(indent);
+				writer.write("\t</div>\n");
+			}
+
+
+		}
+
 		// --- tables ---
-		Object value = reflector.getValue(root, TABLES);
+		Object obj = reflector.getValue(root, TABLES);
 		Collection<Object> tables = new ArrayList<>() ;
-		if (value instanceof Collection) {
-			tables = (Collection<Object>) value;
-		} else if (value != null) {
-			tables.add(value);
+		if (obj instanceof Collection) {
+			tables = (Collection<Object>) obj;
+		} else if (obj != null) {
+			tables.add(obj);
 		}
 
 

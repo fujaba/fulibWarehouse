@@ -1,0 +1,248 @@
+- c1: 	ClassModel
+  classes: 	storage2 	board3 	product4 	table5 	column6 	shopApp7 	page8 	
+  defaultPropertyStyle: 	POJO
+  defaultRoleType: 	"java.util.ArrayList<%s>"
+  mainJavaDir: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java"
+  packageName: 	SimpleTables
+  packageSrcFolder: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java/SimpleTables"
+
+- storage2: 	Clazz
+  attributes: 	name9 	
+  model: 	c1
+  modified: 	false
+  name: 	Storage
+  propertyStyle: 	POJO
+  roles: 	boards10 	products11 	
+
+- board3: 	Clazz
+  attributes: 	id12 	
+  model: 	c1
+  modified: 	false
+  name: 	Board
+  propertyStyle: 	POJO
+  roles: 	store13 	products14 	
+
+- product4: 	Clazz
+  attributes: 	name15 	items16 	
+  model: 	c1
+  modified: 	false
+  name: 	Product
+  propertyStyle: 	POJO
+  roles: 	store17 	board18 	
+
+- table5: 	Clazz
+  attributes: 	id19 	
+  model: 	c1
+  modified: 	false
+  name: 	Table
+  propertyStyle: 	POJO
+  roles: 	columns20 	
+
+- column6: 	Clazz
+  attributes: 	id21 	
+  model: 	c1
+  modified: 	false
+  name: 	Column
+  propertyStyle: 	POJO
+  roles: 	cells22 	
+
+- shopApp7: 	Clazz
+  attributes: 	id23 	description24 	content25 	
+  model: 	c1
+  modified: 	false
+  name: 	ShopApp
+  propertyStyle: 	POJO
+
+- page8: 	Clazz
+  attributes: 	id26 	description27 	content28 	
+  model: 	c1
+  modified: 	false
+  name: 	Page
+  propertyStyle: 	POJO
+
+- name9: 	Attribute
+  clazz: 	storage2
+  modified: 	false
+  name: 	name
+  propertyStyle: 	POJO
+  type: 	String
+
+- boards10: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	storage2
+  modified: 	false
+  name: 	boards
+  other: 	store13
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- products11: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	storage2
+  modified: 	false
+  name: 	products
+  other: 	store17
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- id12: 	Attribute
+  clazz: 	board3
+  modified: 	false
+  name: 	id
+  propertyStyle: 	POJO
+  type: 	String
+
+- store13: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	board3
+  modified: 	false
+  name: 	store
+  other: 	boards10
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- products14: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	board3
+  modified: 	false
+  name: 	products
+  other: 	board18
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- name15: 	Attribute
+  clazz: 	product4
+  modified: 	false
+  name: 	name
+  propertyStyle: 	POJO
+  type: 	String
+
+- items16: 	Attribute
+  clazz: 	product4
+  modified: 	false
+  name: 	items
+  propertyStyle: 	POJO
+  type: 	String
+
+- store17: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	product4
+  modified: 	false
+  name: 	store
+  other: 	products11
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- board18: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	product4
+  modified: 	false
+  name: 	board
+  other: 	products14
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- id19: 	Attribute
+  clazz: 	table5
+  modified: 	false
+  name: 	id
+  propertyStyle: 	POJO
+  type: 	String
+
+- columns20: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	table5
+  modified: 	false
+  name: 	columns
+  other: 	a29
+  roleType: 	"java.util.ArrayList<%s>"
+
+- id21: 	Attribute
+  clazz: 	column6
+  modified: 	false
+  name: 	id
+  propertyStyle: 	POJO
+  type: 	String
+
+- cells22: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	column6
+  modified: 	false
+  name: 	cells
+  other: 	a30
+  roleType: 	"java.util.ArrayList<%s>"
+
+- id23: 	Attribute
+  clazz: 	shopApp7
+  modified: 	false
+  name: 	id
+  propertyStyle: 	POJO
+  type: 	String
+
+- description24: 	Attribute
+  clazz: 	shopApp7
+  modified: 	false
+  name: 	description
+  propertyStyle: 	POJO
+  type: 	String
+
+- content25: 	Attribute
+  clazz: 	shopApp7
+  modified: 	false
+  name: 	content
+  propertyStyle: 	POJO
+  type: 	Page
+
+- id26: 	Attribute
+  clazz: 	page8
+  modified: 	false
+  name: 	id
+  propertyStyle: 	POJO
+  type: 	String
+
+- description27: 	Attribute
+  clazz: 	page8
+  modified: 	false
+  name: 	description
+  propertyStyle: 	POJO
+  type: 	String
+
+- content28: 	Attribute
+  clazz: 	page8
+  modified: 	false
+  name: 	content
+  propertyStyle: 	POJO
+  type: 	Table
+
+- a29: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	column31
+  modified: 	false
+  other: 	columns20
+
+- a30: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	string32
+  modified: 	false
+  other: 	cells22
+
+- column31: 	Clazz
+  modified: 	false
+  name: 	Column
+  roles: 	a29 	
+
+- string32: 	Clazz
+  modified: 	false
+  name: 	String
+  roles: 	a30 	
+

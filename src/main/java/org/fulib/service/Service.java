@@ -28,7 +28,7 @@ public class Service
 
    public static void main(String[] args)
    {
-      String webAppClassName = "webapp.WebApp";
+      String webAppClassName = "stockTaker.StockApp";
       if (args != null && args.length > 0) {
          webAppClassName = args[0];
       }
@@ -89,7 +89,7 @@ public class Service
          callButtonAction(params, packageName);
       }
 
-      callNewPage(params.get(params.size()-1));
+      callNewPage(params.get(1));
 
       handleRoot(x);
 
@@ -123,7 +123,7 @@ public class Service
             // handle params
             Class<?>[] parameterTypes = method.getParameterTypes();
             ArrayList<Object> actualParamsList = new ArrayList<>();
-            int i = 0;
+            int i = 1;
             for (Class<?> parameterType : parameterTypes)
             {
                i++;

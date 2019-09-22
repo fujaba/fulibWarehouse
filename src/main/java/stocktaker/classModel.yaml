@@ -335,7 +335,7 @@
 - f40: 	FMethod
   clazz: 	stockApp8
   declaration: 	"public void runLogin(String loginName, String password)"
-  methodBody: 	"      this.setDescription(\"Albert's Stock Taker\");
+  methodBody: 	"      this.setDescription(loginName);
       this.setUser(loginName);
 "
   modified: 	false
@@ -390,7 +390,7 @@
          nameElem.setText(product.getName());
          newContent.withElements(nameElem);
          Element itemsElem = new Element();
-         itemsElem.setText(\"items of product\");
+         itemsElem.setText(String.valueOf(product.getItems()));
          newContent.withElements(itemsElem);
          if (product.getBoard() != null) {
             Element boardElem = new Element();
@@ -406,10 +406,10 @@
   clazz: 	stockApp8
   declaration: 	"public void init()"
   methodBody: 	"      Storage theStore = new Storage();
-      theStore.setName(\"SE-Store\");
+      theStore.setName(\"Store24\");
       this.setStorage(theStore);
-      this.setId(\"stock-taker\");
-      this.setDescription(\"Stock Taker\");
+      this.setId(\"stock-man\");
+      this.setDescription(\"Stock Manager\");
       this.login();
 "
   modified: 	false
