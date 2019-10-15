@@ -74,7 +74,7 @@ public class StockTakerScenariosTest
       MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/stock02.html", stockTaker);
       passIn.setValue("geheim");
       MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/stock03.html", stockTaker);
-      sEStore.login(nameIn.getValue(), passIn.getValue());
+      // sEStore.login(nameIn.getValue(), passIn.getValue());
       FulibTools.objectDiagrams().dumpSVG("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/user.svg", sEStore);
       stockTaker.setDescription("Albert Stock Taker");
       Page scanPage = new Page();
@@ -178,8 +178,6 @@ public class StockTakerScenariosTest
       MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/stock02.html", stockMan);
       passIn.setValue("secret");
       MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/stock03.html", stockMan);
-      store24.login(nameIn.getValue(), passIn.getValue());
-      FulibTools.objectDiagrams().dumpSVG("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/user.svg", store24);
       stockMan.setDescription("Albert Stock Manager");
       Page scanPage = new Page();
       scanPage.setId("scan-page");

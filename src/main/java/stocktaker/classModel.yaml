@@ -1,5 +1,5 @@
 - c1: 	ClassModel
-  classes: 	storage2 	board3 	product4 	user5 	content6 	element7 	stockApp8 	page9 	
+  classes: 	storage2 	board3 	product4 	content5 	element6 	stockApp7 	page8 	
   defaultPropertyStyle: 	POJO
   defaultRoleType: 	"java.util.ArrayList<%s>"
   mainJavaDir: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java"
@@ -7,282 +7,243 @@
   packageSrcFolder: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java/stocktaker"
 
 - storage2: 	Clazz
-  attributes: 	name10 	user11 	
-  methods: 	f12 	
+  attributes: 	name9 	
   model: 	c1
   modified: 	false
   name: 	Storage
   propertyStyle: 	POJO
-  roles: 	boards13 	products14 	
+  roles: 	boards10 	products11 	
 
 - board3: 	Clazz
-  attributes: 	id15 	
+  attributes: 	id12 	
   model: 	c1
   modified: 	false
   name: 	Board
   propertyStyle: 	POJO
-  roles: 	store16 	products17 	
+  roles: 	store13 	products14 	
 
 - product4: 	Clazz
-  attributes: 	name18 	items19 	
+  attributes: 	name15 	items16 	
   model: 	c1
   modified: 	false
   name: 	Product
   propertyStyle: 	POJO
-  roles: 	store20 	board21 	
+  roles: 	store17 	board18 	
 
-- user5: 	Clazz
-  attributes: 	name22 	passwd23 	
-  model: 	c1
-  modified: 	false
-  name: 	User
-  propertyStyle: 	POJO
-
-- content6: 	Clazz
-  attributes: 	id24 	description25 	action26 	value27 	
+- content5: 	Clazz
+  attributes: 	id19 	description20 	action21 	value22 	
   model: 	c1
   modified: 	false
   name: 	Content
   propertyStyle: 	POJO
-  roles: 	elements28 	
+  roles: 	elements23 	
 
-- element7: 	Clazz
-  attributes: 	id29 	text30 	action31 	
+- element6: 	Clazz
+  attributes: 	id24 	text25 	action26 	
   model: 	c1
   modified: 	false
   name: 	Element
   propertyStyle: 	POJO
 
-- stockApp8: 	Clazz
-  attributes: 	id32 	description33 	user34 	content35 	storage36 	
-  methods: 	f37 	f38 	f39 	f40 	f41 	f42 	f43 	f44 	
+- stockApp7: 	Clazz
+  attributes: 	id27 	description28 	user29 	content30 	storage31 	
+  methods: 	f32 	f33 	f34 	f35 	f36 	f37 	f38 	f39 	
   model: 	c1
   modified: 	false
   name: 	StockApp
   propertyStyle: 	POJO
 
-- page9: 	Clazz
-  attributes: 	id45 	description46 	
+- page8: 	Clazz
+  attributes: 	id40 	description41 	
   model: 	c1
   modified: 	false
   name: 	Page
   propertyStyle: 	POJO
-  roles: 	content47 	
+  roles: 	content42 	
 
-- name10: 	Attribute
+- name9: 	Attribute
   clazz: 	storage2
   modified: 	false
   name: 	name
   propertyStyle: 	POJO
   type: 	String
 
-- user11: 	Attribute
-  clazz: 	storage2
-  modified: 	false
-  name: 	user
-  propertyStyle: 	POJO
-  type: 	User
-
-- f12: 	FMethod
-  clazz: 	storage2
-  declaration: 	"public void login(String name, String passwd)"
-  methodBody: 	"      User user = new User();
-      user.setName(name);
-      user.setPasswd(passwd);
-      this.setUser(user);
-"
-  modified: 	false
-
-- boards13: 	AssocRole
+- boards10: 	AssocRole
   aggregation: 	false
   cardinality: 	42
   clazz: 	storage2
   modified: 	false
   name: 	boards
-  other: 	store16
+  other: 	store13
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- products11: 	AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	storage2
+  modified: 	false
+  name: 	products
+  other: 	store17
+  propertyStyle: 	POJO
+  roleType: 	"java.util.ArrayList<%s>"
+
+- id12: 	Attribute
+  clazz: 	board3
+  modified: 	false
+  name: 	id
+  propertyStyle: 	POJO
+  type: 	String
+
+- store13: 	AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	board3
+  modified: 	false
+  name: 	store
+  other: 	boards10
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
 - products14: 	AssocRole
   aggregation: 	false
   cardinality: 	42
-  clazz: 	storage2
-  modified: 	false
-  name: 	products
-  other: 	store20
-  propertyStyle: 	POJO
-  roleType: 	"java.util.ArrayList<%s>"
-
-- id15: 	Attribute
-  clazz: 	board3
-  modified: 	false
-  name: 	id
-  propertyStyle: 	POJO
-  type: 	String
-
-- store16: 	AssocRole
-  aggregation: 	false
-  cardinality: 	1
-  clazz: 	board3
-  modified: 	false
-  name: 	store
-  other: 	boards13
-  propertyStyle: 	POJO
-  roleType: 	"java.util.ArrayList<%s>"
-
-- products17: 	AssocRole
-  aggregation: 	false
-  cardinality: 	42
   clazz: 	board3
   modified: 	false
   name: 	products
-  other: 	board21
+  other: 	board18
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- name18: 	Attribute
+- name15: 	Attribute
   clazz: 	product4
   modified: 	false
   name: 	name
   propertyStyle: 	POJO
   type: 	String
 
-- items19: 	Attribute
+- items16: 	Attribute
   clazz: 	product4
   modified: 	false
   name: 	items
   propertyStyle: 	POJO
   type: 	int
 
-- store20: 	AssocRole
+- store17: 	AssocRole
   aggregation: 	false
   cardinality: 	1
   clazz: 	product4
   modified: 	false
   name: 	store
-  other: 	products14
+  other: 	products11
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- board21: 	AssocRole
+- board18: 	AssocRole
   aggregation: 	false
   cardinality: 	1
   clazz: 	product4
   modified: 	false
   name: 	board
-  other: 	products17
+  other: 	products14
   propertyStyle: 	POJO
   roleType: 	"java.util.ArrayList<%s>"
 
-- name22: 	Attribute
-  clazz: 	user5
-  modified: 	false
-  name: 	name
-  propertyStyle: 	POJO
-  type: 	String
-
-- passwd23: 	Attribute
-  clazz: 	user5
-  modified: 	false
-  name: 	passwd
-  propertyStyle: 	POJO
-  type: 	String
-
-- id24: 	Attribute
-  clazz: 	content6
+- id19: 	Attribute
+  clazz: 	content5
   modified: 	false
   name: 	id
   propertyStyle: 	POJO
   type: 	String
 
-- description25: 	Attribute
-  clazz: 	content6
+- description20: 	Attribute
+  clazz: 	content5
   modified: 	false
   name: 	description
   propertyStyle: 	POJO
   type: 	String
 
-- action26: 	Attribute
-  clazz: 	content6
+- action21: 	Attribute
+  clazz: 	content5
   modified: 	false
   name: 	action
   propertyStyle: 	POJO
   type: 	String
 
-- value27: 	Attribute
-  clazz: 	content6
+- value22: 	Attribute
+  clazz: 	content5
   modified: 	false
   name: 	value
   propertyStyle: 	POJO
   type: 	String
 
-- elements28: 	AssocRole
+- elements23: 	AssocRole
   aggregation: 	false
   cardinality: 	42
-  clazz: 	content6
+  clazz: 	content5
   modified: 	false
   name: 	elements
-  other: 	a48
+  other: 	a43
   roleType: 	"java.util.ArrayList<%s>"
 
-- id29: 	Attribute
-  clazz: 	element7
+- id24: 	Attribute
+  clazz: 	element6
   modified: 	false
   name: 	id
   propertyStyle: 	POJO
   type: 	String
 
-- text30: 	Attribute
-  clazz: 	element7
+- text25: 	Attribute
+  clazz: 	element6
   modified: 	false
   name: 	text
   propertyStyle: 	POJO
   type: 	String
 
-- action31: 	Attribute
-  clazz: 	element7
+- action26: 	Attribute
+  clazz: 	element6
   modified: 	false
   name: 	action
   propertyStyle: 	POJO
   type: 	String
 
-- id32: 	Attribute
-  clazz: 	stockApp8
+- id27: 	Attribute
+  clazz: 	stockApp7
   modified: 	false
   name: 	id
   propertyStyle: 	POJO
   type: 	String
 
-- description33: 	Attribute
-  clazz: 	stockApp8
+- description28: 	Attribute
+  clazz: 	stockApp7
   modified: 	false
   name: 	description
   propertyStyle: 	POJO
   type: 	String
 
-- user34: 	Attribute
-  clazz: 	stockApp8
+- user29: 	Attribute
+  clazz: 	stockApp7
   modified: 	false
   name: 	user
   propertyStyle: 	POJO
   type: 	String
 
-- content35: 	Attribute
-  clazz: 	stockApp8
+- content30: 	Attribute
+  clazz: 	stockApp7
   modified: 	false
   name: 	content
   propertyStyle: 	POJO
   type: 	Page
 
-- storage36: 	Attribute
-  clazz: 	stockApp8
+- storage31: 	Attribute
+  clazz: 	stockApp7
   modified: 	false
   name: 	storage
   propertyStyle: 	POJO
   type: 	Storage
 
-- f37: 	FMethod
-  clazz: 	stockApp8
+- f32: 	FMethod
+  clazz: 	stockApp7
   declaration: 	"public Board findBoard(String boardId)"
   methodBody: 	"      for (final Board board : this.getStorage().getBoards()) {
          if (board.getId().equals(boardId)) {
@@ -296,8 +257,8 @@
 "
   modified: 	false
 
-- f38: 	FMethod
-  clazz: 	stockApp8
+- f33: 	FMethod
+  clazz: 	stockApp7
   declaration: 	"public Product findProduct(String productName)"
   methodBody: 	"      for (final Product product : this.getStorage().getProducts()) {
          if (product.getName().equals(productName)) {
@@ -311,8 +272,8 @@
 "
   modified: 	false
 
-- f39: 	FMethod
-  clazz: 	stockApp8
+- f34: 	FMethod
+  clazz: 	stockApp7
   declaration: 	"public void login()"
   methodBody: 	"      Page loginScreen = new Page();
       loginScreen.setId(\"login-screen\");
@@ -329,19 +290,21 @@
       loginButtonIn.setDescription(\"button login\");
       loginScreen.withContent(loginIn, passwordIn, loginButtonIn);
       loginButtonIn.setAction(\"runLogin login-in password-in scan\");
+      // --- Run it on heroku. ---
+      // so far manually: https://enigmatic-garden-26783.herokuapp.com/
 "
   modified: 	false
 
-- f40: 	FMethod
-  clazz: 	stockApp8
+- f35: 	FMethod
+  clazz: 	stockApp7
   declaration: 	"public void runLogin(String loginName, String password)"
   methodBody: 	"      this.setDescription(loginName);
       this.setUser(loginName);
 "
   modified: 	false
 
-- f41: 	FMethod
-  clazz: 	stockApp8
+- f36: 	FMethod
+  clazz: 	stockApp7
   declaration: 	"public void scan()"
   methodBody: 	"      Content locationIn = new Content();
       Content productCodeIn = new Content();
@@ -364,8 +327,8 @@
 "
   modified: 	false
 
-- f42: 	FMethod
-  clazz: 	stockApp8
+- f37: 	FMethod
+  clazz: 	stockApp7
   declaration: 	"public void runScan(String location, String productCode, int items)"
   methodBody: 	"      Board result1 = this.findBoard(location);
       Board myBoard = result1;
@@ -376,8 +339,8 @@
 "
   modified: 	false
 
-- f43: 	FMethod
-  clazz: 	stockApp8
+- f38: 	FMethod
+  clazz: 	stockApp7
   declaration: 	"public void log()"
   methodBody: 	"      Page logScreen = new Page();
       logScreen.setId(\"log-screen\");
@@ -402,8 +365,8 @@
 "
   modified: 	false
 
-- f44: 	FMethod
-  clazz: 	stockApp8
+- f39: 	FMethod
+  clazz: 	stockApp7
   declaration: 	"public void init()"
   methodBody: 	"      Storage theStore = new Storage();
       theStore.setName(\"Store24\");
@@ -414,50 +377,50 @@
 "
   modified: 	false
 
-- id45: 	Attribute
-  clazz: 	page9
+- id40: 	Attribute
+  clazz: 	page8
   modified: 	false
   name: 	id
   propertyStyle: 	POJO
   type: 	String
 
-- description46: 	Attribute
-  clazz: 	page9
+- description41: 	Attribute
+  clazz: 	page8
   modified: 	false
   name: 	description
   propertyStyle: 	POJO
   type: 	String
 
-- content47: 	AssocRole
+- content42: 	AssocRole
   aggregation: 	false
   cardinality: 	42
-  clazz: 	page9
+  clazz: 	page8
   modified: 	false
   name: 	content
-  other: 	a49
+  other: 	a44
   roleType: 	"java.util.ArrayList<%s>"
 
-- a48: 	AssocRole
+- a43: 	AssocRole
   aggregation: 	false
   cardinality: 	1
-  clazz: 	element50
+  clazz: 	element45
   modified: 	false
-  other: 	elements28
+  other: 	elements23
 
-- a49: 	AssocRole
+- a44: 	AssocRole
   aggregation: 	false
   cardinality: 	1
-  clazz: 	content51
+  clazz: 	content46
   modified: 	false
-  other: 	content47
+  other: 	content42
 
-- element50: 	Clazz
+- element45: 	Clazz
   modified: 	false
   name: 	Element
-  roles: 	a48 	
+  roles: 	a43 	
 
-- content51: 	Clazz
+- content46: 	Clazz
   modified: 	false
   name: 	Content
-  roles: 	a49 	
+  roles: 	a44 	
 

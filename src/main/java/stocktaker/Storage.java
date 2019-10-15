@@ -244,31 +244,4 @@ public class Storage
       return result.substring(1);
    }
 
-   public static final String PROPERTY_user = "user";
-
-   private User user;
-
-   public User getUser()
-   {
-      return user;
-   }
-
-   public Storage setUser(User value)
-   {
-      if (value != this.user)
-      {
-         User oldValue = this.user;
-         this.user = value;
-         firePropertyChange("user", oldValue, value);
-      }
-      return this;
-   }
-
-   public void login(String name, String passwd) { 
-      User user = new User();
-      user.setName(name);
-      user.setPasswd(passwd);
-      this.setUser(user);
-   }
-
 }

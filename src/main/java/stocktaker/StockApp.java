@@ -208,6 +208,8 @@ public class StockApp
       loginButtonIn.setDescription("button login");
       loginScreen.withContent(loginIn, passwordIn, loginButtonIn);
       loginButtonIn.setAction("runLogin login-in password-in scan");
+      // --- Run it on heroku. ---
+      // so far manually: https://enigmatic-garden-26783.herokuapp.com/
    }
 
    public void runLogin(String loginName, String password) { 
