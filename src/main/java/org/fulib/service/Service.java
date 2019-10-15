@@ -46,7 +46,7 @@ public class Service
          {
             port = Integer.parseInt(portString);
          }
-         Class<?> webAppClass = this.getClass().getClassLoader().loadClass(webAppClassName);
+         Class<?> webAppClass = Thread.currentThread().getContextClassLoader().loadClass(webAppClassName);
          webApp = webAppClass.newInstance();
          Method init = webAppClass.getMethod("init");
          init.invoke(webApp);
