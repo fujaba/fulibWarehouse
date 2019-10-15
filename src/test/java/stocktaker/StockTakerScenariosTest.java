@@ -28,7 +28,7 @@ public class StockTakerScenariosTest
       sEStore.withProducts(sDMBook, javaBook, veltinsBottle);
       b42.withProducts(sDMBook, javaBook);
       b43.withProducts(veltinsBottle);
-      FulibTools.objectDiagrams().dumpSVG("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/objects.svg", sEStore);
+      FulibTools.objectDiagrams().dumpSVG("src/main/scenarios/stocktaker/objects.svg", sEStore);
       // --- GUI ---
       Content nameIn = new Content();
       Content passIn = new Content();
@@ -68,29 +68,7 @@ public class StockTakerScenariosTest
       stockTaker.setDescription("Stock Taker");
       stockTaker.setContent(loginPage);
       stockTaker.setUser("unknown");
-      FulibTools.objectDiagrams().dumpSVG("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/gui.svg", stockTaker);
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/stock01.html", stockTaker);
-      nameIn.setValue("Albert");
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/stock02.html", stockTaker);
-      passIn.setValue("geheim");
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/stock03.html", stockTaker);
-      // sEStore.login(nameIn.getValue(), passIn.getValue());
-      FulibTools.objectDiagrams().dumpSVG("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/user.svg", sEStore);
-      stockTaker.setDescription("Albert Stock Taker");
-      Page scanPage = new Page();
-      scanPage.setId("scan-page");
-      scanPage.setDescription("button Login | Scan | button Log");
-      Content barcodeIn = new Content();
-      barcodeIn.setId("barcode-in");
-      barcodeIn.setDescription("input barcode?");
-      Content submitButton = new Content();
-      submitButton.setId("submit-button");
-      submitButton.setDescription("button submit");
-      submitButton.setAction("do-scan barcode-in Log");
-      scanPage.withContent(barcodeIn, submitButton);
-      stockTaker.setContent(scanPage);
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/stock04.html", stockTaker);
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/stock01-04.mockup.html", stockTaker);
+
       // --- Controller ---
       stockTaker.setStorage(sEStore);
       // --- Prototype ---
@@ -98,13 +76,13 @@ public class StockTakerScenariosTest
       Board newBoard = stockTaker.findBoard("b42");
       Product product = stockTaker.findProduct("SDM book");
       Product newProduct = stockTaker.findProduct("DB book");
-      FulibTools.objectDiagrams().dumpSVG("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/find-product.svg", sEStore);
+      FulibTools.objectDiagrams().dumpSVG("src/main/scenarios/stocktaker/find-product.svg", sEStore);
       // --- # gui ---
       stockTaker.login();
       stockTaker.runLogin("Albert", "geheim");
       stockTaker.scan();
       stockTaker.runScan("b45", "RE book", 42);
-      FulibTools.objectDiagrams().dumpSVG("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/stocktaker/run-scan.svg", sEStore);
+      FulibTools.objectDiagrams().dumpSVG("src/main/scenarios/stocktaker/run-scan.svg", sEStore);
       stockTaker.log();
       stockTaker.init();
    }

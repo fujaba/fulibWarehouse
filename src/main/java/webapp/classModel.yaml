@@ -2,9 +2,9 @@
   classes: 	palette2 	product3 	place4 	warehouse5 	area6 	producer7 	content8 	element9 	page10 	arrival11 	webApp12 	
   defaultPropertyStyle: 	POJO
   defaultRoleType: 	"java.util.ArrayList<%s>"
-  mainJavaDir: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java"
+  mainJavaDir: 	"src/main/java"
   packageName: 	webapp
-  packageSrcFolder: 	"C:\Users\zuend\IdeaProjects\fulibWarehouse\src\main\java/webapp"
+  packageSrcFolder: 	"src/main/java/webapp"
 
 - palette2: 	Clazz
   attributes: 	id13 	quantity14 	items15 	

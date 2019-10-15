@@ -1,13 +1,12 @@
 plugins {
 	id 'java'
 	id 'application'
-	id 'maven-publish'
-	id 'org.fulib.fulibGradle' version '0.1.0'
+	id 'org.fulib.fulibGradle' version '0.2.0'
 	id 'com.github.johnrengelman.shadow' version '5.1.0'
 }
 
-group 'webapp'
-version '1.0-SNAPSHOT'
+group = 'webapp'
+version = '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -18,14 +17,10 @@ repositories {
 	maven { url = 'https://oss.sonatype.org/content/repositories/snapshots'    }
 }
 
-generateScenarioSource.args '--class-diagram-svg'
-
-task stage(dependsOn: ['shadowJar', 'build'])
-
 dependencies {
 	fulibScenarios group: 'org.fulib', name: 'fulibScenarios', version: '1.0.0'
 	testCompile group: 'org.fulib', name: 'fulibScenarios', version: '1.0.0'
-	// compile group: 'org.fulib', name: 'fulibMockups', version: '[0.1.0,)'
+	// compile group: 'org.fulib', name: 'fulibMockups', version: '[0.2.0,)'
 	
 	compile group: 'org.fulib', name: 'fulibYaml', version: '[1.0.3,)'
 
@@ -37,16 +32,25 @@ application {
 	mainClassName = 'org.fulib.service.Service'
 }
 
-task stockTaker(type:JavaExec, dependsOn: check) {
+generateScenarioSource {
+	classDiagramSVG = true
+}
+
+tasks.register('stage') {
+	dependsOn 'shadowJar', 'build'
+}
+
+tasks.register('stockTaker', JavaExec) {
+	dependsOn 'check'
 	main = 'org.fulib.service.Service'
-	args('stocktaker.StockApp')
+	args 'stocktaker.StockApp'
 	classpath = sourceSets.main.runtimeClasspath
 }
 
-task webapp(type:Exec) {
-	dependsOn ':check'
+tasks.register('webapp', Exec) {
+	dependsOn 'check'
 
-	workingDir './build/reports/tests'
+	workingDir = "$buildDir/reports/tests"
 
 	//on windows:
 	commandLine 'cmd', '/c', 'explorer "http://localhost:6677/index.html"'

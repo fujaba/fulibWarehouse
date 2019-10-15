@@ -2,3 +2,11 @@
 .idea/
 build/
 out/
+
+/src/*/java/**/classDiagram.png
+/src/*/java/**/classDiagram.svg
+/src/*/scenarios/**/*.html
+/src/*/scenarios/**/*.png
+/src/*/scenarios/**/*.svg
+/src/*/scenarios/**/*.txt
+/src/*/scenarios/**/*.yaml

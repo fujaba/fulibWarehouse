@@ -31,7 +31,7 @@ public class ScenarioTest
       fastArea.withPlaces(f1, f2, f3);
       middleArea.withPlaces(m1, m2);
       slowArea.withPlaces(s1);
-      FulibTools.objectDiagrams().dumpSVG("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/wareHouseAndPlaces.svg", warehouse);
+      FulibTools.objectDiagrams().dumpSVG("src/main/scenarios/webapp/wareHouseAndPlaces.svg", warehouse);
       Producer italy = new Producer();
       italy.setName("Italy");
       Product highHeels = new Product();
@@ -56,7 +56,7 @@ public class ScenarioTest
       mondayArrival.withPalettes(eu100, eu200, eu333);
       mondayArrival.setProducer(italy);
       warehouse.withAtRamp(eu200, eu333);
-      FulibTools.objectDiagrams().dumpSVG("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/Arrival.svg", mondayArrival);
+      FulibTools.objectDiagrams().dumpSVG("src/main/scenarios/webapp/Arrival.svg", mondayArrival);
       // --- GUI ---
       Content palIn = new Content();
       Content productIn = new Content();
@@ -96,27 +96,27 @@ public class ScenarioTest
       forkLiftGuide.setId("fork-lift-guide");
       forkLiftGuide.setDescription("Fork Lift Guide");
       forkLiftGuide.setContent(addSupplyPage);
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/step03.html", forkLiftGuide);
+      MockupTools.htmlTool().dump("src/main/scenarios/webapp/step03.html", forkLiftGuide);
       palIn.setValue("eu500");
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/step04.html", forkLiftGuide);
+      MockupTools.htmlTool().dump("src/main/scenarios/webapp/step04.html", forkLiftGuide);
       productIn.setValue("Sneakers");
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/step05.html", forkLiftGuide);
+      MockupTools.htmlTool().dump("src/main/scenarios/webapp/step05.html", forkLiftGuide);
       itemsIn.setValue("50");
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/step06.html", forkLiftGuide);
+      MockupTools.htmlTool().dump("src/main/scenarios/webapp/step06.html", forkLiftGuide);
       Page tablesPage = new Page();
       tablesPage.setId("tables-page");
       tablesPage.setDescription("button New Supply | button Store Palettes | Tables");
       tablesPage.withTables(warehouse, mondayArrival);
       forkLiftGuide.setContent(tablesPage);
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/step07.html", forkLiftGuide);
+      MockupTools.htmlTool().dump("src/main/scenarios/webapp/step07.html", forkLiftGuide);
       WebApp firstScreen = new WebApp();
       firstScreen.setId("first-screen");
       firstScreen.init();
       Product newProduct = warehouse.findProduct(productIn.getValue());
       warehouse.newStock(palIn.getValue(), productIn.getValue(), itemsIn.getValue());
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/step03-07.mockup.html", forkLiftGuide);
-      MockupTools.htmlTool().dump("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/Tables.tables.html", warehouse);
-      FulibTools.objectDiagrams().dumpYaml("C:/Users/zuend/IdeaProjects/fulibWarehouse/src/main/scenarios/webapp/Overview.yaml", warehouse);
+      MockupTools.htmlTool().dump("src/main/scenarios/webapp/step03-07.mockup.html", forkLiftGuide);
+      MockupTools.htmlTool().dump("src/main/scenarios/webapp/Tables.tables.html", warehouse);
+      FulibTools.objectDiagrams().dumpYaml("src/main/scenarios/webapp/Overview.yaml", warehouse);
    }
 
 }
