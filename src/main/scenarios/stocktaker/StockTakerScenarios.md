@@ -168,4 +168,6 @@ Init writes "stock-man" into id of stock-man.
 Init writes "Stock Manager" into description of stock-man. 
 Init calls login.
 
+## Run it on heroku. 
 
+// so far manually: https://enigmatic-garden-26783.herokuapp.com/
