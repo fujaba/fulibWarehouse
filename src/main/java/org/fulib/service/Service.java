@@ -28,7 +28,7 @@ public class Service
 
    public static void main(String[] args)
    {
-      String webAppClassName = "stockTaker.StockApp";
+      String webAppClassName = "stocktaker.StockApp";
       if (args != null && args.length > 0) {
          webAppClassName = args[0];
       }
